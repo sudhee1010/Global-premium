@@ -2,24 +2,29 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-
-import authRoutes from "./routes/authRoutes.js";
-// import productRoutes from "./routes/productRoutes.js";
-// import categoryRoutes from "./routes/categoryRoutes.js";
-
-import { errorHandler } from "./middlewares/errorMiddleware.js";
+import compression from "compression";
+import rateLimit from "express-rate-limit";
 
 const app = express();
 
-app.use(express.json());
-app.use(cors());
+// Security middleware
 app.use(helmet());
+app.use(compression());
+
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+});
+app.use(limiter);
+
+app.use(cors());
+app.use(express.json());
 app.use(morgan("dev"));
 
-app.use("/api/auth", authRoutes);
-// app.use("/api/products", productRoutes);
-// app.use("/api/categories", categoryRoutes);
-
-app.use(errorHandler);
+// Test route
+app.get("/", (req, res) => {
+  res.json({ message: "Backend Running Successfully 🚀" });
+});
 
 export default app;
