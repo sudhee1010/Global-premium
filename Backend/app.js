@@ -18,7 +18,16 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
-app.use(cors());
+// app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000", // client
+      "http://localhost:5173", // admin
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(morgan("dev"));
 
