@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@import "../styles/fonts.css";
+@import "../styles/theme.css";
+@import "../styles/carousel.css";
+@import "../styles/glassmorphism.css";
+@import "../styles/glassmorphism-override.css";
 
 :root {
   --background: #ffffff;
@@ -17,10 +22,4 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

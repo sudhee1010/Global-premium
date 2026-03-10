@@ -60,6 +60,11 @@ const userSchema = new mongoose.Schema(
             default: 0,
         },
 
+        walletBalance: {
+            type: Number,
+            default: 0,
+        },
+
         otp: String,
         otpExpiry: Date,
     },

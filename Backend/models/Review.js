@@ -20,6 +20,11 @@ const reviewSchema = new mongoose.Schema(
     },
 
     comment: String,
+    images: [String],
+    isApproved: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
