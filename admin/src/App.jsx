@@ -18,6 +18,10 @@ import Cms from "./pages/Cms";
 import Support from "./pages/Support";
 import DeliveryStatus from "./pages/Deliverystatus";
 import ReferralSystem from "./pages/Referralsystem";
+import Categories from "./pages/Categories";
+import Inventory from "./pages/Inventory";
+import Coupons from "./pages/Coupons";
+import Referrers from "./pages/Referrers";
 
 
 function App() {
@@ -45,6 +49,10 @@ function App() {
            <Route path="/delivery"  element={<DeliveryStatus/>}/>
            <Route path="/referrals"  element={<ReferralSystem/>}/>
            <Route path="/support"  element={<Support/>}/>
+           <Route path="/categories" element={<Categories/>}/>
+           <Route path="/inventory" element={<Inventory/>}/>
+           <Route path="/coupons" element={<Coupons/>}/>
+           <Route path="/referrers" element={<Referrers/>}/>
         
         </Route>
 
