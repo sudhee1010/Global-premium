@@ -13,6 +13,13 @@ import Returns from "./pages/Returns";
 import Settings from "./pages/Settings";
 import VendorDashboard from "./pages/Vendors";
 import VendorDetail from "./pages/VendorDetail";
+import AdminUsers from "./pages/Adminusers";
+import Cms from "./pages/Cms";
+import Support from "./pages/Support";
+import DeliveryStatus from "./pages/Deliverystatus";
+import ReferralSystem from "./pages/Referralsystem";
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -33,6 +40,11 @@ function App() {
            <Route path="/settings" element={<Settings/>}/>
            <Route path="/vendors"  element={<VendorDashboard/>}/>
            <Route path="/vendorsdetails"  element={<VendorDetail/>}/>
+           <Route path="/admin-users"  element={<AdminUsers/>}/>
+           <Route path="/cms"  element={<Cms/>}/>
+           <Route path="/delivery"  element={<DeliveryStatus/>}/>
+           <Route path="/referrals"  element={<ReferralSystem/>}/>
+           <Route path="/support"  element={<Support/>}/>
         
         </Route>
 
