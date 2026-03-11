@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const menuItems = [
   { name: "Dashboard", path: "/dashboard" },
-  { name: "Admin Users", path: "/admin-users" },
+  { name: "Admin Users", path: "/adminusers" },
   { name: "Vendors", path: "/vendors" },
   { name: "Inventory", path: "/inventory" },
   { name: "Products", path: "/products" },
@@ -10,6 +10,11 @@ const menuItems = [
   { name: "Orders", path: "/orders" },
   { name: "Payments", path: "/payments" },
   { name: "Customers", path: "/customers" },
+  { name: "Delivery Status", path: "/deliverystatus"},
+  { name: "Referral System", path: "/referralsystem"},
+  { name: "CMS", path: "/cms"},
+  { name: "Support", path: "/support"}
+  
 ];
 
 const Sidebar = () => {
