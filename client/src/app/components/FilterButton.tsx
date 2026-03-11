@@ -1,0 +1,28 @@
+import { SlidersHorizontal } from "lucide-react";
+import { Button } from "./ui/button";
+import { Badge } from "./ui/badge";
+import { useFilter } from "../contexts/FilterContext";
+
+export function FilterButton() {
+  const { isFilterOpen, toggleFilter } = useFilter();
+  
+  return (
+    <Button
+      onClick={toggleFilter}
+      className={`fixed right-6 bottom-24 md:bottom-8 z-40 size-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 border-2 ${
+        isFilterOpen
+          ? "bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-800 border-gray-700 dark:border-gray-600"
+          : "bg-[#F7931A] hover:bg-orange-600 border-orange-600 dark:border-orange-500"
+      }`}
+      size="icon"
+    >
+      <SlidersHorizontal className="size-6 text-white" />
+      {isFilterOpen && (
+        <Badge className="absolute -top-1 -right-1 size-6 flex items-center justify-center p-0 bg-green-500 hover:bg-green-500 text-white text-xs font-bold rounded-full border-2 border-white dark:border-gray-900">
+          ✓
+        </Badge>
+      )}
+    </Button>
+  );
+}
+
