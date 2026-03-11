@@ -10,6 +10,8 @@ const menuItems = [
   { name: "Orders", path: "/orders" },
   { name: "Payments", path: "/payments" },
   { name: "Customers", path: "/customers" },
+  {name: "Reports", path:"/reports"},
+  {name:"Reviews",path:"/reviews"},
 ];
 
 const Sidebar = () => {
