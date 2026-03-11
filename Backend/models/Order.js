@@ -48,6 +48,9 @@ const orderSchema = new mongoose.Schema(
     },
 
     paymentId: String,
+
+    couponCode: String,
+    discountAmount: { type: Number, default: 0 },
   },
   { timestamps: true }
 );
