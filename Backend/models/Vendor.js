@@ -15,7 +15,26 @@ const vendorSchema = new mongoose.Schema(
       index: true,
     },
 
-    description: String,
+    description: {
+      type: String,
+      default: "",
+    },
+
+    // ✅ NEW FIELDS ADDED
+    phone: {
+      type: String,
+      default: "",
+    },
+
+    email: {
+      type: String,
+      default: "",
+    },
+
+    address: {
+      type: String,
+      default: "",
+    },
 
     approvalStatus: {
       type: String,

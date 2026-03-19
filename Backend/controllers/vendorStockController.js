@@ -3,18 +3,51 @@ import VendorStock from "../models/VendorStock.js";
 import Product from "../models/Product.js";
 import Vendor from "../models/Vendor.js";
 
-// @desc    Vendor provides stock for a variant
-// @route   POST /api/vendor-stock
-// @access  Private/Vendor
+
+// ✅ CREATE / UPDATE STOCK (Vendor)
 export const createVendorStock = asyncHandler(async (req, res) => {
   const { productId, sku, stockQuantity, vendorPrice } = req.body;
-  const vendor = await Vendor.findOne({ owner: req.user._id });
 
-  if (!vendor || vendor.approvalStatus !== "approved") {
-    res.status(403);
-    throw new Error("Vendor account not approved or not found");
+  // 1️⃣ Validation
+  if (!productId || !sku) {
+    res.status(400);
+    throw new Error("ProductId and SKU are required");
   }
 
+  if (stockQuantity < 0 || vendorPrice < 0) {
+    res.status(400);
+    throw new Error("Stock and price must be positive");
+  }
+
+  // 2️⃣ Vendor check
+  const vendor = await Vendor.findOne({ owner: req.user._id });
+
+  if (!vendor) {
+    res.status(404);
+    throw new Error("Vendor not found");
+  }
+
+  if (vendor.approvalStatus !== "approved") {
+    res.status(403);
+    throw new Error("Vendor not approved");
+  }
+
+  // 3️⃣ Product + SKU check
+  const product = await Product.findById(productId);
+
+  if (!product) {
+    res.status(404);
+    throw new Error("Product not found");
+  }
+
+  const variantExists = product.variants.some(v => v.sku === sku);
+
+  if (!variantExists) {
+    res.status(400);
+    throw new Error("Invalid SKU for this product");
+  }
+
+  // 4️⃣ Existing stock check
   const existingStock = await VendorStock.findOne({
     vendor: vendor._id,
     product: productId,
@@ -28,20 +61,39 @@ export const createVendorStock = asyncHandler(async (req, res) => {
     return res.json(existingStock);
   }
 
+  // 5️⃣ Create stock
   const vendorStock = await VendorStock.create({
     vendor: vendor._id,
     product: productId,
     sku,
     stockQuantity,
     vendorPrice,
+    isApproved: false, // admin must approve
   });
 
   res.status(201).json(vendorStock);
 });
 
-// @desc    Admin selects a vendor for a product variant
-// @route   PUT /api/vendor-stock/select
-// @access  Private/Admin
+
+// ✅ ADMIN: APPROVE STOCK
+export const approveVendorStock = asyncHandler(async (req, res) => {
+  const { stockId } = req.params;
+
+  const stock = await VendorStock.findById(stockId);
+
+  if (!stock) {
+    res.status(404);
+    throw new Error("Stock not found");
+  }
+
+  stock.isApproved = true;
+  await stock.save();
+
+  res.json({ message: "Stock approved successfully", stock });
+});
+
+
+// ✅ ADMIN: SELECT VENDOR FOR VARIANT
 export const selectVendorForVariant = asyncHandler(async (req, res) => {
   const { productId, sku, vendorId } = req.body;
 
@@ -50,23 +102,26 @@ export const selectVendorForVariant = asyncHandler(async (req, res) => {
     product: productId,
     sku,
     isActive: true,
+    isApproved: true, // only approved vendors
   });
 
   if (!vendorStock) {
     res.status(404);
-    throw new Error("Vendor stock entry not found for this variant");
+    throw new Error("Vendor stock not found or not approved");
   }
 
   const product = await Product.findById(productId);
+
   if (!product) {
     res.status(404);
     throw new Error("Product not found");
   }
 
-  const variantIndex = product.variants.findIndex((v) => v.sku === sku);
+  const variantIndex = product.variants.findIndex(v => v.sku === sku);
+
   if (variantIndex === -1) {
     res.status(404);
-    throw new Error("Variant SKU not found in product");
+    throw new Error("Variant not found");
   }
 
   product.variants[variantIndex].currentVendor = vendorId;
@@ -75,12 +130,11 @@ export const selectVendorForVariant = asyncHandler(async (req, res) => {
 
   await product.save();
 
-  res.json({ message: "Vendor selected for variant", product });
+  res.json({ message: "Vendor selected successfully", product });
 });
 
-// @desc    Get all stock entries for a product variant (Admin only)
-// @route   GET /api/vendor-stock/:productId/:sku
-// @access  Private/Admin
+
+// ✅ ADMIN: GET ALL VENDOR STOCKS FOR A VARIANT
 export const getVendorStocksForVariant = asyncHandler(async (req, res) => {
   const { productId, sku } = req.params;
 
@@ -88,7 +142,7 @@ export const getVendorStocksForVariant = asyncHandler(async (req, res) => {
     product: productId,
     sku,
     isActive: true,
-  }).populate("vendor", "storeName");
+  }).populate("vendor", "storeName email");
 
   res.json(stocks);
 });
