@@ -43,7 +43,7 @@ function App() {
           <Route path="/returns" element={<Returns/>}/>
            <Route path="/settings" element={<Settings/>}/>
            <Route path="/vendors"  element={<VendorDashboard/>}/>
-           <Route path="/vendorsdetails"  element={<VendorDetail/>}/>
+           <Route path="/vendorsdetails/:id" element={<VendorDetail />} />
            <Route path="/admin-users"  element={<AdminUsers/>}/>
            <Route path="/cms"  element={<Cms/>}/>
            <Route path="/delivery"  element={<DeliveryStatus/>}/>

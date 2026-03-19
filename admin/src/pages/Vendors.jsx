@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import VendorDetail from "./VendorDetail";
 import { TrendingUp, Download, Pencil, Star, 
   Package, 
   DollarSign, 
@@ -301,7 +302,7 @@ export default function VendorDashboard() {
               <tr
                 key={v.id}
                 style={{ borderBottom: "1px solid #f9fafb", cursor: "pointer" }}
-                onClick={() => navigate("/vendorsdetails", { state: { vendor: v } })} 
+                onClick={() => navigate(`/vendorsdetails/${v.id}`, { state: { vendor: v } })}
                 onMouseEnter={e => e.currentTarget.style.background = "#fafafa"}
                 onMouseLeave={e => e.currentTarget.style.background = "transparent"}
               >
@@ -339,9 +340,9 @@ export default function VendorDashboard() {
   icon="👁"
   label="View Details"
   onClick={(e) => {
-    e.stopPropagation();
-    navigate(`/vendors/${v.id}`);
-  }}
+  e.stopPropagation();
+  navigate(`/vendorsdetails/${v.id}`, { state: { vendor: v } });
+}}
 />
                       {v.status === "verified"
                         ? <MenuItem icon="✓" label="Unverify Vendor" onClick={(e) => { e.stopPropagation(); handleAction("unverify", v.id); }} />

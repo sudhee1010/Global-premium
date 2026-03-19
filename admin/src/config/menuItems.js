@@ -33,6 +33,7 @@ export const menuItems = [
   { icon: CreditCard, label: "Payments", path: "/payments" },
   { icon: UserCircle, label: "Customers", path: "/customers" },
   { icon: Gift, label: "Referral System", path: "/referrals" },
+  { icon: Gift, label: "Referrers", path: "/referrers" },
   { icon: Ticket, label: "Coupons", path: "/coupons" },
   { icon: Megaphone, label: "Marketing", path: "/marketing" },
   { icon: BarChart3, label: "Reports", path: "/reports" },
