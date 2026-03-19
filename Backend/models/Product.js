@@ -1,5 +1,98 @@
+
+
+
 import mongoose from "mongoose";
 
+// ── Review Schema ──
+const reviewSchema = new mongoose.Schema({
+  product: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Product",
+    required: true,
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  rating: {
+    type: Number,
+    min: 1,
+    max: 5,
+    required: true,
+  },
+  comment: String,
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+// ── Variant Schema ──
+const variantSchema = new mongoose.Schema({
+  sku: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  attributes: [
+    {
+      name: String,
+      value: String,
+    },
+  ],
+  sellingPrice: {
+    type: Number,
+    required: true,
+  },
+  currentVendor: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Vendor",
+  },
+  currentStock: {
+    type: Number,
+    default: 0,
+  },
+  currentVendorPrice: Number,
+  weight: Number,
+  image: String,
+  barcode: String,
+  isActive: {
+    type: Boolean,
+    default: true,
+  },
+});
+
+// ── Referral Coupon Schema ──
+const referralCouponSchema = new mongoose.Schema({
+  code: String,
+  referrer: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+  referrerCode: String,
+  email: String,
+  discountPrefix: String,
+  discountValue: Number,
+  rewardType: String,
+  rewardValue: Number,
+  used: {
+    type: Number,
+    default: 0,
+  },
+  total: {
+    type: Number,
+    default: 1,
+  },
+  expiry: Date,
+  status: {
+    type: String,
+    enum: ["Active", "Expired", "Used"],
+    default: "Active",
+  },
+});
+
+// ── Product Schema ──
 const productSchema = new mongoose.Schema(
   {
     createdBy: {
@@ -39,30 +132,16 @@ const productSchema = new mongoose.Schema(
 
     images: [String],
 
-    variants: [
-      {
-        sku: { type: String, required: true, unique: true },
-        attributes: [
-          {
-            name: String, // e.g., "Color"
-            value: String, // e.g., "Black"
-          },
-        ],
-        sellingPrice: { type: Number, required: true },
-        currentVendor: { type: mongoose.Schema.Types.ObjectId, ref: "Vendor" },
-        currentStock: { type: Number, default: 0 },
-        currentVendorPrice: { type: Number },
-        weight: { type: Number },
-        image: { type: String },
-        barcode: { type: String },
-        isActive: { type: Boolean, default: true },
-      },
-    ],
+    variants: [variantSchema],
 
     seo: {
       title: String,
       description: String,
-      slug: { type: String, unique: true, sparse: true },
+      slug: {
+        type: String,
+        unique: true,
+        sparse: true,
+      },
     },
 
     isActive: {
@@ -71,13 +150,30 @@ const productSchema = new mongoose.Schema(
       index: true,
     },
 
-    featured: { type: Boolean, default: false, index: true },
-    offerPrice: { type: Number, default: null },
+    featured: {
+      type: Boolean,
+      default: false,
+      index: true,
+    },
+
+    offerPrice: {
+      type: Number,
+      default: null,
+    },
+
+    paidAmount: {
+      type: Number,
+      default: 0,
+    },
+
+    referralCoupons: [referralCouponSchema],
+
+    reviews: [reviewSchema],
   },
   { timestamps: true }
 );
 
-// 🔎 Enable text search
+// ── Search Index ──
 productSchema.index({ title: "text", description: "text" });
 
 export default mongoose.model("Product", productSchema);
