@@ -28,7 +28,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { CartDrawer } from "./CartDrawer";
 import { useTheme } from "../contexts/ThemeContext";
 
-const logoImage = "";
+const logoImage = "/logo.png";
 
 export function Header() {
   const navigate = useRouter();
