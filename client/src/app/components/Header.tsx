@@ -68,23 +68,23 @@ export function Header() {
   
   const cartItemsCount = items.length;
 
-  const categories = [
-    "Electronics",
-    "Fashion",
-    "Home & Garden",
-    "Sports",
-    "Beauty",
-    "Books",
-  ];
+  // const categories = [
+  //   "electronics",
+  //   "Fashion",
+  //   "Home & Garden",
+  //   "Sports",
+  //   "Beauty",
+  //   "Books",
+  // ];
 
   // Check if current page should show filter button
-  const showFilterButton =
-    pathname === "/products" ||
-    pathname === "/electronics" ||
-    pathname === "/home-garden" ||
-    pathname === "/sports" ||
-    pathname === "/beauty" ||
-    pathname === "/books";
+  // const showFilterButton =
+  //   pathname === "/products" ||
+  //   pathname === "/electronics" ||
+  //   pathname === "/home-garden" ||
+  //   pathname === "/sports" ||
+  //   pathname === "/beauty" ||
+  //   pathname === "/books";
 
   return (
     <header className="sticky top-0 z-50 w-full border-b glass-navbar shadow-lg">
@@ -325,7 +325,7 @@ export function Header() {
                       <div className="px-4 py-2 text-sm font-semibold text-gray-500 dark:text-gray-400">
                         Categories
                       </div>
-                      {categories.map((category) => (
+                      {/* {categories.map((category) => (
                         <Link
                           key={category}
                           href={`/products?category=${category}`}
@@ -338,7 +338,7 @@ export function Header() {
                         >
                           {category}
                         </Link>
-                      ))}
+                      ))} */}
                       
                       <div className="h-px bg-gray-200 dark:bg-gray-800 my-3" />
                       
@@ -433,14 +433,59 @@ export function Header() {
             >
               All Products
             </Link>
-            {categories.map((category) => (
+            
+            {/* {categories.map((category) => (
               <Link key={category}
                 href={`/products?category=${category}`}
                 className="text-sm font-semibold text-gray-900 dark:text-white hover:text-[#F7931A] dark:hover:text-[#F7931A] whitespace-nowrap transition-colors py-4"
               >
                 {category}
               </Link>
-            ))}
+            ))} */}
+
+            <Link
+              href="/electronics"
+              className="text-sm font-semibold text-gray-900 dark:text-white hover:text-[#F7931A] dark:hover:text-[#F7931A] whitespace-nowrap transition-colors py-4"
+            >
+              Electronics
+            </Link>
+
+             <Link
+              href="/fashion"
+              className="text-sm font-semibold text-gray-900 dark:text-white hover:text-[#F7931A] dark:hover:text-[#F7931A] whitespace-nowrap transition-colors py-4"
+            >
+              Fashion
+            </Link>
+            
+             <Link
+              href="/home-garden"
+              className="text-sm font-semibold text-gray-900 dark:text-white hover:text-[#F7931A] dark:hover:text-[#F7931A] whitespace-nowrap transition-colors py-4"
+            >
+              Home & Garden
+            </Link>
+            
+             <Link
+              href="/sports"
+              className="text-sm font-semibold text-gray-900 dark:text-white hover:text-[#F7931A] dark:hover:text-[#F7931A] whitespace-nowrap transition-colors py-4"
+            >
+              Sports
+            </Link>
+            
+             <Link
+              href="/beauty"
+              className="text-sm font-semibold text-gray-900 dark:text-white hover:text-[#F7931A] dark:hover:text-[#F7931A] whitespace-nowrap transition-colors py-4"
+            >
+              Beauty
+            </Link>
+             <Link
+              href="/books"
+              className="text-sm font-semibold text-gray-900 dark:text-white hover:text-[#F7931A] dark:hover:text-[#F7931A] whitespace-nowrap transition-colors py-4"
+            >
+              Books
+            </Link>
+            
+            
+
           </nav>
         </div>
       </div>
