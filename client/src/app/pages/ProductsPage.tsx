@@ -236,7 +236,7 @@ export function ProductsPage() {
         <>
           {/* Category Grid Section */}
           <section className="py-4 sm:py-6 md:py-8 relative">
-            <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">\
+            <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 xl:grid-cols-10 gap-2 sm:gap-3">
                 {[
                   { name: "EID", image: "https://images.unsplash.com/photo-1767775498862-d4740ce574ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlaWQlMjBmZXN0aXZhbCUyMGNsb3RoaW5nfGVufDF8fHx8MTc3MTUwMDM5OHww&ixlib=rb-4.1.0&q=80&w=1080" },
@@ -259,7 +259,7 @@ export function ProductsPage() {
                   { name: "Jackets, Sweaters", image: "https://images.unsplash.com/photo-1740442535747-6c292f995539?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqYWNrZXRzJTIwc3dlYXRlcnMlMjB3aW50ZXJ8ZW58MXx8fHwxNzcxNTAwNDAyfDA&ixlib=rb-4.1.0&q=80&w=1080" },
                 ].map((category) => (
                   <Link key={category.name}
-                    href={`/products?category=${encodeURIComponent(category.name)}`}
+                    href={`/category?category=Fashion&subcategory=${encodeURIComponent(category.name)}`}
                     className="group flex flex-col items-center"
                   >
                     <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -280,7 +280,7 @@ export function ProductsPage() {
 
           {/* Fashion Advertisement Carousel */}
           <section className="py-12 relative">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">\
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <FashionAdCarousel />
             </div>
           </section>
@@ -295,7 +295,7 @@ export function ProductsPage() {
                 Shop for Loved Ones
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <Link href="/products?gender=men"
+                <Link href="/category?category=Fashion&gender=men"
                   className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-400 to-blue-500 aspect-[4/3] hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 >
                   <ImageWithFallback
@@ -310,7 +310,7 @@ export function ProductsPage() {
                   </div>
                 </Link>
 
-                <Link href="/products?gender=women"
+                <Link href="/category?category=Fashion&gender=women"
                   className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-pink-400 to-pink-500 aspect-[4/3] hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 >
                   <ImageWithFallback
@@ -325,7 +325,7 @@ export function ProductsPage() {
                   </div>
                 </Link>
 
-                <Link href="/products?collection=genz"
+                <Link href="/category?category=Fashion&collection=genz"
                   className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-green-400 to-emerald-500 aspect-[4/3] hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 >
                   <ImageWithFallback
@@ -379,7 +379,7 @@ export function ProductsPage() {
                   { name: "Microphones", image: "https://images.unsplash.com/photo-1608613108344-07ce970d61da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaWNyb3Bob25lJTIwcmVjb3JkaW5nJTIwYXVkaW98ZW58MXx8fHwxNzcxNTYwNjE2fDA&ixlib=rb-4.1.0&q=80&w=1080" },
                 ].map((category) => (
                   <Link key={category.name}
-                    href={`/products?category=${encodeURIComponent(category.name)}`}
+                    href={`/category?category=Electronics&subcategory=${encodeURIComponent(category.name)}`}
                     className="group flex flex-col items-center"
                   >
                     <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -463,7 +463,7 @@ export function ProductsPage() {
                       </p>
                     </div>
                     <div className="flex items-center justify-between mt-8">
-                      <Link href="/products?category=Home Essentials"
+                      <Link href="/category?category=Home%20%26%20Garden&subcategory=Home%20Decor"
                         className="bg-white text-teal-600 px-6 py-2 rounded-full font-semibold hover:bg-teal-50 transition-colors"
                       >
                         Browse
@@ -491,7 +491,7 @@ export function ProductsPage() {
                       </p>
                     </div>
                     <div className="flex items-center justify-between mt-8">
-                      <Link href="/products?category=Garden Tools"
+                      <Link href="/category?category=Home%20%26%20Garden&subcategory=Garden%20Tools"
                         className="bg-white text-green-700 px-6 py-2 rounded-full font-semibold hover:bg-green-50 transition-colors"
                       >
                         Shop
@@ -519,7 +519,7 @@ export function ProductsPage() {
                       </p>
                     </div>
                     <div className="flex items-center justify-between mt-8">
-                      <Link href="/products?category=Home%20%26%20Garden&subcategory=Kitchen%20Appliances"
+                      <Link href="/category?category=Home%20%26%20Garden&subcategory=Kitchen%20Appliances"
                         className="bg-white text-orange-600 px-6 py-2 rounded-full font-semibold hover:bg-orange-50 transition-colors"
                       >
                         Explore
@@ -547,7 +547,7 @@ export function ProductsPage() {
                       </p>
                     </div>
                     <div className="flex items-center justify-between mt-8">
-                      <Link href="/products?category=Home%20%26%20Garden&subcategory=Furniture"
+                      <Link href="/category?category=Home%20%26%20Garden&subcategory=Furniture"
                         className="bg-white text-purple-700 px-6 py-2 rounded-full font-semibold hover:bg-purple-50 transition-colors"
                       >
                         Shop
@@ -575,7 +575,7 @@ export function ProductsPage() {
                       </p>
                     </div>
                     <div className="flex items-center justify-between mt-8">
-                      <Link href="/products?category=Home%20%26%20Garden&subcategory=Bedding"
+                      <Link href="/category?category=Home%20%26%20Garden&subcategory=Bedding"
                         className="bg-white text-blue-700 px-6 py-2 rounded-full font-semibold hover:bg-blue-50 transition-colors"
                       >
                         Shop
@@ -623,7 +623,7 @@ export function ProductsPage() {
                   { name: "Garden Plants", image: "https://images.unsplash.com/photo-1693767074374-92078f096d88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnYXJkZW4lMjBvdXRkb29yJTIwcGxhbnRzfGVufDF8fHx8MTc3MTUyNjI2NXww&ixlib=rb-4.1.0&q=80&w=1080" },
                 ].map((category) => (
                   <Link key={category.name}
-                    href={`/products?category=Home%20%26%20Garden&subcategory=${encodeURIComponent(category.name)}`}
+                    href={`/category?category=Home%20%26%20Garden&subcategory=${encodeURIComponent(category.name)}`}
                     className="group flex flex-col items-center"
                   >
                     <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -644,13 +644,13 @@ export function ProductsPage() {
         </>
       )}
 
-      {/* Shop for Loved Ones Section - For All Categories Except Fashion */}
+      {/* All other categories & no-category (All Products) */}
       {((categoryParam && categoryParam !== "Fashion" && categoryParam !== "Electronics" && categoryParam !== "Home & Garden") || !categoryParam) && (
         <>
-          {/* Flash Deals & Offers Section - All Products Only */}
+          {/* Flash Deals - All Products only */}
           {!categoryParam && <FlashDealsSection />}
 
-          {/* Electronics Section - All Products Only */}
+          {/* Electronics Section - All Products only */}
           {!categoryParam && (
             <section className="py-12 bg-gray-50 dark:bg-gray-900/30">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -685,7 +685,7 @@ export function ProductsPage() {
                     { name: "Microphones", image: "https://images.unsplash.com/photo-1608613108344-07ce970d61da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaWNyb3Bob25lJTIwcmVjb3JkaW5nJTIwYXVkaW98ZW58MXx8fHwxNzcxNTYwNjE2fDA&ixlib=rb-4.1.0&q=80&w=1080" },
                   ].map((category) => (
                     <Link key={category.name}
-                      href={`/products?category=${encodeURIComponent(category.name)}`}
+                      href={`/category?category=Electronics&subcategory=${encodeURIComponent(category.name)}`}
                       className="group flex flex-col items-center"
                     >
                       <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -705,7 +705,7 @@ export function ProductsPage() {
             </section>
           )}
 
-          {/* Fashion Products Section - All Products Only */}
+          {/* Fashion Section - All Products only */}
           {!categoryParam && (
             <section className="py-12 bg-white dark:bg-gray-950">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -740,7 +740,7 @@ export function ProductsPage() {
                     { name: "Jackets, Sweaters", image: "https://images.unsplash.com/photo-1740442535747-6c292f995539?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqYWNrZXRzJTIwc3dlYXRlcnMlMjB3aW50ZXJ8ZW58MXx8fHwxNzcxNTAwNDAyfDA&ixlib=rb-4.1.0&q=80&w=1080" },
                   ].map((category) => (
                     <Link key={category.name}
-                      href={`/products?category=${encodeURIComponent(category.name)}`}
+                      href={`/category?category=Fashion&subcategory=${encodeURIComponent(category.name)}`}
                       className="group flex flex-col items-center"
                     >
                       <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -760,10 +760,10 @@ export function ProductsPage() {
             </section>
           )}
 
-          {/* Shop by Category Section - All Products Only */}
+          {/* Shop by Category Section - All Products only */}
           {!categoryParam && <ShopByCategorySection />}
 
-          {/* Home & Garden Products Section - All Products Only */}
+          {/* Home & Garden Section - All Products only */}
           {!categoryParam && (
             <section className="py-12 bg-gray-50 dark:bg-gray-900/30">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -798,7 +798,7 @@ export function ProductsPage() {
                     { name: "Garden Plants", image: "https://images.unsplash.com/photo-1693767074374-92078f096d88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnYXJkZW4lMjBvdXRkb29yJTIwcGxhbnRzfGVufDF8fHx8MTc3MTUyNjI2NXww&ixlib=rb-4.1.0&q=80&w=1080" },
                   ].map((subcategory) => (
                     <Link key={subcategory.name}
-                      href={`/products?category=Home & Garden&subcategory=${encodeURIComponent(subcategory.name)}`}
+                      href={`/category?category=Home%20%26%20Garden&subcategory=${encodeURIComponent(subcategory.name)}`}
                       className="group flex flex-col items-center"
                     >
                       <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -818,7 +818,7 @@ export function ProductsPage() {
             </section>
           )}
 
-          {/* Trending Fashion Categories - All Products Only */}
+          {/* Trending Fashion Categories - All Products only */}
           {!categoryParam && (
             <section className="py-12 bg-gray-50 dark:bg-gray-900/30">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -844,7 +844,7 @@ export function ProductsPage() {
                     { name: "Jackets, Sweaters", image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqYWNrZXQlMjBzd2VhdGVyJTIwd2ludGVyfGVufDB8fHx8MTcwNjc0NzI4MHww&ixlib=rb-4.1.0&q=80&w=1080" },
                   ].map((category) => (
                     <Link key={category.name}
-                      href={`/products?category=${encodeURIComponent(category.name)}`}
+                      href={`/category?category=Fashion&subcategory=${encodeURIComponent(category.name)}`}
                       className="group flex flex-col items-center"
                     >
                       <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -864,7 +864,7 @@ export function ProductsPage() {
             </section>
           )}
 
-          {/* Sports Products Section - All Products Only */}
+          {/* Sports Section - All Products only */}
           {!categoryParam && (
             <section className="py-12 bg-white dark:bg-gray-950">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -899,7 +899,7 @@ export function ProductsPage() {
                     { name: "Sports Watches", image: "https://images.unsplash.com/photo-1557438159-51eec7a6c9e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydCUyMHdhdGNoJTIwd2VhcmFibGV8ZW58MXx8fHwxNzcxNTYwNjEyfDA&ixlib=rb-4.1.0&q=80&w=1080" },
                   ].map((category) => (
                     <Link key={category.name}
-                      href={`/products?category=${encodeURIComponent(category.name)}`}
+                      href={`/category?category=Sports&subcategory=${encodeURIComponent(category.name)}`}
                       className="group flex flex-col items-center"
                     >
                       <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -919,7 +919,7 @@ export function ProductsPage() {
             </section>
           )}
 
-          {/* Beauty Products Section - All Products Only */}
+          {/* Beauty Section - All Products only */}
           {!categoryParam && (
             <section className="py-12 bg-gray-50 dark:bg-gray-900/30">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -954,7 +954,7 @@ export function ProductsPage() {
                     { name: "Fragrances", image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmFncmFuY2UlMjBwZXJmdW1lJTIwYm90dGxlfGVufDF8fHx8MTc0MDAxODM5NHww&ixlib=rb-4.1.0&q=80&w=1080" },
                   ].map((category) => (
                     <Link key={category.name}
-                      href={`/products?category=${encodeURIComponent(category.name)}`}
+                      href={`/category?category=Beauty&subcategory=${encodeURIComponent(category.name)}`}
                       className="group flex flex-col items-center"
                     >
                       <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -974,7 +974,7 @@ export function ProductsPage() {
             </section>
           )}
 
-          {/* Books Section - All Products Only */}
+          {/* Books Section - All Products only */}
           {!categoryParam && (
             <section className="py-12 bg-white dark:bg-gray-950">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1009,7 +1009,7 @@ export function ProductsPage() {
                     { name: "Educational", image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb25hbCUyMGJvb2tzJTIwc3R1ZHl8ZW58MXx8fHwxNzQwMDE4Mzk5fDA&ixlib=rb-4.1.0&q=80&w=1080" },
                   ].map((category) => (
                     <Link key={category.name}
-                      href={`/products?category=${encodeURIComponent(category.name)}`}
+                      href={`/category?category=Books&subcategory=${encodeURIComponent(category.name)}`}
                       className="group flex flex-col items-center"
                     >
                       <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -1029,13 +1029,14 @@ export function ProductsPage() {
             </section>
           )}
 
+          {/* Shop for Loved Ones - always shown in this branch */}
           <section className="py-12 bg-white dark:bg-gray-950">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
                 Shop for Loved Ones
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <Link href="/products?gender=men"
+                <Link href="/category?category=Fashion&gender=men"
                   className="group relative overflow-hidden rounded-3xl aspect-[4/3] hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 >
                   <ImageWithFallback
@@ -1050,7 +1051,7 @@ export function ProductsPage() {
                   </div>
                 </Link>
 
-                <Link href="/products?gender=women"
+                <Link href="/category?category=Fashion&gender=women"
                   className="group relative overflow-hidden rounded-3xl aspect-[4/3] hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 >
                   <ImageWithFallback
@@ -1065,7 +1066,7 @@ export function ProductsPage() {
                   </div>
                 </Link>
 
-                <Link href="/products?collection=genz"
+                <Link href="/category?category=Fashion&collection=genz"
                   className="group relative overflow-hidden rounded-3xl aspect-[4/3] hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 >
                   <ImageWithFallback
@@ -1139,7 +1140,7 @@ export function ProductsPage() {
             </div>
 
             {/* Products Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">\
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
               {products.map((product, index) => (
                 <div
                   key={product.id}
@@ -1269,4 +1270,3 @@ export function ProductsPage() {
     </div>
   );
 }
-
