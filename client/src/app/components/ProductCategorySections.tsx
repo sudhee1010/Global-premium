@@ -128,7 +128,7 @@ export function ProductCategorySections() {
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
               Electronics Products
             </h2>
-            <Link href="/electronics"
+            <Link href="/category?category=Electronics"
               className="text-[#F7931A] hover:text-orange-600 font-semibold text-sm"
             >
               View All →
@@ -137,7 +137,7 @@ export function ProductCategorySections() {
           <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3">
             {electronicsProducts.map((product) => (
               <Link key={product.name}
-                href={`/products?subcategory=${encodeURIComponent(product.name)}`}
+                href={`/category?category=Electronics&subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
                 <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -163,7 +163,7 @@ export function ProductCategorySections() {
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
               Fashion Products
             </h2>
-            <Link href="/products?category=Fashion"
+            <Link href="/category?category=Fashion"
               className="text-[#F7931A] hover:text-orange-600 font-semibold text-sm"
             >
               View All →
@@ -172,7 +172,7 @@ export function ProductCategorySections() {
           <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3">
             {fashionProducts.map((product) => (
               <Link key={product.name}
-                href={`/products?subcategory=${encodeURIComponent(product.name)}`}
+                href={`/category?category=Fashion&subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
                 <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -198,7 +198,7 @@ export function ProductCategorySections() {
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
               Home & Garden
             </h2>
-            <Link href="/home-garden"
+            <Link href="/category?category=Home+%26+Garden"
               className="text-[#F7931A] hover:text-orange-600 font-semibold text-sm"
             >
               View All →
@@ -207,7 +207,7 @@ export function ProductCategorySections() {
           <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3">
             {homeGardenProducts.map((product) => (
               <Link key={product.name}
-                href={`/products?subcategory=${encodeURIComponent(product.name)}`}
+                href={`/category?category=Home+%26+Garden&subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
                 <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -233,7 +233,7 @@ export function ProductCategorySections() {
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
               Sports Products
             </h2>
-            <Link href="/sports"
+            <Link href="/category?category=Sports"
               className="text-[#F7931A] hover:text-orange-600 font-semibold text-sm"
             >
               View All →
@@ -242,7 +242,7 @@ export function ProductCategorySections() {
           <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3">
             {sportsProducts.map((product) => (
               <Link key={product.name}
-                href={`/products?subcategory=${encodeURIComponent(product.name)}`}
+                href={`/category?category=Sports&subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
                 <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -268,7 +268,7 @@ export function ProductCategorySections() {
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
               Beauty Products
             </h2>
-            <Link href="/beauty"
+            <Link href="/category?category=Beauty"
               className="text-[#F7931A] hover:text-orange-600 font-semibold text-sm"
             >
               View All →
@@ -277,7 +277,7 @@ export function ProductCategorySections() {
           <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3">
             {beautyProducts.map((product) => (
               <Link key={product.name}
-                href={`/products?subcategory=${encodeURIComponent(product.name)}`}
+                href={`/category?category=Beauty&subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
                 <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -303,7 +303,7 @@ export function ProductCategorySections() {
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
               Books
             </h2>
-            <Link href="/books"
+            <Link href="/category?category=Books"
               className="text-[#F7931A] hover:text-orange-600 font-semibold text-sm"
             >
               View All →
@@ -312,7 +312,7 @@ export function ProductCategorySections() {
           <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3">
             {booksProducts.map((product) => (
               <Link key={product.name}
-                href={`/products?subcategory=${encodeURIComponent(product.name)}`}
+                href={`/category?category=Books&subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
                 <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">

@@ -497,6 +497,7 @@ function CategoryPageInner() {
         )}
 
         {/* ── 4. FLASH DEALS & OFFERS ─────────────────────────────────────────── */}
+        {/* COMMENTED OUT — uncomment to restore
         <section className="py-10 bg-gray-900/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
@@ -512,10 +513,8 @@ function CategoryPageInner() {
               {flashDeals.map((deal) => (
                 <div key={deal.title} className="px-3">
                   <div className={`relative rounded-2xl p-6 sm:p-8 bg-gradient-to-br ${deal.color} overflow-hidden shadow-xl h-[240px] sm:h-[260px] flex flex-col justify-between`}>
-                    {/* Decorative circle */}
                     <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-white/10" />
                     <div className="absolute -bottom-4 -left-4 w-20 h-20 rounded-full bg-white/10" />
-
                     <div className="relative">
                       <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 mb-3">
                         {deal.icon}
@@ -524,12 +523,8 @@ function CategoryPageInner() {
                       <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">{deal.title}</h3>
                       <p className="text-white/85 text-sm">{deal.desc}</p>
                     </div>
-
                     <div className="relative flex items-center justify-between">
-                      <Link
-                        href={deal.href}
-                        className="bg-white text-gray-900 px-5 py-2 rounded-full text-sm font-semibold hover:bg-white/90 transition-colors"
-                      >
+                      <Link href={deal.href} className="bg-white text-gray-900 px-5 py-2 rounded-full text-sm font-semibold hover:bg-white/90 transition-colors">
                         {deal.cta}
                       </Link>
                       <span className="text-white text-xl sm:text-2xl font-extrabold">{deal.discount}</span>
@@ -540,63 +535,43 @@ function CategoryPageInner() {
             </Slider1>
           </div>
         </section>
+        */}
 
         {/* ── 5. SHOP FOR LOVED ONES ──────────────────────────────────────────── */}
+        {/* COMMENTED OUT — uncomment to restore
         <section className="py-10 bg-gray-950 dark:bg-black">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">
               Shop for Loved Ones
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-              {/* Men */}
-              <Link
-                href={`/category?category=${encodeURIComponent(categoryParam)}&gender=men`}
+              <Link href={`/category?category=${encodeURIComponent(categoryParam)}&gender=men`}
                 className="group relative overflow-hidden rounded-2xl aspect-[4/3] hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
               >
-                <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1635913906376-53130718255a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
-                  alt="Men's Collection"
-                  className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
-                />
+                <ImageWithFallback src="https://images.unsplash.com/photo-1635913906376-53130718255a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" alt="Men's Collection" className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-900/30 to-transparent" />
                 <div className="absolute bottom-5 left-5">
                   <h3 className="text-2xl font-bold text-white mb-0.5">Men</h3>
                   <p className="text-white/80 text-sm">Discover men&apos;s collection</p>
                 </div>
               </Link>
-
-              {/* Women */}
-              <Link
-                href={`/category?category=${encodeURIComponent(categoryParam)}&gender=women`}
+              <Link href={`/category?category=${encodeURIComponent(categoryParam)}&gender=women`}
                 className="group relative overflow-hidden rounded-2xl aspect-[4/3] hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
               >
-                <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1655026950620-b39ab24e9b4b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
-                  alt="Women's Collection"
-                  className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500 grayscale"
-                />
+                <ImageWithFallback src="https://images.unsplash.com/photo-1655026950620-b39ab24e9b4b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" alt="Women's Collection" className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500 grayscale" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 <div className="absolute bottom-5 left-5">
                   <h3 className="text-2xl font-bold text-white mb-0.5">Women</h3>
                   <p className="text-white/80 text-sm">Explore women&apos;s collection</p>
                 </div>
               </Link>
-
-              {/* Gen Z */}
-              <Link
-                href={`/category?category=${encodeURIComponent(categoryParam)}&collection=genz`}
+              <Link href={`/category?category=${encodeURIComponent(categoryParam)}&collection=genz`}
                 className="group relative overflow-hidden rounded-2xl aspect-[4/3] hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
               >
-                <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1610738572401-5dfeeb660c7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
-                  alt="Gen Z Collection"
-                  className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
-                />
+                <ImageWithFallback src="https://images.unsplash.com/photo-1610738572401-5dfeeb660c7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" alt="Gen Z Collection" className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/80 via-green-900/30 to-transparent" />
                 <div className="absolute bottom-5 left-5">
-                  <div className="inline-block bg-green-400 text-gray-900 font-bold px-2.5 py-0.5 rounded-full text-xs mb-1">
-                    spoyl
-                  </div>
+                  <div className="inline-block bg-green-400 text-gray-900 font-bold px-2.5 py-0.5 rounded-full text-xs mb-1">spoyl</div>
                   <h3 className="text-2xl font-bold text-white mb-0.5">Gen Z Drips</h3>
                   <p className="text-white/80 text-sm">Trending Gen Z styles</p>
                 </div>
@@ -604,8 +579,10 @@ function CategoryPageInner() {
             </div>
           </div>
         </section>
+        */}
 
         {/* ── 6. SHOP BY CATEGORY ─────────────────────────────────────────────── */}
+        {/* COMMENTED OUT — uncomment to restore
         <section className="py-10 bg-gray-900/40">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between mb-6">
@@ -618,31 +595,24 @@ function CategoryPageInner() {
               {allCategories.map((cat) => {
                 const isCurrentCat = cat.name === categoryParam;
                 return (
-                  <Link
-                    key={cat.name}
-                    href={`/category?category=${encodeURIComponent(cat.name)}`}
+                  <Link key={cat.name} href={`/category?category=${encodeURIComponent(cat.name)}`}
                     className={`group relative overflow-hidden rounded-2xl aspect-square transition-all duration-300 hover:scale-105
                       ${isCurrentCat ? "ring-2 ring-[#F7931A] shadow-lg shadow-orange-500/30" : ""}`}
                   >
-                    <ImageWithFallback
-                      src={cat.image}
-                      alt={cat.name}
-                      className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
-                    />
+                    <ImageWithFallback src={cat.image} alt={cat.name} className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300" />
                     <div className={`absolute inset-0 ${cat.color} opacity-70 group-hover:opacity-80 transition-opacity`} />
                     <div className="absolute inset-0 flex flex-col items-center justify-center p-2 text-center">
                       <p className="text-white font-bold text-xs sm:text-sm leading-tight">{cat.name}</p>
                       <p className="text-white/70 text-[9px] sm:text-xs mt-0.5 hidden sm:block">{cat.count}</p>
                     </div>
-                    {isCurrentCat && (
-                      <div className="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-[#F7931A]" />
-                    )}
+                    {isCurrentCat && <div className="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-[#F7931A]" />}
                   </Link>
                 );
               })}
             </div>
           </div>
         </section>
+        */}
 
         {/* ── 7. PRODUCT GRID ─────────────────────────────────────────────────── */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">

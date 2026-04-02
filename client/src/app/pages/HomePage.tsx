@@ -98,7 +98,7 @@ export function HomePage() {
       image:
         "https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=800",
       buttonText: "Shop Summer Sale",
-      buttonLink: "/products?sale=summer",
+      buttonLink: "/category?sale=summer",
       discount: "Up to 50% OFF",
       type: "hero",
       backgroundColor: "bg-gradient-to-r from-[#F7931A] to-orange-600",
@@ -110,7 +110,7 @@ export function HomePage() {
       image:
         "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=500",
       buttonText: "Explore Now",
-      buttonLink: "/products?category=Electronics",
+      buttonLink: "/category?category=Electronics",
       discount: "New Arrivals",
       type: "banner",
       backgroundColor: "bg-gradient-to-r from-purple-600 to-pink-600",
@@ -122,7 +122,7 @@ export function HomePage() {
       image:
         "https://images.unsplash.com/photo-1445205170230-053b83016050?w=500",
       buttonText: "Shop",
-      buttonLink: "/products?category=Fashion",
+      buttonLink: "/category?category=Fashion",
       discount: "30% OFF",
       type: "square",
       backgroundColor: "bg-gradient-to-br from-pink-500 to-rose-600",
@@ -134,7 +134,7 @@ export function HomePage() {
       image:
         "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500",
       buttonText: "View",
-      buttonLink: "/products?category=Home",
+      buttonLink: "/category?category=Home",
       type: "square",
       backgroundColor: "bg-gradient-to-br from-blue-600 to-cyan-600",
     },
@@ -145,7 +145,7 @@ export function HomePage() {
       image:
         "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=300",
       buttonText: "Shop Now",
-      buttonLink: "/products",
+      buttonLink: "/category",
       type: "wide",
       backgroundColor: "bg-gradient-to-r from-green-600 to-emerald-600",
     },
@@ -228,9 +228,9 @@ export function HomePage() {
   ];
 
   const heroSlidesFallback: HeroSlide[] = [
-    { id: "1", image: "https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=800", title: "Mega Sale 2026", description: "Up to 70% off on selected items. Limited time only!", buttonText: "Shop Now", buttonLink: "/products?sale=mega", textPosition: "center" },
-    { id: "2", image: "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=800", title: "New Fashion Collection", description: "Discover the latest trends in fashion and style", buttonText: "Explore Fashion", buttonLink: "/products?category=Fashion", textPosition: "center" },
-    { id: "3", image: "https://images.unsplash.com/photo-1738520420654-87cd2ad005d0?w=1080", title: "Latest Tech Gadgets", description: "Upgrade your tech with the newest electronics", buttonText: "Shop Electronics", buttonLink: "/products?category=Electronics", textPosition: "center" },
+    { id: "1", image: "https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=800", title: "Mega Sale 2026", description: "Up to 70% off on selected items. Limited time only!", buttonText: "Shop Now", buttonLink: "/category?sale=mega", textPosition: "center" },
+    { id: "2", image: "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=800", title: "New Fashion Collection", description: "Discover the latest trends in fashion and style", buttonText: "Explore Fashion", buttonLink: "/category?category=Fashion", textPosition: "center" },
+    { id: "3", image: "https://images.unsplash.com/photo-1738520420654-87cd2ad005d0?w=1080", title: "Latest Tech Gadgets", description: "Upgrade your tech with the newest electronics", buttonText: "Shop Electronics", buttonLink: "/category?category=Electronics", textPosition: "center" },
   ];
   const heroSlides: HeroSlide[] =
     apiBanners.length > 0
@@ -240,7 +240,7 @@ export function HomePage() {
           title: b.title ?? "",
           description: b.subtitle ?? "",
           buttonText: b.linkText ?? "Shop Now",
-          buttonLink: b.link ?? "/products",
+          buttonLink: b.link ?? "/category",
           textPosition: "center" as const,
         }))
       : heroSlidesFallback;
@@ -316,7 +316,7 @@ export function HomePage() {
               { name: "Jackets, Sweaters", image: "https://images.unsplash.com/photo-1740442535747-6c292f995539?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqYWNrZXRzJTIwc3dlYXRlcnMlMjB3aW50ZXJ8ZW58MXx8fHwxNzcxNTAwNDAyfDA&ixlib=rb-4.1.0&q=80&w=1080" },
             ].map((category) => (
               <Link key={category.name}
-                href={`/products?category=${encodeURIComponent(category.name)}`}
+                href={`/category?category=Fashion&subcategory=${encodeURIComponent(category.name)}`}
                 className="group flex flex-col items-center"
               >
                 <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -342,7 +342,7 @@ export function HomePage() {
             Shop for Loved Ones
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Link href="/products?gender=men"
+            <Link href="/category?category=Fashion&gender=men"
               className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-400 to-blue-500 aspect-[4/3] hover:shadow-2xl transition-all duration-300 hover:scale-105"
             >
               <ImageWithFallback
@@ -357,7 +357,7 @@ export function HomePage() {
               </div>
             </Link>
 
-            <Link href="/products?gender=women"
+            <Link href="/category?category=Fashion&gender=women"
               className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-pink-400 to-pink-500 aspect-[4/3] hover:shadow-2xl transition-all duration-300 hover:scale-105"
             >
               <ImageWithFallback
@@ -372,7 +372,7 @@ export function HomePage() {
               </div>
             </Link>
 
-            <Link href="/products?collection=genz"
+            <Link href="/category?category=Fashion&collection=genz"
               className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-green-400 to-emerald-500 aspect-[4/3] hover:shadow-2xl transition-all duration-300 hover:scale-105"
             >
               <ImageWithFallback
@@ -433,7 +433,7 @@ export function HomePage() {
               },
             ].map((item, index) => (
               <Link key={index}
-                href={`/products?special=basant-panchami&item=${encodeURIComponent(item.name)}`}
+                href={`/category?category=Fashion&subcategory=${encodeURIComponent(item.name)}`}
                 className="group flex-shrink-0 w-64 snap-start"
               >
                 <div className={`${item.bg} rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105`}>
@@ -495,7 +495,7 @@ export function HomePage() {
               },
             ].map((item, index) => (
               <Link key={index}
-                href={`/products?clearance=true&item=${encodeURIComponent(item.name)}`}
+                href={`/category?category=Fashion&subcategory=${encodeURIComponent(item.name)}`}
                 className="group flex-shrink-0 w-56 snap-start"
               >
                 <div className="bg-gray-100 dark:bg-gray-800 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-orange-400">
@@ -534,36 +534,28 @@ export function HomePage() {
               </p>
             </div>
             <Button variant="ghost" className="text-[#F7931A]" asChild>
-              <Link href="/products">
+              <Link href="/category">
                 View All
                 <ArrowRight className="size-4 ml-2" />
               </Link>
             </Button>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-3">
             {categories.map((category) => (
               <Link key={category.name}
-                href={`/products?category=${encodeURIComponent(category.name)}`}
-                className="group"
+                href={`/category?category=${encodeURIComponent(category.name)}`}
+                className="group flex flex-col items-center"
               >
-                <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 border-2 hover:border-[#F7931A]">
-                  <div className="relative aspect-square">
-                    <ImageWithFallback
-                      src={category.image}
-                      alt={category.name}
-                      className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-t ${category.color} opacity-60`}
-                    />
-                    <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-4">
-                      <h3 className="font-bold text-lg mb-1">
-                        {category.name}
-                      </h3>
-                      <p className="text-sm opacity-90">{category.count}</p>
-                    </div>
-                  </div>
-                </Card>
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <ImageWithFallback
+                    src={category.image}
+                    alt={category.name}
+                    className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                  {category.name}
+                </p>
               </Link>
             ))}
           </div>
@@ -604,7 +596,7 @@ export function HomePage() {
               </p>
             </div>
             <Button variant="ghost" className="text-[#F7931A] glass-button text-sm sm:text-base" asChild>
-              <Link href="/products">
+              <Link href="/category">
                 View All
                 <ArrowRight className="size-4 ml-2" />
               </Link>
