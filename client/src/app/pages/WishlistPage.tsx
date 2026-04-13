@@ -21,8 +21,9 @@ export function WishlistPage() {
   const handleAddToCart = (id: string) => {
     const product = wishlist.find((item) => item.id === id);
     if (product) {
-      addItem({
+      addItem(product.id, (product as any).sku || product.id, 1, {
         id: product.id,
+        sku: (product as any).sku || product.id,
         name: product.name,
         price: product.price,
         image: product.image,
@@ -38,13 +39,13 @@ export function WishlistPage() {
           <div className="p-6 bg-gradient-to-br from-pink-100 to-pink-200 dark:from-pink-900/30 dark:to-pink-800/30 rounded-full w-fit mx-auto mb-6">
             <Heart className="size-16 text-pink-400 dark:text-pink-500" />
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+          <h2 className="text-2xl font-bold text-foreground mb-2">
             Your wishlist is empty
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">
+          <p className="text-muted-foreground mb-6">
             Start adding products you love
           </p>
-          <Button className="bg-gradient-to-r from-[#F7931A] to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transition-all" asChild>
+          <Button className="bg-gradient-to-r from-[var(--primary-color)] to-orange-600 hover:from-orange-600 hover:to-orange-700 text-inverse shadow-lg hover:shadow-xl transition-all border-0" asChild>
             <Link href="/products">Browse Products</Link>
           </Button>
         </div>
@@ -61,12 +62,12 @@ export function WishlistPage() {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           <div className="flex items-center gap-4">
-            <div className="p-4 bg-white/20 backdrop-blur-sm rounded-2xl">
-              <Heart className="size-8 md:size-10 text-white" />
+            <div className="p-4 bg-background/20 backdrop-blur-sm rounded-2xl">
+              <Heart className="size-8 md:size-10 text-inverse" />
             </div>
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-white drop-shadow-lg">My Wishlist</h1>
-              <p className="text-white/90 text-sm md:text-base mt-1">
+              <h1 className="text-3xl md:text-4xl font-bold text-inverse drop-shadow-lg">My Wishlist</h1>
+              <p className="text-inverse/90 text-sm md:text-base mt-1">
                 {wishlist.length} {wishlist.length === 1 ? "item" : "items"} saved
               </p>
             </div>
@@ -100,13 +101,13 @@ export function WishlistPage() {
                 />
               </Link>
               <div className="p-4">
-                <Badge variant="outline" className="mb-2 text-xs bg-gradient-to-r from-[#F7931A]/10 to-orange-600/10 text-[#F7931A] border-[#F7931A]/20">
+                <Badge variant="outline" className="mb-2 text-xs bg-gradient-to-r from-[var(--primary-color)]/10 to-orange-600/10 text-[var(--primary-color)] border-[var(--primary-color)]/20">
                   {product.category}
                 </Badge>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2">
+                <h3 className="font-semibold text-foreground mb-2 line-clamp-2">
                   <Link
                     href={`/products/${product.id}`}
-                    className="hover:text-[#F7931A] transition-colors"
+                    className="hover:text-[var(--primary-color)] transition-colors"
                   >
                     {product.name}
                   </Link>
@@ -117,34 +118,34 @@ export function WishlistPage() {
                       key={i}
                       className={`size-4 ${
                         i < Math.floor(product.rating || 0)
-                          ? "fill-[#F7931A] text-[#F7931A]"
-                          : "text-gray-300 dark:text-gray-600"
+                          ? "fill-[var(--primary-color)] text-[var(--primary-color)]"
+                          : "text-muted dark:text-muted-foreground"
                       }`}
                     />
                   ))}
                   {product.reviews && (
-                    <span className="text-sm text-gray-600 dark:text-gray-400">
+                    <span className="text-sm text-muted-foreground">
                       ({product.reviews})
                     </span>
                   )}
                 </div>
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xl font-bold text-[#F7931A]">
+                  <span className="text-xl font-bold text-[var(--primary-color)]">
                     ${product.price}
                   </span>
                   {product.originalPrice && (
                     <>
-                      <span className="text-sm text-gray-500 dark:text-gray-400 line-through">
+                      <span className="text-sm text-muted-foreground line-through">
                         ${product.originalPrice}
                       </span>
-                      <Badge className="ml-auto bg-gradient-to-r from-green-500 to-green-600 text-white text-xs">
+                      <Badge className="ml-auto bg-gradient-to-r from-green-500 to-green-600 text-inverse text-xs">
                         {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
                       </Badge>
                     </>
                   )}
                 </div>
                 <Button
-                  className="w-full bg-gradient-to-r from-[#F7931A] to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-md hover:shadow-lg transition-all"
+                  className="w-full bg-gradient-to-r from-[var(--primary-color)] to-orange-600 hover:from-orange-600 hover:to-orange-700 text-inverse shadow-md hover:shadow-lg transition-all border-0"
                   onClick={() => handleAddToCart(product.id)}
                 >
                   <ShoppingCart className="size-4 mr-2" />
@@ -158,4 +159,5 @@ export function WishlistPage() {
     </div>
   );
 }
+
 

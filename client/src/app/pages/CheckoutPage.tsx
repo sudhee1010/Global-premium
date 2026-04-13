@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Card } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
@@ -20,7 +21,7 @@ export function CheckoutPage() {
   const router = useRouter();
   const { items, subtotal, clearCart } = useCart();
   const { user } = useAuth();
-  
+
   const [firstName, setFirstName] = useState(user?.name?.split(" ")[0] || "");
   const [lastName, setLastName] = useState(user?.name?.split(" ").slice(1).join(" ") || "");
   const [email, setEmail] = useState(user?.email || "");
@@ -79,10 +80,11 @@ export function CheckoutPage() {
       const result = await ordersApi.create(orderData);
       toast.success("Order placed successfully!");
       clearCart();
-      
+
       // Store order info for success page
       localStorage.setItem("lastOrder", JSON.stringify({
         ...result,
+        items,
         shippingAddress: orderData.address,
         amount: total,
         paymentMethod: paymentData.method || "Credit Card",
@@ -108,78 +110,78 @@ export function CheckoutPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 pt-24 pb-12">
+    <div className="min-h-screen bg-muted pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-4 mb-8">
           <div className="p-3 bg-primary/10 rounded-2xl">
             <CheckCircle2 className="size-6 text-primary" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Checkout</h1>
-            <p className="text-gray-600 dark:text-gray-400">Complete your order</p>
+            <h1 className="text-3xl font-bold text-foreground">Checkout</h1>
+            <p className="text-muted-foreground">Complete your order</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-8">
             {/* Shipping Information */}
-            <Card className="p-6 border-0 shadow-sm rounded-3xl bg-white dark:bg-gray-900">
+            <Card className="p-6 border-0 shadow-sm rounded-3xl bg-card">
               <div className="flex items-center gap-3 mb-6">
                 <Truck className="size-5 text-primary" />
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white">Shipping Information</h2>
+                <h2 className="text-xl font-bold text-foreground">Shipping Information</h2>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="firstName">First Name</Label>
-                  <Input id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="John" className="rounded-xl border-gray-200 dark:border-gray-800" />
+                  <Input id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="John" className="rounded-xl border-border" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="lastName">Last Name</Label>
-                  <Input id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Doe" className="rounded-xl border-gray-200 dark:border-gray-800" />
+                  <Input id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Doe" className="rounded-xl border-border" />
                 </div>
                 <div className="space-y-2 md:col-span-2">
                   <Label htmlFor="email">Email Address</Label>
-                  <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="john@example.com" className="rounded-xl border-gray-200 dark:border-gray-800" />
+                  <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="john@example.com" className="rounded-xl border-border" />
                 </div>
                 <div className="space-y-2 md:col-span-2">
                   <Label htmlFor="address">Street Address</Label>
-                  <Input id="address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="123 Main St" className="rounded-xl border-gray-200 dark:border-gray-800" />
+                  <Input id="address" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="123 Main St" className="rounded-xl border-border" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="city">City</Label>
-                  <Input id="city" value={city} onChange={(e) => setCity(e.target.value)} placeholder="New York" className="rounded-xl border-gray-200 dark:border-gray-800" />
+                  <Input id="city" value={city} onChange={(e) => setCity(e.target.value)} placeholder="New York" className="rounded-xl border-border" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="state">State / Province</Label>
-                  <Input id="state" value={state} onChange={(e) => setState(e.target.value)} placeholder="NY" className="rounded-xl border-gray-200 dark:border-gray-800" />
+                  <Input id="state" value={state} onChange={(e) => setState(e.target.value)} placeholder="NY" className="rounded-xl border-border" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="zip">ZIP / Postal Code</Label>
-                  <Input id="zip" value={zip} onChange={(e) => setZip(e.target.value)} placeholder="10001" className="rounded-xl border-gray-200 dark:border-gray-800" />
+                  <Input id="zip" value={zip} onChange={(e) => setZip(e.target.value)} placeholder="10001" className="rounded-xl border-border" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="phone">Phone Number</Label>
-                  <Input id="phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+1 (555) 000-0000" className="rounded-xl border-gray-200 dark:border-gray-800" />
+                  <Input id="phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+1 (555) 000-0000" className="rounded-xl border-border" />
                 </div>
               </div>
             </Card>
 
             {/* Payment Method */}
-            <Card className="p-6 border-0 shadow-sm rounded-3xl bg-white dark:bg-gray-900">
-              <PaymentGateway 
+            <Card className="p-6 border-0 shadow-sm rounded-3xl bg-card">
+              <PaymentGateway
                 amount={total}
-                onSuccess={handlePaymentComplete}
-                onCancel={() => setIsProcessing(false)}
+                onPaymentComplete={handlePaymentComplete}
+                disabled={!termsAccepted}
               />
-              
+
               <div className="mt-6 flex items-center space-x-2">
-                <Checkbox 
-                  id="terms" 
+                <Checkbox
+                  id="terms"
                   checked={termsAccepted}
                   onCheckedChange={(checked) => setTermsAccepted(checked as boolean)}
                 />
-                <Label htmlFor="terms" className="text-sm text-gray-600 dark:text-gray-400">
+                <Label htmlFor="terms" className="text-sm text-muted-foreground">
                   I agree to the <Link href="/terms" className="text-primary hover:underline">Terms & Conditions</Link> and <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link>
                 </Label>
               </div>
@@ -188,49 +190,49 @@ export function CheckoutPage() {
 
           {/* Order Summary */}
           <div className="space-y-6">
-            <Card className="p-6 border-0 shadow-sm rounded-3xl bg-white dark:bg-gray-900 sticky top-24">
+            <Card className="p-6 border-0 shadow-sm rounded-3xl bg-card sticky top-24">
               <div className="flex items-center gap-3 mb-6">
                 <Package className="size-5 text-primary" />
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white">Order Summary</h2>
+                <h2 className="text-xl font-bold text-foreground">Order Summary</h2>
               </div>
 
               <div className="space-y-4 mb-6 max-h-[40vh] overflow-y-auto pr-2 custom-scrollbar">
                 {items.map((item) => (
                   <div key={`${item.id}-${item.sku}`} className="flex gap-4">
-                    <div className="size-16 rounded-xl bg-gray-100 dark:bg-gray-800 overflow-hidden flex-shrink-0">
+                    <div className="size-16 rounded-xl bg-muted overflow-hidden flex-shrink-0">
                       <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-sm font-bold text-gray-900 dark:text-white truncate">{item.name}</h4>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">Qty: {item.quantity} × ${item.price.toFixed(2)}</p>
+                      <h4 className="text-sm font-bold text-foreground truncate">{item.name}</h4>
+                      <p className="text-xs text-muted-foreground">Qty: {item.quantity} × ${item.price.toFixed(2)}</p>
                       {item.variant?.attributes && (
                         <div className="flex gap-1 mt-1">
                           {item.variant.attributes.map((a: any) => (
-                            <span key={a.name} className="text-[10px] text-gray-400 bg-gray-50 dark:bg-gray-800 px-1 rounded">{a.value}</span>
+                            <span key={a.name} className="text-[10px] text-muted-foreground bg-muted px-1 rounded">{a.value}</span>
                           ))}
                         </div>
                       )}
                     </div>
-                    <div className="text-sm font-bold text-gray-900 dark:text-white">
+                    <div className="text-sm font-bold text-foreground">
                       ${(item.price * item.quantity).toFixed(2)}
                     </div>
                   </div>
                 ))}
               </div>
 
-              <Separator className="my-6 bg-gray-100 dark:bg-gray-800" />
+              <Separator className="my-6 bg-muted" />
 
               <div className="space-y-3">
-                <div className="flex justify-between text-gray-600 dark:text-gray-400">
+                <div className="flex justify-between text-muted-foreground">
                   <span>Subtotal</span>
-                  <span className="font-semibold text-gray-900 dark:text-white">${subtotal.toFixed(2)}</span>
+                  <span className="font-semibold text-foreground">${subtotal.toFixed(2)}</span>
                 </div>
-                <div className="flex justify-between text-gray-600 dark:text-gray-400">
+                <div className="flex justify-between text-muted-foreground">
                   <span>Shipping</span>
                   <span className="font-semibold text-green-600">{shipping === 0 ? "FREE" : `$${shipping.toFixed(2)}`}</span>
                 </div>
                 <div className="flex justify-between items-center pt-4 border-t border-gray-100 dark:border-gray-800">
-                  <span className="text-lg font-bold text-gray-900 dark:text-white">Total</span>
+                  <span className="text-lg font-bold text-foreground">Total</span>
                   <span className="text-2xl font-black text-primary">${total.toFixed(2)}</span>
                 </div>
               </div>
@@ -247,3 +249,4 @@ export function CheckoutPage() {
     </div>
   );
 }
+

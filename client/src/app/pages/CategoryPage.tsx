@@ -228,40 +228,40 @@ const flashDealConfigs: Record<
   { title: string; desc: string; cta: string; discount: string; color: string; icon: React.ReactNode; href: string }[]
 > = {
   Fashion: [
-    { title: "EID Special", desc: "Festive fashion for every celebration", cta: "Shop Now", discount: "40% OFF", color: "from-rose-500 to-pink-600", icon: <ShoppingBag className="w-4 h-4 text-white" />, href: "/category?category=Fashion&subcategory=EID" },
-    { title: "Kurta Collection", desc: "Ethnic wear at unbeatable prices", cta: "Explore", discount: "30% OFF", color: "from-orange-500 to-amber-600", icon: <Tag className="w-4 h-4 text-white" />, href: "/category?category=Fashion&subcategory=Kurtas" },
-    { title: "Sneaker Drops", desc: "Latest sports shoes & streetwear", cta: "Browse", discount: "25% OFF", color: "from-purple-500 to-indigo-600", icon: <ShoppingBag className="w-4 h-4 text-white" />, href: "/category?category=Fashion&subcategory=Sports Shoes" },
-    { title: "Accessories Sale", desc: "Watches, bags & jewellery deals", cta: "View All", discount: "35% OFF", color: "from-teal-500 to-cyan-600", icon: <Tag className="w-4 h-4 text-white" />, href: "/category?category=Fashion&subcategory=Watches" },
+    { title: "EID Special", desc: "Festive fashion for every celebration", cta: "Shop Now", discount: "40% OFF", color: "from-rose-500 to-pink-600", icon: <ShoppingBag className="w-4 h-4 text-inverse" />, href: "/category?category=Fashion&subcategory=EID" },
+    { title: "Kurta Collection", desc: "Ethnic wear at unbeatable prices", cta: "Explore", discount: "30% OFF", color: "from-orange-500 to-amber-600", icon: <Tag className="w-4 h-4 text-inverse" />, href: "/category?category=Fashion&subcategory=Kurtas" },
+    { title: "Sneaker Drops", desc: "Latest sports shoes & streetwear", cta: "Browse", discount: "25% OFF", color: "from-purple-500 to-indigo-600", icon: <ShoppingBag className="w-4 h-4 text-inverse" />, href: "/category?category=Fashion&subcategory=Sports Shoes" },
+    { title: "Accessories Sale", desc: "Watches, bags & jewellery deals", cta: "View All", discount: "35% OFF", color: "from-teal-500 to-cyan-600", icon: <Tag className="w-4 h-4 text-inverse" />, href: "/category?category=Fashion&subcategory=Watches" },
   ],
   Electronics: [
-    { title: "Smartphone Deals", desc: "Latest mobiles at great prices", cta: "Shop Now", discount: "20% OFF", color: "from-blue-500 to-cyan-600", icon: <Tag className="w-4 h-4 text-white" />, href: "/category?category=Electronics&subcategory=Smartphones" },
-    { title: "Laptop Sale", desc: "Work & game with powerful laptops", cta: "Explore", discount: "15% OFF", color: "from-indigo-500 to-blue-600", icon: <Tag className="w-4 h-4 text-white" />, href: "/category?category=Electronics&subcategory=Laptops" },
-    { title: "Audio Fest", desc: "Headphones, speakers & earbuds", cta: "Browse", discount: "30% OFF", color: "from-violet-500 to-purple-600", icon: <Tag className="w-4 h-4 text-white" />, href: "/category?category=Electronics&subcategory=Headphones" },
-    { title: "Gaming Week", desc: "Consoles, mice, keyboards & more", cta: "View All", discount: "25% OFF", color: "from-green-500 to-emerald-600", icon: <Tag className="w-4 h-4 text-white" />, href: "/category?category=Electronics&subcategory=Gaming Consoles" },
+    { title: "Smartphone Deals", desc: "Latest mobiles at great prices", cta: "Shop Now", discount: "20% OFF", color: "from-blue-500 to-cyan-600", icon: <Tag className="w-4 h-4 text-inverse" />, href: "/category?category=Electronics&subcategory=Smartphones" },
+    { title: "Laptop Sale", desc: "Work & game with powerful laptops", cta: "Explore", discount: "15% OFF", color: "from-indigo-500 to-blue-600", icon: <Tag className="w-4 h-4 text-inverse" />, href: "/category?category=Electronics&subcategory=Laptops" },
+    { title: "Audio Fest", desc: "Headphones, speakers & earbuds", cta: "Browse", discount: "30% OFF", color: "from-violet-500 to-purple-600", icon: <Tag className="w-4 h-4 text-inverse" />, href: "/category?category=Electronics&subcategory=Headphones" },
+    { title: "Gaming Week", desc: "Consoles, mice, keyboards & more", cta: "View All", discount: "25% OFF", color: "from-green-500 to-emerald-600", icon: <Tag className="w-4 h-4 text-inverse" />, href: "/category?category=Electronics&subcategory=Gaming Consoles" },
   ],
   "Home & Garden": [
-    { title: "Home Essentials", desc: "Upgrade your living space with quality items", cta: "Browse", discount: "Free Ship", color: "from-teal-500 to-teal-600", icon: <Home className="w-4 h-4 text-white" />, href: "/category?category=Home & Garden&subcategory=Home Decor" },
-    { title: "Garden Tools", desc: "Premium gardening equipment", cta: "Shop", discount: "25% OFF", color: "from-green-600 to-green-700", icon: <Leaf className="w-4 h-4 text-white" />, href: "/category?category=Home & Garden&subcategory=Garden Tools" },
-    { title: "Kitchen Deals", desc: "Modern appliances for your cooking needs", cta: "Explore", discount: "20% OFF", color: "from-orange-500 to-orange-600", icon: <UtensilsCrossed className="w-4 h-4 text-white" />, href: "/category?category=Home & Garden&subcategory=Kitchen Appliances" },
-    { title: "Furniture Sale", desc: "Transform your space with modern designs", cta: "Shop", discount: "30% OFF", color: "from-purple-600 to-purple-700", icon: <Sofa className="w-4 h-4 text-white" />, href: "/category?category=Home & Garden&subcategory=Furniture" },
+    { title: "Home Essentials", desc: "Upgrade your living space with quality items", cta: "Browse", discount: "Free Ship", color: "from-teal-500 to-teal-600", icon: <Home className="w-4 h-4 text-inverse" />, href: "/category?category=Home & Garden&subcategory=Home Decor" },
+    { title: "Garden Tools", desc: "Premium gardening equipment", cta: "Shop", discount: "25% OFF", color: "from-green-600 to-green-700", icon: <Leaf className="w-4 h-4 text-inverse" />, href: "/category?category=Home & Garden&subcategory=Garden Tools" },
+    { title: "Kitchen Deals", desc: "Modern appliances for your cooking needs", cta: "Explore", discount: "20% OFF", color: "from-orange-500 to-orange-600", icon: <UtensilsCrossed className="w-4 h-4 text-inverse" />, href: "/category?category=Home & Garden&subcategory=Kitchen Appliances" },
+    { title: "Furniture Sale", desc: "Transform your space with modern designs", cta: "Shop", discount: "30% OFF", color: "from-purple-600 to-purple-700", icon: <Sofa className="w-4 h-4 text-inverse" />, href: "/category?category=Home & Garden&subcategory=Furniture" },
   ],
   Sports: [
-    { title: "Fitness Gear", desc: "Premium sports equipment at great prices", cta: "Shop", discount: "30% OFF", color: "from-orange-500 to-red-500", icon: <Tag className="w-4 h-4 text-white" />, href: "/category?category=Sports&subcategory=Fitness Equipment" },
-    { title: "Sportswear", desc: "High-performance activewear", cta: "Browse", discount: "25% OFF", color: "from-yellow-500 to-orange-500", icon: <ShoppingBag className="w-4 h-4 text-white" />, href: "/category?category=Sports&subcategory=Sportswear" },
-    { title: "Cricket Season", desc: "Top cricket gear & accessories", cta: "Explore", discount: "20% OFF", color: "from-green-500 to-teal-500", icon: <Tag className="w-4 h-4 text-white" />, href: "/category?category=Sports&subcategory=Cricket" },
-    { title: "Sneakers Drop", desc: "Latest sports shoes & running gear", cta: "Shop Now", discount: "15% OFF", color: "from-blue-500 to-indigo-500", icon: <ShoppingBag className="w-4 h-4 text-white" />, href: "/category?category=Sports&subcategory=Sports Shoes" },
+    { title: "Fitness Gear", desc: "Premium sports equipment at great prices", cta: "Shop", discount: "30% OFF", color: "from-orange-500 to-red-500", icon: <Tag className="w-4 h-4 text-inverse" />, href: "/category?category=Sports&subcategory=Fitness Equipment" },
+    { title: "Sportswear", desc: "High-performance activewear", cta: "Browse", discount: "25% OFF", color: "from-yellow-500 to-orange-500", icon: <ShoppingBag className="w-4 h-4 text-inverse" />, href: "/category?category=Sports&subcategory=Sportswear" },
+    { title: "Cricket Season", desc: "Top cricket gear & accessories", cta: "Explore", discount: "20% OFF", color: "from-green-500 to-teal-500", icon: <Tag className="w-4 h-4 text-inverse" />, href: "/category?category=Sports&subcategory=Cricket" },
+    { title: "Sneakers Drop", desc: "Latest sports shoes & running gear", cta: "Shop Now", discount: "15% OFF", color: "from-blue-500 to-indigo-500", icon: <ShoppingBag className="w-4 h-4 text-inverse" />, href: "/category?category=Sports&subcategory=Sports Shoes" },
   ],
   Beauty: [
-    { title: "Skincare Sale", desc: "Premium skincare for glowing skin", cta: "Shop", discount: "15% OFF", color: "from-pink-500 to-rose-600", icon: <Tag className="w-4 h-4 text-white" />, href: "/category?category=Beauty&subcategory=Skincare" },
-    { title: "Makeup Fest", desc: "Lipsticks, palettes & more", cta: "Explore", discount: "20% OFF", color: "from-purple-500 to-pink-500", icon: <ShoppingBag className="w-4 h-4 text-white" />, href: "/category?category=Beauty&subcategory=Makeup" },
-    { title: "Fragrance Sale", desc: "Top perfumes at irresistible prices", cta: "Browse", discount: "25% OFF", color: "from-indigo-500 to-purple-600", icon: <Tag className="w-4 h-4 text-white" />, href: "/category?category=Beauty&subcategory=Perfumes" },
-    { title: "Haircare Week", desc: "Shampoos, serums & styling tools", cta: "View All", discount: "30% OFF", color: "from-teal-500 to-cyan-600", icon: <ShoppingBag className="w-4 h-4 text-white" />, href: "/category?category=Beauty&subcategory=Haircare" },
+    { title: "Skincare Sale", desc: "Premium skincare for glowing skin", cta: "Shop", discount: "15% OFF", color: "from-pink-500 to-rose-600", icon: <Tag className="w-4 h-4 text-inverse" />, href: "/category?category=Beauty&subcategory=Skincare" },
+    { title: "Makeup Fest", desc: "Lipsticks, palettes & more", cta: "Explore", discount: "20% OFF", color: "from-purple-500 to-pink-500", icon: <ShoppingBag className="w-4 h-4 text-inverse" />, href: "/category?category=Beauty&subcategory=Makeup" },
+    { title: "Fragrance Sale", desc: "Top perfumes at irresistible prices", cta: "Browse", discount: "25% OFF", color: "from-indigo-500 to-purple-600", icon: <Tag className="w-4 h-4 text-inverse" />, href: "/category?category=Beauty&subcategory=Perfumes" },
+    { title: "Haircare Week", desc: "Shampoos, serums & styling tools", cta: "View All", discount: "30% OFF", color: "from-teal-500 to-cyan-600", icon: <ShoppingBag className="w-4 h-4 text-inverse" />, href: "/category?category=Beauty&subcategory=Haircare" },
   ],
   Books: [
-    { title: "Bestsellers", desc: "Top-rated books across all genres", cta: "Shop", discount: "40% OFF", color: "from-indigo-500 to-blue-600", icon: <Tag className="w-4 h-4 text-white" />, href: "/category?category=Books&subcategory=Fiction" },
-    { title: "Self-Help Sale", desc: "Books that change your life", cta: "Browse", discount: "35% OFF", color: "from-orange-500 to-amber-600", icon: <ShoppingBag className="w-4 h-4 text-white" />, href: "/category?category=Books&subcategory=Self-Help" },
-    { title: "Kids' Corner", desc: "Fun reads for young minds", cta: "Explore", discount: "30% OFF", color: "from-green-500 to-teal-500", icon: <Tag className="w-4 h-4 text-white" />, href: "/category?category=Books&subcategory=Children's Books" },
-    { title: "Business Books", desc: "Learn from the world's best minds", cta: "View All", discount: "25% OFF", color: "from-purple-500 to-violet-600", icon: <ShoppingBag className="w-4 h-4 text-white" />, href: "/category?category=Books&subcategory=Business" },
+    { title: "Bestsellers", desc: "Top-rated books across all genres", cta: "Shop", discount: "40% OFF", color: "from-indigo-500 to-blue-600", icon: <Tag className="w-4 h-4 text-inverse" />, href: "/category?category=Books&subcategory=Fiction" },
+    { title: "Self-Help Sale", desc: "Books that change your life", cta: "Browse", discount: "35% OFF", color: "from-orange-500 to-amber-600", icon: <ShoppingBag className="w-4 h-4 text-inverse" />, href: "/category?category=Books&subcategory=Self-Help" },
+    { title: "Kids' Corner", desc: "Fun reads for young minds", cta: "Explore", discount: "30% OFF", color: "from-green-500 to-teal-500", icon: <Tag className="w-4 h-4 text-inverse" />, href: "/category?category=Books&subcategory=Children's Books" },
+    { title: "Business Books", desc: "Learn from the world's best minds", cta: "View All", discount: "25% OFF", color: "from-purple-500 to-violet-600", icon: <ShoppingBag className="w-4 h-4 text-inverse" />, href: "/category?category=Books&subcategory=Business" },
   ],
 };
 
@@ -293,8 +293,8 @@ function CategoryPageInner() {
   const meta = categoryMeta[categoryParam] ?? {
     title: categoryParam,
     subtitle: "Discover our complete collection of premium products",
-    gradient: "from-[#F7931A] to-orange-600",
-    accentColor: "#F7931A",
+    gradient: "from-[var(--primary-color)] to-orange-600",
+    accentColor: "var(--primary-color)",
   };
 
   const subcategories = subcategoryData[categoryParam] ?? [];
@@ -331,7 +331,7 @@ function CategoryPageInner() {
   const FilterContent = () => (
     <div className="space-y-6">
       <div>
-        <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Price Range</h3>
+        <h3 className="font-semibold text-foreground mb-3">Price Range</h3>
         <Select value={selectedPriceRange} onValueChange={setSelectedPriceRange}>
           <SelectTrigger>
             <SelectValue placeholder="Select price range" />
@@ -345,7 +345,7 @@ function CategoryPageInner() {
       </div>
       <Separator />
       <div>
-        <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Rating</h3>
+        <h3 className="font-semibold text-foreground mb-3">Rating</h3>
         <div className="space-y-2">
           {[5, 4, 3].map((rating) => (
             <div key={rating} className="flex items-center gap-2">
@@ -356,9 +356,9 @@ function CategoryPageInner() {
               />
               <Label htmlFor={`rating-${rating}`} className="flex items-center gap-1 text-sm cursor-pointer">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className={`size-3.5 ${i < rating ? "fill-[#F7931A] text-[#F7931A]" : "text-gray-300"}`} />
+                  <Star key={i} className={`size-3.5 ${i < rating ? "fill-[var(--primary-color)] text-[var(--primary-color)]" : "text-muted"}`} />
                 ))}
-                <span className="ml-1 text-gray-700 dark:text-gray-300">& Up</span>
+                <span className="ml-1 text-muted-foreground">& Up</span>
               </Label>
             </div>
           ))}
@@ -366,15 +366,15 @@ function CategoryPageInner() {
       </div>
       <Separator />
       <div>
-        <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Availability</h3>
+        <h3 className="font-semibold text-foreground mb-3">Availability</h3>
         <div className="space-y-2">
           <div className="flex items-center gap-2">
             <Checkbox id="in-stock" />
-            <Label htmlFor="in-stock" className="text-sm cursor-pointer text-gray-800 dark:text-gray-200">In Stock</Label>
+            <Label htmlFor="in-stock" className="text-sm cursor-pointer text-foreground dark:text-muted">In Stock</Label>
           </div>
           <div className="flex items-center gap-2">
             <Checkbox id="on-sale" />
-            <Label htmlFor="on-sale" className="text-sm cursor-pointer text-gray-800 dark:text-gray-200">On Sale</Label>
+            <Label htmlFor="on-sale" className="text-sm cursor-pointer text-foreground dark:text-muted">On Sale</Label>
           </div>
         </div>
       </div>
@@ -385,7 +385,7 @@ function CategoryPageInner() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-950 dark:bg-black relative overflow-hidden">
+    <div className="min-h-screen bg-background relative overflow-hidden">
 
       {/* Ambient background blobs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
@@ -404,35 +404,35 @@ function CategoryPageInner() {
           />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 relative">
             {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-white/70 text-sm mb-4">
-              <Link href="/products" className="hover:text-white transition-colors">All Products</Link>
+            <nav className="flex items-center gap-2 text-inverse/70 text-sm mb-4">
+              <Link href="/products" className="hover:text-inverse transition-colors">All Products</Link>
               <ChevronRight className="w-4 h-4" />
               {subcategoryParam ? (
                 <>
-                  <Link href={`/category?category=${encodeURIComponent(categoryParam)}`} className="hover:text-white transition-colors">
+                  <Link href={`/category?category=${encodeURIComponent(categoryParam)}`} className="hover:text-inverse transition-colors">
                     {categoryParam}
                   </Link>
                   <ChevronRight className="w-4 h-4" />
-                  <span className="text-white font-medium">{subcategoryParam}</span>
+                  <span className="text-inverse font-medium">{subcategoryParam}</span>
                 </>
               ) : (
-                <span className="text-white font-medium">{categoryParam}</span>
+                <span className="text-inverse font-medium">{categoryParam}</span>
               )}
             </nav>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-3 tracking-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-inverse mb-3 tracking-tight">
               {subcategoryParam ?? meta.title}
             </h1>
-            <p className="text-white/85 text-base sm:text-lg max-w-xl">
+            <p className="text-inverse/85 text-base sm:text-lg max-w-xl">
               {meta.subtitle}
             </p>
             <div className="mt-5 flex items-center gap-3">
-              <span className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-sm text-white text-sm font-medium px-4 py-1.5 rounded-full">
+              <span className="inline-flex items-center gap-1.5 bg-background/20 backdrop-blur-sm text-inverse text-sm font-medium px-4 py-1.5 rounded-full">
                 <ShoppingBag className="w-4 h-4" />
                 {products.length} products
               </span>
               <Link href="/products"
-                className="inline-flex items-center gap-1.5 bg-white text-gray-900 text-sm font-semibold px-4 py-1.5 rounded-full hover:bg-white/90 transition-colors"
+                className="inline-flex items-center gap-1.5 bg-background text-foreground text-sm font-semibold px-4 py-1.5 rounded-full hover:bg-background/90 transition-colors"
               >
                 All Products
               </Link>
@@ -442,11 +442,11 @@ function CategoryPageInner() {
 
         {/* ── 2. SUBCATEGORY ICON GRID ────────────────────────────────────────── */}
         {subcategories.length > 0 && (
-          <section className="py-8 bg-gray-950 dark:bg-black border-b border-white/5">
+          <section className="py-8 bg-background border-b border-white/5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between mb-5">
-                <h2 className="text-xl font-bold text-white">Browse {categoryParam}</h2>
-                <span className="text-gray-400 text-sm">{subcategories.length} categories</span>
+                <h2 className="text-xl font-bold text-inverse">Browse {categoryParam}</h2>
+                <span className="text-muted-foreground text-sm">{subcategories.length} categories</span>
               </div>
               <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-2 sm:gap-3">
                 {subcategories.map((cat) => {
@@ -459,7 +459,7 @@ function CategoryPageInner() {
                     >
                       <div className={`relative w-full aspect-square rounded-xl overflow-hidden mb-1.5 transition-all duration-300 hover:scale-105
                         ${isActive
-                          ? "ring-2 ring-[#F7931A] shadow-lg shadow-orange-500/30"
+                          ? "ring-2 ring-[var(--primary-color)] shadow-lg shadow-orange-500/30"
                           : "hover:shadow-lg hover:shadow-white/10"
                         }`}
                       >
@@ -469,13 +469,13 @@ function CategoryPageInner() {
                           className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                         />
                         {isActive && (
-                          <div className="absolute inset-0 bg-[#F7931A]/20 flex items-center justify-center">
-                            <div className="w-2 h-2 rounded-full bg-[#F7931A]" />
+                          <div className="absolute inset-0 bg-[var(--primary-color)]/20 flex items-center justify-center">
+                            <div className="w-2 h-2 rounded-full bg-[var(--primary-color)]" />
                           </div>
                         )}
                       </div>
                       <p className={`text-[10px] sm:text-xs text-center font-medium line-clamp-2 leading-tight transition-colors
-                        ${isActive ? "text-[#F7931A]" : "text-gray-300 group-hover:text-white"}`}
+                        ${isActive ? "text-[var(--primary-color)]" : "text-muted group-hover:text-inverse"}`}
                       >
                         {cat.name}
                       </p>
@@ -489,7 +489,7 @@ function CategoryPageInner() {
 
         {/* ── 3. FASHION AD CAROUSEL (Fashion only) ──────────────────────────── */}
         {categoryParam === "Fashion" && !subcategoryParam && (
-          <section className="py-8 bg-gray-900/40">
+          <section className="py-8 bg-card text-card-foreground/40">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <FashionAdCarousel />
             </div>
@@ -498,13 +498,13 @@ function CategoryPageInner() {
 
         {/* ── 4. FLASH DEALS & OFFERS ─────────────────────────────────────────── */}
         {/* COMMENTED OUT — uncomment to restore
-        <section className="py-10 bg-gray-900/30">
+        <section className="py-10 bg-card text-card-foreground/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+              <h2 className="text-2xl sm:text-3xl font-bold text-inverse mb-2">
                 Flash Deals & Offers
               </h2>
-              <p className="text-gray-400">
+              <p className="text-muted-foreground">
                 Don&apos;t miss out on these amazing limited-time offers
               </p>
             </div>
@@ -513,21 +513,21 @@ function CategoryPageInner() {
               {flashDeals.map((deal) => (
                 <div key={deal.title} className="px-3">
                   <div className={`relative rounded-2xl p-6 sm:p-8 bg-gradient-to-br ${deal.color} overflow-hidden shadow-xl h-[240px] sm:h-[260px] flex flex-col justify-between`}>
-                    <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-white/10" />
-                    <div className="absolute -bottom-4 -left-4 w-20 h-20 rounded-full bg-white/10" />
+                    <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-background/10" />
+                    <div className="absolute -bottom-4 -left-4 w-20 h-20 rounded-full bg-background/10" />
                     <div className="relative">
-                      <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 mb-3">
+                      <div className="inline-flex items-center gap-2 bg-background/20 backdrop-blur-sm rounded-full px-3 py-1 mb-3">
                         {deal.icon}
-                        <span className="text-white text-xs font-medium">{categoryParam}</span>
+                        <span className="text-inverse text-xs font-medium">{categoryParam}</span>
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">{deal.title}</h3>
-                      <p className="text-white/85 text-sm">{deal.desc}</p>
+                      <h3 className="text-xl sm:text-2xl font-bold text-inverse mb-1">{deal.title}</h3>
+                      <p className="text-inverse/85 text-sm">{deal.desc}</p>
                     </div>
                     <div className="relative flex items-center justify-between">
-                      <Link href={deal.href} className="bg-white text-gray-900 px-5 py-2 rounded-full text-sm font-semibold hover:bg-white/90 transition-colors">
+                      <Link href={deal.href} className="bg-background text-foreground px-5 py-2 rounded-full text-sm font-semibold hover:bg-background/90 transition-colors">
                         {deal.cta}
                       </Link>
-                      <span className="text-white text-xl sm:text-2xl font-extrabold">{deal.discount}</span>
+                      <span className="text-inverse text-xl sm:text-2xl font-extrabold">{deal.discount}</span>
                     </div>
                   </div>
                 </div>
@@ -539,9 +539,9 @@ function CategoryPageInner() {
 
         {/* ── 5. SHOP FOR LOVED ONES ──────────────────────────────────────────── */}
         {/* COMMENTED OUT — uncomment to restore
-        <section className="py-10 bg-gray-950 dark:bg-black">
+        <section className="py-10 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-inverse mb-6">
               Shop for Loved Ones
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -551,8 +551,8 @@ function CategoryPageInner() {
                 <ImageWithFallback src="https://images.unsplash.com/photo-1635913906376-53130718255a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" alt="Men's Collection" className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-900/30 to-transparent" />
                 <div className="absolute bottom-5 left-5">
-                  <h3 className="text-2xl font-bold text-white mb-0.5">Men</h3>
-                  <p className="text-white/80 text-sm">Discover men&apos;s collection</p>
+                  <h3 className="text-2xl font-bold text-inverse mb-0.5">Men</h3>
+                  <p className="text-inverse/80 text-sm">Discover men&apos;s collection</p>
                 </div>
               </Link>
               <Link href={`/category?category=${encodeURIComponent(categoryParam)}&gender=women`}
@@ -561,8 +561,8 @@ function CategoryPageInner() {
                 <ImageWithFallback src="https://images.unsplash.com/photo-1655026950620-b39ab24e9b4b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" alt="Women's Collection" className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500 grayscale" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 <div className="absolute bottom-5 left-5">
-                  <h3 className="text-2xl font-bold text-white mb-0.5">Women</h3>
-                  <p className="text-white/80 text-sm">Explore women&apos;s collection</p>
+                  <h3 className="text-2xl font-bold text-inverse mb-0.5">Women</h3>
+                  <p className="text-inverse/80 text-sm">Explore women&apos;s collection</p>
                 </div>
               </Link>
               <Link href={`/category?category=${encodeURIComponent(categoryParam)}&collection=genz`}
@@ -571,9 +571,9 @@ function CategoryPageInner() {
                 <ImageWithFallback src="https://images.unsplash.com/photo-1610738572401-5dfeeb660c7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" alt="Gen Z Collection" className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/80 via-green-900/30 to-transparent" />
                 <div className="absolute bottom-5 left-5">
-                  <div className="inline-block bg-green-400 text-gray-900 font-bold px-2.5 py-0.5 rounded-full text-xs mb-1">spoyl</div>
-                  <h3 className="text-2xl font-bold text-white mb-0.5">Gen Z Drips</h3>
-                  <p className="text-white/80 text-sm">Trending Gen Z styles</p>
+                  <div className="inline-block bg-green-400 text-foreground font-bold px-2.5 py-0.5 rounded-full text-xs mb-1">spoyl</div>
+                  <h3 className="text-2xl font-bold text-inverse mb-0.5">Gen Z Drips</h3>
+                  <p className="text-inverse/80 text-sm">Trending Gen Z styles</p>
                 </div>
               </Link>
             </div>
@@ -583,11 +583,11 @@ function CategoryPageInner() {
 
         {/* ── 6. SHOP BY CATEGORY ─────────────────────────────────────────────── */}
         {/* COMMENTED OUT — uncomment to restore
-        <section className="py-10 bg-gray-900/40">
+        <section className="py-10 bg-card text-card-foreground/40">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">Shop by Category</h2>
-              <Link href="/products" className="text-[#F7931A] text-sm font-medium hover:underline flex items-center gap-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-inverse">Shop by Category</h2>
+              <Link href="/products" className="text-[var(--primary-color)] text-sm font-medium hover:underline flex items-center gap-1">
                 View All <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
@@ -597,15 +597,15 @@ function CategoryPageInner() {
                 return (
                   <Link key={cat.name} href={`/category?category=${encodeURIComponent(cat.name)}`}
                     className={`group relative overflow-hidden rounded-2xl aspect-square transition-all duration-300 hover:scale-105
-                      ${isCurrentCat ? "ring-2 ring-[#F7931A] shadow-lg shadow-orange-500/30" : ""}`}
+                      ${isCurrentCat ? "ring-2 ring-[var(--primary-color)] shadow-lg shadow-orange-500/30" : ""}`}
                   >
                     <ImageWithFallback src={cat.image} alt={cat.name} className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300" />
                     <div className={`absolute inset-0 ${cat.color} opacity-70 group-hover:opacity-80 transition-opacity`} />
                     <div className="absolute inset-0 flex flex-col items-center justify-center p-2 text-center">
-                      <p className="text-white font-bold text-xs sm:text-sm leading-tight">{cat.name}</p>
-                      <p className="text-white/70 text-[9px] sm:text-xs mt-0.5 hidden sm:block">{cat.count}</p>
+                      <p className="text-inverse font-bold text-xs sm:text-sm leading-tight">{cat.name}</p>
+                      <p className="text-inverse/70 text-[9px] sm:text-xs mt-0.5 hidden sm:block">{cat.count}</p>
                     </div>
-                    {isCurrentCat && <div className="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-[#F7931A]" />}
+                    {isCurrentCat && <div className="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-[var(--primary-color)]" />}
                   </Link>
                 );
               })}
@@ -620,10 +620,10 @@ function CategoryPageInner() {
           {/* Toolbar */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3">
             <div>
-              <h2 className="text-xl font-bold text-white">
+              <h2 className="text-xl font-bold text-inverse">
                 {subcategoryParam ? subcategoryParam : categoryParam} Products
               </h2>
-              <p className="text-gray-400 text-sm mt-0.5">
+              <p className="text-muted-foreground text-sm mt-0.5">
                 Showing {products.length} products
               </p>
             </div>
@@ -635,16 +635,16 @@ function CategoryPageInner() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex items-center gap-2 text-gray-900 dark:text-white border-gray-600 bg-gray-800 hover:bg-gray-700"
+                    className="flex items-center gap-2 text-foreground border-gray-600 bg-card text-card-foreground hover:bg-card text-card-foreground"
                   >
                     <SlidersHorizontal className="w-4 h-4" />
                     <span>Filters</span>
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="w-80 overflow-y-auto bg-gray-900 border-gray-700">
+                <SheetContent side="left" className="w-80 overflow-y-auto bg-card text-card-foreground border-gray-700">
                   <SheetHeader>
-                    <SheetTitle className="text-white">Filters</SheetTitle>
-                    <SheetDescription className="text-gray-400">
+                    <SheetTitle className="text-inverse">Filters</SheetTitle>
+                    <SheetDescription className="text-muted-foreground">
                       Refine your product search
                     </SheetDescription>
                   </SheetHeader>
@@ -656,10 +656,10 @@ function CategoryPageInner() {
 
               {/* Sort */}
               <Select value={sortBy} onValueChange={setSortBy}>
-                <SelectTrigger className="w-full sm:w-44 bg-gray-800 text-white border-gray-600">
+                <SelectTrigger className="w-full sm:w-44 bg-card text-card-foreground text-inverse border-gray-600">
                   <SelectValue placeholder="Sort by" />
                 </SelectTrigger>
-                <SelectContent className="bg-gray-800 border-gray-700">
+                <SelectContent className="bg-card text-card-foreground border-gray-700">
                   <SelectItem value="featured">Featured</SelectItem>
                   <SelectItem value="price-low">Price: Low to High</SelectItem>
                   <SelectItem value="price-high">Price: High to Low</SelectItem>
@@ -673,13 +673,13 @@ function CategoryPageInner() {
           {/* Grid or Empty State */}
           {products.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-24 text-center">
-              <ShoppingBag className="w-16 h-16 text-gray-600 mb-4" />
-              <h3 className="text-xl font-semibold text-white mb-2">No products found</h3>
-              <p className="text-gray-400 mb-6">
+              <ShoppingBag className="w-16 h-16 text-muted-foreground mb-4" />
+              <h3 className="text-xl font-semibold text-inverse mb-2">No products found</h3>
+              <p className="text-muted-foreground mb-6">
                 We couldn&apos;t find any products in this {subcategoryParam ? "subcategory" : "category"} yet.
               </p>
               <Link href={`/category?category=${encodeURIComponent(categoryParam)}`}>
-                <Button className="bg-[#F7931A] hover:bg-orange-600">
+                <Button className="bg-[var(--primary-color)] hover:bg-orange-600 border-0">
                   View All {categoryParam}
                 </Button>
               </Link>
@@ -689,27 +689,27 @@ function CategoryPageInner() {
               {products.map((product, index) => (
                 <div
                   key={product.id}
-                  className="bg-gray-800 border border-gray-700 group overflow-hidden hover:scale-[1.03] transition-all duration-300 rounded-xl shadow-sm hover:shadow-lg hover:shadow-black/40"
+                  className="bg-card text-card-foreground border border-gray-700 group overflow-hidden hover:scale-[1.03] transition-all duration-300 rounded-xl shadow-sm hover:shadow-lg hover:shadow-black/40"
                   style={{ animationDelay: `${(index % 10) * 0.04}s` }}
                 >
                   <Link
                     href={`/products/${product.id}`}
-                    className="relative block aspect-square overflow-hidden bg-gray-900"
+                    className="relative block aspect-square overflow-hidden bg-card text-card-foreground"
                   >
                     {product.badge && (
-                      <Badge className="absolute top-2 right-2 z-10 bg-gradient-to-r from-[#F7931A] to-orange-600 text-white text-[9px] px-1.5 py-0.5">
+                      <Badge className="absolute top-2 right-2 z-10 bg-gradient-to-r from-[var(--primary-color)] to-orange-600 text-inverse text-[9px] px-1.5 py-0.5 border-0">
                         {product.badge}
                       </Badge>
                     )}
                     {!product.inStock && (
-                      <Badge className="absolute top-2 right-2 z-10 bg-red-600 text-white text-[9px] px-1.5 py-0.5">
+                      <Badge className="absolute top-2 right-2 z-10 bg-red-600 text-inverse text-[9px] px-1.5 py-0.5">
                         Out of Stock
                       </Badge>
                     )}
                     <Button
                       size="icon"
                       variant="secondary"
-                      className="absolute top-2 left-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity size-7 bg-gray-800/90 hover:bg-gray-700"
+                      className="absolute top-2 left-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity size-7 bg-card text-card-foreground/90 hover:bg-card text-card-foreground"
                       onClick={(e) => {
                         e.preventDefault();
                         toggleWishlist({
@@ -724,7 +724,7 @@ function CategoryPageInner() {
                         });
                       }}
                     >
-                      <Heart className={`size-3.5 ${isInWishlist(product.id) ? "fill-[#F7931A] text-[#F7931A]" : "text-[#F7931A]"}`} />
+                      <Heart className={`size-3.5 ${isInWishlist(product.id) ? "fill-[var(--primary-color)] text-[var(--primary-color)]" : "text-[var(--primary-color)]"}`} />
                     </Button>
                     <ImageWithFallback
                       src={product.image}
@@ -734,35 +734,42 @@ function CategoryPageInner() {
                   </Link>
 
                   <div className="p-2.5">
-                    <Badge variant="outline" className="mb-1.5 text-[9px] border-gray-600 text-gray-400">
+                    <Badge variant="outline" className="mb-1.5 text-[9px] border-gray-600 text-muted-foreground">
                       {product.category}
                     </Badge>
-                    <h3 className="font-semibold text-xs text-white mb-1.5 line-clamp-2 leading-tight">
-                      <Link href={`/products/${product.id}`} className="hover:text-[#F7931A] transition-colors">
+                    <h3 className="font-semibold text-xs text-inverse mb-1.5 line-clamp-2 leading-tight">
+                      <Link href={`/products/${product.id}`} className="hover:text-[var(--primary-color)] transition-colors">
                         {product.name}
                       </Link>
                     </h3>
                     <div className="flex items-center gap-1 mb-2">
                       <div className="flex">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className={`size-2.5 ${i < Math.floor(product.rating) ? "fill-[#F7931A] text-[#F7931A]" : "text-gray-600"}`} />
+                          <Star key={i} className={`size-2.5 ${i < Math.floor(product.rating) ? "fill-[var(--primary-color)] text-[var(--primary-color)]" : "text-muted-foreground"}`} />
                         ))}
                       </div>
-                      <span className="text-[10px] text-gray-400">({product.reviews})</span>
+                      <span className="text-[10px] text-muted-foreground">({product.reviews})</span>
                     </div>
                     <div className="flex items-center gap-1.5 mb-2">
-                      <span className="text-sm font-bold text-[#F7931A]">${product.price}</span>
+                      <span className="text-sm font-bold text-[var(--primary-color)]">${product.price}</span>
                       {product.originalPrice && (
-                        <span className="text-[10px] text-gray-500 line-through">${product.originalPrice}</span>
+                        <span className="text-[10px] text-muted-foreground line-through">${product.originalPrice}</span>
                       )}
                     </div>
                     <Button
-                      className="w-full bg-[#F7931A] hover:bg-orange-600 h-7 text-xs"
+                      className="w-full bg-[var(--primary-color)] hover:bg-orange-600 h-7 text-xs border-0"
                       disabled={!product.inStock}
                       onClick={(e) => {
                         e.preventDefault();
+                        e.stopPropagation();
                         if (product.inStock) {
-                          addItem({ id: product.id, name: product.name, price: product.price, image: product.image });
+                          addItem(product.id, (product as any).sku || product.id, 1, {
+                            id: product.id,
+                            sku: (product as any).sku || product.id,
+                            name: product.name,
+                            price: product.price,
+                            image: product.image,
+                          });
                           toast.success(`${product.name} added to cart!`);
                         }
                       }}
@@ -787,7 +794,7 @@ export function CategoryPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen bg-gray-950 flex items-center justify-center">
-        <div className="text-white text-lg animate-pulse">Loading…</div>
+        <div className="text-inverse text-lg animate-pulse">Loading…</div>
       </div>
     }>
       <CategoryPageInner />

@@ -147,21 +147,21 @@ export function ReturnRefundModal({
 
         <div className="space-y-6 py-4">
           {/* Order Info */}
-          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
+          <div className="p-4 bg-muted rounded-xl">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-sm text-muted-foreground">
                   Order Number
                 </p>
-                <p className="font-bold text-gray-900 dark:text-white">
+                <p className="font-bold text-foreground">
                   {orderData.orderNumber}
                 </p>
               </div>
               <div className="text-right">
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-sm text-muted-foreground">
                   Order Date
                 </p>
-                <p className="font-bold text-gray-900 dark:text-white">
+                <p className="font-bold text-foreground">
                   {orderData.orderDate}
                 </p>
               </div>
@@ -181,7 +181,7 @@ export function ReturnRefundModal({
                 <div
                   className={`relative flex items-center space-x-3 border-2 rounded-xl p-4 cursor-pointer transition-all ${
                     requestType === "return"
-                      ? "border-[#F7931A] bg-[#F7931A]/5"
+                      ? "border-[var(--primary-color)] bg-[var(--primary-color)]/5"
                       : "border-gray-200 dark:border-gray-700"
                   }`}
                   onClick={() => setRequestType("return")}
@@ -189,12 +189,12 @@ export function ReturnRefundModal({
                   <RadioGroupItem value="return" id="return" />
                   <Label htmlFor="return" className="flex-1 cursor-pointer">
                     <div className="flex items-center gap-2">
-                      <RotateCcw className="size-5 text-[#F7931A]" />
+                      <RotateCcw className="size-5 text-[var(--primary-color)]" />
                       <div>
-                        <p className="font-semibold text-gray-900 dark:text-white">
+                        <p className="font-semibold text-foreground">
                           Return
                         </p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                        <p className="text-xs text-muted-foreground">
                           Send items back
                         </p>
                       </div>
@@ -205,7 +205,7 @@ export function ReturnRefundModal({
                 <div
                   className={`relative flex items-center space-x-3 border-2 rounded-xl p-4 cursor-pointer transition-all ${
                     requestType === "refund"
-                      ? "border-[#F7931A] bg-[#F7931A]/5"
+                      ? "border-[var(--primary-color)] bg-[var(--primary-color)]/5"
                       : "border-gray-200 dark:border-gray-700"
                   }`}
                   onClick={() => setRequestType("refund")}
@@ -213,12 +213,12 @@ export function ReturnRefundModal({
                   <RadioGroupItem value="refund" id="refund" />
                   <Label htmlFor="refund" className="flex-1 cursor-pointer">
                     <div className="flex items-center gap-2">
-                      <PackageX className="size-5 text-[#F7931A]" />
+                      <PackageX className="size-5 text-[var(--primary-color)]" />
                       <div>
-                        <p className="font-semibold text-gray-900 dark:text-white">
+                        <p className="font-semibold text-foreground">
                           Refund Only
                         </p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                        <p className="text-xs text-muted-foreground">
                           Keep items
                         </p>
                       </div>
@@ -242,7 +242,7 @@ export function ReturnRefundModal({
                   key={item.id}
                   className={`flex items-center gap-4 p-4 border-2 rounded-xl cursor-pointer transition-all ${
                     selectedItems.includes(item.id)
-                      ? "border-[#F7931A] bg-[#F7931A]/5"
+                      ? "border-[var(--primary-color)] bg-[var(--primary-color)]/5"
                       : "border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
                   }`}
                   onClick={() => handleItemToggle(item.id)}
@@ -257,15 +257,15 @@ export function ReturnRefundModal({
                     className="size-16 object-cover rounded"
                   />
                   <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-gray-900 dark:text-white truncate">
+                    <p className="font-semibold text-foreground truncate">
                       {item.name}
                     </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-muted-foreground">
                       Qty: {item.quantity}
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="font-bold text-gray-900 dark:text-white">
+                    <p className="font-bold text-foreground">
                       ${(item.price * item.quantity).toFixed(2)}
                     </p>
                   </div>
@@ -280,7 +280,7 @@ export function ReturnRefundModal({
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="size-5 text-green-600 dark:text-green-400" />
-                  <span className="font-semibold text-gray-900 dark:text-white">
+                  <span className="font-semibold text-foreground">
                     Estimated Refund Amount
                   </span>
                 </div>
@@ -305,7 +305,7 @@ export function ReturnRefundModal({
                     key={reasonOption}
                     className={`flex items-center space-x-3 border-2 rounded-lg p-3 cursor-pointer transition-all ${
                       reason === reasonOption
-                        ? "border-[#F7931A] bg-[#F7931A]/5"
+                        ? "border-[var(--primary-color)] bg-[var(--primary-color)]/5"
                         : "border-gray-200 dark:border-gray-700 hover:border-gray-300"
                     }`}
                     onClick={() => setReason(reasonOption)}
@@ -336,7 +336,7 @@ export function ReturnRefundModal({
               rows={4}
               className="resize-none"
             />
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+            <p className="text-xs text-muted-foreground mt-2">
               {additionalInfo.length}/500 characters
             </p>
           </div>
@@ -347,7 +347,7 @@ export function ReturnRefundModal({
               Upload Images (Optional)
             </Label>
             <div className="space-y-3">
-              <div className="border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-xl p-6 text-center hover:border-[#F7931A] transition-colors cursor-pointer">
+              <div className="border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-xl p-6 text-center hover:border-[var(--primary-color)] transition-colors cursor-pointer">
                 <input
                   type="file"
                   accept="image/*"
@@ -357,11 +357,11 @@ export function ReturnRefundModal({
                   id="imageUpload"
                 />
                 <label htmlFor="imageUpload" className="cursor-pointer">
-                  <Upload className="size-8 text-gray-400 mx-auto mb-2" />
-                  <p className="text-sm font-medium text-gray-900 dark:text-white">
+                  <Upload className="size-8 text-muted-foreground mx-auto mb-2" />
+                  <p className="text-sm font-medium text-foreground">
                     Click to upload images
                   </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  <p className="text-xs text-muted-foreground mt-1">
                     PNG, JPG up to 10MB each (Max 5 images)
                   </p>
                 </label>
@@ -378,7 +378,7 @@ export function ReturnRefundModal({
                       />
                       <button
                         onClick={() => handleRemoveImage(index)}
-                        className="absolute top-1 right-1 size-6 bg-red-600 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                        className="absolute top-1 right-1 size-6 bg-red-600 text-inverse rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                       >
                         <X className="size-4" />
                       </button>
@@ -421,7 +421,7 @@ export function ReturnRefundModal({
             <Button
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className="flex-1 h-12 bg-gradient-to-r from-[#F7931A] to-orange-600 hover:from-orange-600 hover:to-[#F7931A]"
+              className="flex-1 h-12 bg-gradient-to-r from-[var(--primary-color)] to-orange-600 hover:from-orange-600 hover:to-[var(--primary-color)]"
             >
               {isSubmitting ? (
                 <>
@@ -438,4 +438,5 @@ export function ReturnRefundModal({
     </Dialog>
   );
 }
+
 

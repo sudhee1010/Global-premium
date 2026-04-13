@@ -392,7 +392,7 @@
 }
 
 .gradient-bg-orange {
-  background: linear-gradient(135deg, #ff6b35 0%, #f7931a 30%, #ff4500 70%, #ff1744 100%);
+  background: linear-gradient(135deg, #ff6b35 0%, var(--primary-color) 30%, #ff4500 70%, #ff1744 100%);
   background-size: 300% 300%;
   animation: gradient-shift 20s ease infinite;
 }
@@ -533,7 +533,7 @@
 /* Vibrant Background Overlays */
 .bg-gradient-orange-blur {
   position: relative;
-  background: linear-gradient(135deg, #ff6b35 0%, #f7931a 50%, #ff4500 100%);
+  background: linear-gradient(135deg, #ff6b35 0%, var(--primary-color) 50%, #ff4500 100%);
 }
 
 .bg-gradient-orange-blur::before {

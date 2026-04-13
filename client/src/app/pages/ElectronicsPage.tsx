@@ -37,15 +37,15 @@ export function ElectronicsPage() {
       <section className="relative bg-gradient-to-br from-blue-600 via-cyan-600 to-indigo-600 dark:from-blue-900 dark:via-cyan-900 dark:to-indigo-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-white mb-4">
+            <h1 className="text-4xl font-bold text-inverse mb-4">
               Electronics & Technology
             </h1>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-inverse/90 mb-8">
               Discover the latest in tech innovation
             </p>
             <Button
               size="lg"
-              className="bg-white text-blue-600 hover:bg-gray-100 rounded-2xl"
+              className="bg-background text-blue-600 hover:bg-muted rounded-2xl"
               asChild
             >
               <Link href="/products?category=Electronics">Shop All Electronics</Link>
@@ -55,7 +55,7 @@ export function ElectronicsPage() {
       </section>
 
       {/* Category Grid Section */}
-      <section className="py-8 bg-white dark:bg-gray-950">
+      <section className="py-8 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-3">
             {[
@@ -82,14 +82,14 @@ export function ElectronicsPage() {
                 href={`/products?subcategory=${encodeURIComponent(category.name)}`}
                 className="group flex flex-col items-center"
               >
-                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <ImageWithFallback
                     src={category.image}
                     alt={category.name}
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                   {category.name}
                 </p>
               </Link>
@@ -109,30 +109,30 @@ export function ElectronicsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-800 dark:via-indigo-800 dark:to-purple-800 p-12 md:p-16">
             <div className="absolute top-4 left-4">
-              <Badge className="bg-[#F7931A] hover:bg-orange-600 text-white">
+              <Badge className="bg-[var(--primary-color)] hover:bg-orange-600 text-inverse border-0">
                 Hot Deal
               </Badge>
             </div>
             <div className="absolute top-4 right-4">
-              <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
+              <Badge variant="secondary" className="bg-background/20 text-inverse border-white/30">
                 2 / 4
               </Badge>
             </div>
             <div className="relative z-10 max-w-2xl">
-              <p className="text-white/90 text-sm font-medium mb-4 uppercase tracking-wider">
+              <p className="text-inverse/90 text-sm font-medium mb-4 uppercase tracking-wider">
                 PREMIUM QUALITY ELECTRONICS
               </p>
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              <h2 className="text-4xl md:text-6xl font-bold text-inverse mb-6">
                 Gaming Tech Sale
               </h2>
-              <p className="text-white/90 text-lg mb-8">
+              <p className="text-inverse/90 text-lg mb-8">
                 Upgrade your setup with our exclusive electronics collection. Limited time offer!
               </p>
               <div className="flex items-center gap-4">
-                <Badge className="bg-[#F7931A] hover:bg-orange-600 text-white text-2xl px-6 py-2">
+                <Badge className="bg-[var(--primary-color)] hover:bg-orange-600 text-inverse text-2xl px-6 py-2 border-0">
                   40% OFF
                 </Badge>
-                <Button size="lg" className="bg-[#F7931A] hover:bg-orange-600 text-white">
+                <Button size="lg" className="bg-[var(--primary-color)] hover:bg-orange-600 text-inverse border-0">
                   <ShoppingCart className="size-5 mr-2" />
                   Grab Deals
                 </Button>
@@ -150,9 +150,9 @@ export function ElectronicsPage() {
       </section>
 
       {/* Shop by Tech Giants Section */}
-      <section className="py-12 bg-white dark:bg-gray-950">
+      <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+          <h2 className="text-3xl font-bold text-foreground mb-8">
             Shop by Tech Giants
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -184,8 +184,8 @@ export function ElectronicsPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                 <div className="absolute bottom-6 left-6">
-                  <h3 className="text-3xl font-bold text-white mb-1">{category.name}</h3>
-                  <p className="text-white/90 text-sm">{category.description}</p>
+                  <h3 className="text-3xl font-bold text-inverse mb-1">{category.name}</h3>
+                  <p className="text-inverse/90 text-sm">{category.description}</p>
                 </div>
               </Link>
             ))}
@@ -196,7 +196,7 @@ export function ElectronicsPage() {
       {/* Shop for Loved Ones Section */}
       <section className="py-12 bg-gradient-to-br from-blue-50 via-cyan-50 to-indigo-50 dark:from-gray-950 dark:via-blue-950/20 dark:to-indigo-950/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+          <h2 className="text-3xl font-bold text-foreground mb-8">
             Shop for Loved Ones
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -210,8 +210,8 @@ export function ElectronicsPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 via-blue-900/30 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <h3 className="text-3xl font-bold text-white mb-1">Men</h3>
-                <p className="text-white/90 text-sm">Discover men's collection</p>
+                <h3 className="text-3xl font-bold text-inverse mb-1">Men</h3>
+                <p className="text-inverse/90 text-sm">Discover men's collection</p>
               </div>
             </Link>
 
@@ -225,8 +225,8 @@ export function ElectronicsPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <h3 className="text-3xl font-bold text-white mb-1">Women</h3>
-                <p className="text-white/90 text-sm">Explore women's collection</p>
+                <h3 className="text-3xl font-bold text-inverse mb-1">Women</h3>
+                <p className="text-inverse/90 text-sm">Explore women's collection</p>
               </div>
             </Link>
 
@@ -240,11 +240,11 @@ export function ElectronicsPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-green-900/70 via-green-900/30 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <div className="inline-block bg-green-400 text-gray-900 font-bold px-3 py-1 rounded-full text-sm mb-2">
+                <div className="inline-block bg-green-400 text-foreground font-bold px-3 py-1 rounded-full text-sm mb-2">
                   spoyl
                 </div>
-                <h3 className="text-3xl font-bold text-white mb-1">Gen Z Drips</h3>
-                <p className="text-white/90 text-sm">Trending Gen Z styles</p>
+                <h3 className="text-3xl font-bold text-inverse mb-1">Gen Z Drips</h3>
+                <p className="text-inverse/90 text-sm">Trending Gen Z styles</p>
               </div>
             </Link>
           </div>
@@ -255,7 +255,7 @@ export function ElectronicsPage() {
       <section className="py-12 bg-gradient-to-br from-blue-50 via-cyan-50 to-indigo-50 dark:from-gray-950 dark:via-blue-950/20 dark:to-indigo-950/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-bold text-foreground">
               Featured Electronics
             </h2>
             <Link href="/products?category=Electronics">
@@ -266,17 +266,17 @@ export function ElectronicsPage() {
             {products.map((product) => (
               <Link key={product.id}
                 href={`/products/${product.id}`}
-                className="group relative bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden hover:scale-105"
+                className="group relative bg-background dark:bg-card text-card-foreground rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden hover:scale-105"
               >
                 {product.badge && (
-                  <Badge className="absolute top-4 left-4 z-10 bg-blue-600 hover:bg-blue-700 text-white">
+                  <Badge className="absolute top-4 left-4 z-10 bg-[var(--primary-color)] hover:bg-orange-600 text-inverse border-0">
                     {product.badge}
                   </Badge>
                 )}
                 <Button
                   size="icon"
                   variant="ghost"
-                  className="absolute top-4 right-4 z-10 size-10 rounded-full bg-white/90 dark:bg-gray-900/90 hover:bg-white dark:hover:bg-gray-900"
+                  className="absolute top-4 right-4 z-10 size-10 rounded-full bg-background/90 dark:bg-card text-card-foreground/90 hover:bg-background dark:hover:bg-card text-card-foreground"
                   onClick={(e) => {
                     e.preventDefault();
                     toggleWishlist({
@@ -292,8 +292,8 @@ export function ElectronicsPage() {
                   }}
                 >
                   <Heart
-                    className="size-5 text-gray-600 dark:text-gray-300"
-                    fill={isInWishlist(product.id) ? "#F7931A" : "none"}
+                    className="size-5 text-muted-foreground dark:text-muted"
+                    fill={isInWishlist(product.id) ? "var(--primary-color)" : "none"}
                   />
                 </Button>
                 <div className="aspect-square overflow-hidden">
@@ -304,7 +304,7 @@ export function ElectronicsPage() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="font-semibold text-lg text-gray-900 dark:text-white mb-2 line-clamp-1">
+                  <h3 className="font-semibold text-lg text-foreground mb-2 line-clamp-1">
                     {product.name}
                   </h3>
                   <div className="flex items-center gap-2 mb-3">
@@ -314,24 +314,24 @@ export function ElectronicsPage() {
                           key={i}
                           className={`size-4 ${
                             i < Math.floor(product.rating)
-                              ? "fill-yellow-400 text-yellow-400"
-                              : "text-gray-300 dark:text-gray-600"
+                              ? "fill-[var(--primary-color)] text-[var(--primary-color)]"
+                              : "text-muted dark:text-muted-foreground"
                           }`}
                         />
                       ))}
                     </div>
-                    <span className="text-sm text-gray-600 dark:text-gray-400">
+                    <span className="text-sm text-muted-foreground">
                       ({product.reviews})
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="text-2xl font-bold text-gray-900 dark:text-white">
+                        <span className="text-2xl font-bold text-foreground">
                           ${product.price}
                         </span>
                         {product.originalPrice && (
-                          <span className="text-sm text-gray-500 dark:text-gray-400 line-through">
+                          <span className="text-sm text-muted-foreground line-through">
                             ${product.originalPrice}
                           </span>
                         )}
@@ -344,10 +344,17 @@ export function ElectronicsPage() {
                     </div>
                     <Button
                       size="icon"
-                      className="size-12 rounded-full bg-blue-600 hover:bg-blue-700 text-white"
+                      className="size-12 rounded-full bg-[var(--primary-color)] hover:bg-orange-600 text-inverse border-0"
                       onClick={(e) => {
                         e.preventDefault();
-                        addItem(product);
+                        e.stopPropagation();
+                        addItem(product.id, (product as any).sku || product.id, 1, {
+                          id: product.id,
+                          sku: (product as any).sku || product.id,
+                          name: product.name,
+                          price: product.price,
+                          image: product.image,
+                        });
                         toast.success(`${product.name} added to cart!`);
                       }}
                     >
@@ -363,4 +370,5 @@ export function ElectronicsPage() {
     </div>
   );
 }
+
 

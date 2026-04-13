@@ -26,11 +26,11 @@ export function SportsPage() {
       <section className="py-12 bg-gradient-to-b from-orange-50 to-white dark:from-gray-900 dark:to-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-bold text-foreground">
               Sports Products
             </h2>
             <Link href="/products?category=Sports"
-              className="text-[#F7931A] hover:text-orange-600 font-semibold text-sm"
+              className="text-[var(--primary-color)] hover:text-orange-600 font-semibold text-sm"
             >
               View All →
             </Link>
@@ -58,14 +58,14 @@ export function SportsPage() {
                 href={`/products?subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
-                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <ImageWithFallback
                     src={product.image}
                     alt={product.name}
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                   {product.name}
                 </p>
               </Link>
@@ -78,15 +78,15 @@ export function SportsPage() {
       <section className="relative bg-gradient-to-br from-orange-600 via-red-600 to-pink-600 dark:from-orange-900 dark:via-red-900 dark:to-pink-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-white mb-4">
+            <h1 className="text-4xl font-bold text-inverse mb-4">
               Sports & Fitness
             </h1>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-inverse/90 mb-8">
               Elevate your fitness journey with premium gear
             </p>
             <Button
               size="lg"
-              className="bg-white text-orange-600 hover:bg-gray-100 rounded-2xl"
+              className="bg-background text-orange-600 hover:bg-muted rounded-2xl"
               asChild
             >
               <Link href="/products?category=Sports">Shop All Sports</Link>
@@ -100,17 +100,17 @@ export function SportsPage() {
 
       {/* ========== MARKER: ELECTRONICS SECTION STARTS HERE ========== */}
       <div className="bg-yellow-400 dark:bg-yellow-600 py-4 text-center">
-        <h3 className="text-2xl font-bold text-black">⬇️ ELECTRONICS SECTION BELOW ⬇️</h3>
+        <h3 className="text-2xl font-bold text-foreground">⬇️ ELECTRONICS SECTION BELOW ⬇️</h3>
       </div>
 
       {/* Electronics Products Section */}
-      <section className="py-12 bg-white dark:bg-gray-950">
+      <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+            <h2 className="text-3xl font-bold text-foreground mb-2">
               Electronics Products
             </h2>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-muted-foreground">
               Discover our complete collection of premium products
             </p>
           </div>
@@ -118,252 +118,252 @@ export function SportsPage() {
             <Link href="/products?category=Smartphones"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400"
                   alt="Smartphones"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Smartphones
               </p>
             </Link>
             <Link href="/products?category=Laptops"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400"
                   alt="Laptops"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Laptops
               </p>
             </Link>
             <Link href="/products?category=Headphones"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400"
                   alt="Headphones"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Headphones
               </p>
             </Link>
             <Link href="/products?category=Cameras"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400"
                   alt="Cameras"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Cameras
               </p>
             </Link>
             <Link href="/products?category=Smartwatches"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400"
                   alt="Smartwatches"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Smartwatches
               </p>
             </Link>
             <Link href="/products?category=Gaming%20Consoles"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400"
                   alt="Gaming Consoles"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Gaming Consoles
               </p>
             </Link>
             <Link href="/products?category=TVs"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=400"
                   alt="TVs"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 TVs
               </p>
             </Link>
             <Link href="/products?category=Tablets"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1585790050230-5dd28404f8f3?w=400"
                   alt="Tablets"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Tablets
               </p>
             </Link>
             <Link href="/products?category=Speakers"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400"
                   alt="Speakers"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Speakers
               </p>
             </Link>
             <Link href="/products?category=Drones"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=400"
                   alt="Drones"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Drones
               </p>
             </Link>
             <Link href="/products?category=Keyboards"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400"
                   alt="Keyboards"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Keyboards
               </p>
             </Link>
             <Link href="/products?category=Gaming%20Mouse"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=400"
                   alt="Gaming Mouse"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Gaming Mouse
               </p>
             </Link>
             <Link href="/products?category=Storage"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400"
                   alt="Storage"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Storage
               </p>
             </Link>
             <Link href="/products?category=Cables%20%26%20Chargers"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400"
                   alt="Cables & Chargers"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Cables & Chargers
               </p>
             </Link>
             <Link href="/products?category=Power%20Banks"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400"
                   alt="Power Banks"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Power Banks
               </p>
             </Link>
             <Link href="/products?category=Webcams"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1589739900243-c63304f77f34?w=400"
                   alt="Webcams"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Webcams
               </p>
             </Link>
             <Link href="/products?category=Routers"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=400"
                   alt="Routers"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Routers
               </p>
             </Link>
             <Link href="/products?category=Microphones"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=400"
                   alt="Microphones"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Microphones
               </p>
             </Link>
@@ -377,7 +377,7 @@ export function SportsPage() {
       {/* Shop for Loved Ones Section */}
       <section className="py-12 bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 dark:from-gray-950 dark:via-orange-950/20 dark:to-red-950/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+          <h2 className="text-3xl font-bold text-foreground mb-8">
             Shop by Activity
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -391,8 +391,8 @@ export function SportsPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-red-900/70 via-red-900/30 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <h3 className="text-3xl font-bold text-white mb-1">Gym & Fitness</h3>
-                <p className="text-white/90 text-sm">Build strength & endurance</p>
+                <h3 className="text-3xl font-bold text-inverse mb-1">Gym & Fitness</h3>
+                <p className="text-inverse/90 text-sm">Build strength & endurance</p>
               </div>
             </Link>
 
@@ -406,8 +406,8 @@ export function SportsPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 via-blue-900/30 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <h3 className="text-3xl font-bold text-white mb-1">Outdoor Sports</h3>
-                <p className="text-white/90 text-sm">Adventure awaits outdoors</p>
+                <h3 className="text-3xl font-bold text-inverse mb-1">Outdoor Sports</h3>
+                <p className="text-inverse/90 text-sm">Adventure awaits outdoors</p>
               </div>
             </Link>
 
@@ -421,8 +421,8 @@ export function SportsPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-purple-900/70 via-purple-900/30 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <h3 className="text-3xl font-bold text-white mb-1">Yoga & Wellness</h3>
-                <p className="text-white/90 text-sm">Mind, body & soul balance</p>
+                <h3 className="text-3xl font-bold text-inverse mb-1">Yoga & Wellness</h3>
+                <p className="text-inverse/90 text-sm">Mind, body & soul balance</p>
               </div>
             </Link>
           </div>
@@ -431,4 +431,5 @@ export function SportsPage() {
     </div>
   );
 }
+
 

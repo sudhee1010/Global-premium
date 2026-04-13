@@ -24,11 +24,11 @@ export function BooksPage() {
       <section className="py-12 bg-gradient-to-b from-amber-50 to-white dark:from-gray-900 dark:to-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-bold text-foreground">
               Books
             </h2>
             <Link href="/products?category=Books"
-              className="text-[#F7931A] hover:text-orange-600 font-semibold text-sm"
+              className="text-[var(--primary-color)] hover:text-orange-600 font-semibold text-sm"
             >
               View All →
             </Link>
@@ -56,14 +56,14 @@ export function BooksPage() {
                 href={`/products?subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
-                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <ImageWithFallback
                     src={product.image}
                     alt={product.name}
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                   {product.name}
                 </p>
               </Link>
@@ -76,15 +76,15 @@ export function BooksPage() {
       <section className="relative bg-gradient-to-br from-amber-600 via-orange-600 to-yellow-600 dark:from-amber-900 dark:via-orange-900 dark:to-yellow-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-white mb-4">
+            <h1 className="text-4xl font-bold text-inverse mb-4">
               Books & Literature
             </h1>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-inverse/90 mb-8">
               Discover your next great read
             </p>
             <Button
               size="lg"
-              className="bg-white text-amber-600 hover:bg-gray-100 rounded-2xl"
+              className="bg-background text-amber-600 hover:bg-muted rounded-2xl"
               asChild
             >
               <Link href="/products?category=Books">Shop All Books</Link>
@@ -94,13 +94,13 @@ export function BooksPage() {
       </section>
 
       {/* Category Grid Section */}
-      <section className="py-8 bg-white dark:bg-gray-950">
+      <section className="py-8 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+            <h2 className="text-3xl font-bold text-foreground mb-2">
               Books
             </h2>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-muted-foreground">
               Discover our complete collection of premium products
             </p>
           </div>
@@ -129,14 +129,14 @@ export function BooksPage() {
                 href={`/products?subcategory=${encodeURIComponent(category.name)}`}
                 className="group flex flex-col items-center"
               >
-                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <ImageWithFallback
                     src={category.image}
                     alt={category.name}
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                   {category.name}
                 </p>
               </Link>
@@ -156,30 +156,30 @@ export function BooksPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-600 via-orange-600 to-red-600 dark:from-amber-800 dark:via-orange-800 dark:to-red-800 p-12 md:p-16">
             <div className="absolute top-4 left-4">
-              <Badge className="bg-[#F7931A] hover:bg-orange-600 text-white">
+              <Badge className="bg-[var(--primary-color)] hover:bg-orange-600 text-inverse">
                 Hot Deal
               </Badge>
             </div>
             <div className="absolute top-4 right-4">
-              <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
+              <Badge variant="secondary" className="bg-background/20 text-inverse border-white/30">
                 2 / 4
               </Badge>
             </div>
             <div className="relative z-10 max-w-2xl">
-              <p className="text-white/90 text-sm font-medium mb-4 uppercase tracking-wider">
+              <p className="text-inverse/90 text-sm font-medium mb-4 uppercase tracking-wider">
                 BESTSELLER COLLECTION 2026
               </p>
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              <h2 className="text-4xl md:text-6xl font-bold text-inverse mb-6">
                 Book Bundle Sale
               </h2>
-              <p className="text-white/90 text-lg mb-8">
+              <p className="text-inverse/90 text-lg mb-8">
                 Expand your library with our exclusive book collection. Limited time offer!
               </p>
               <div className="flex items-center gap-4">
-                <Badge className="bg-[#F7931A] hover:bg-orange-600 text-white text-2xl px-6 py-2">
+                <Badge className="bg-[var(--primary-color)] hover:bg-orange-600 text-inverse text-2xl px-6 py-2">
                   30% OFF
                 </Badge>
-                <Button size="lg" className="bg-[#F7931A] hover:bg-orange-600 text-white">
+                <Button size="lg" className="bg-[var(--primary-color)] hover:bg-orange-600 text-inverse">
                   <ShoppingCart className="size-5 mr-2" />
                   Grab Deals
                 </Button>
@@ -197,9 +197,9 @@ export function BooksPage() {
       </section>
 
       {/* Shop by Genre Section */}
-      <section className="py-12 bg-white dark:bg-gray-950">
+      <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+          <h2 className="text-3xl font-bold text-foreground mb-8">
             Popular Genres
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -231,8 +231,8 @@ export function BooksPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                 <div className="absolute bottom-6 left-6">
-                  <h3 className="text-3xl font-bold text-white mb-1">{genre.name}</h3>
-                  <p className="text-white/90 text-sm">{genre.description}</p>
+                  <h3 className="text-3xl font-bold text-inverse mb-1">{genre.name}</h3>
+                  <p className="text-inverse/90 text-sm">{genre.description}</p>
                 </div>
               </Link>
             ))}
@@ -243,7 +243,7 @@ export function BooksPage() {
       {/* Shop by Genre Section */}
       <section className="py-12 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-950 dark:via-amber-950/20 dark:to-orange-950/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+          <h2 className="text-3xl font-bold text-foreground mb-8">
             Shop by Genre
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -257,8 +257,8 @@ export function BooksPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/70 via-indigo-900/30 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <h3 className="text-3xl font-bold text-white mb-1">Fiction</h3>
-                <p className="text-white/90 text-sm">Escape into imaginary worlds</p>
+                <h3 className="text-3xl font-bold text-inverse mb-1">Fiction</h3>
+                <p className="text-inverse/90 text-sm">Escape into imaginary worlds</p>
               </div>
             </Link>
 
@@ -272,8 +272,8 @@ export function BooksPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-amber-900/70 via-amber-900/30 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <h3 className="text-3xl font-bold text-white mb-1">Non-Fiction</h3>
-                <p className="text-white/90 text-sm">Discover real stories & facts</p>
+                <h3 className="text-3xl font-bold text-inverse mb-1">Non-Fiction</h3>
+                <p className="text-inverse/90 text-sm">Discover real stories & facts</p>
               </div>
             </Link>
 
@@ -287,8 +287,8 @@ export function BooksPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-orange-900/70 via-orange-900/30 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <h3 className="text-3xl font-bold text-white mb-1">Children's Books</h3>
-                <p className="text-white/90 text-sm">Inspire young readers</p>
+                <h3 className="text-3xl font-bold text-inverse mb-1">Children's Books</h3>
+                <p className="text-inverse/90 text-sm">Inspire young readers</p>
               </div>
             </Link>
           </div>
@@ -297,4 +297,5 @@ export function BooksPage() {
     </div>
   );
 }
+
 

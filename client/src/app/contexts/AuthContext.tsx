@@ -96,3 +96,4 @@ export function useAuth() {
   if (ctx === undefined) throw new Error("useAuth must be used within AuthProvider");
   return ctx;
 }
+

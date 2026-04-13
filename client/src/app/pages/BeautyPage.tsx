@@ -21,14 +21,14 @@ export function BeautyPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-rose-50 dark:from-gray-950 dark:via-pink-950/20 dark:to-purple-950/20">
       {/* Beauty Products Section */}
-      <section className="py-12 bg-white dark:bg-gray-950">
+      <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-bold text-foreground">
               Beauty Products
             </h2>
             <Link href="/products?category=Beauty"
-              className="text-[#F7931A] hover:text-orange-600 font-semibold text-sm"
+              className="text-[var(--primary-color)] hover:text-orange-600 font-semibold text-sm"
             >
               View All →
             </Link>
@@ -56,14 +56,14 @@ export function BeautyPage() {
                 href={`/products?subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
-                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <ImageWithFallback
                     src={product.image}
                     alt={product.name}
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                   {product.name}
                 </p>
               </Link>
@@ -76,15 +76,15 @@ export function BeautyPage() {
       <section className="relative bg-gradient-to-br from-pink-600 via-purple-600 to-rose-600 dark:from-pink-900 dark:via-purple-900 dark:to-rose-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-white mb-4">
+            <h1 className="text-4xl font-bold text-inverse mb-4">
               Beauty & Cosmetics
             </h1>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-inverse/90 mb-8">
               Discover your beauty essentials
             </p>
             <Button
               size="lg"
-              className="bg-white text-pink-600 hover:bg-gray-100 rounded-2xl"
+              className="bg-background text-pink-600 hover:bg-muted rounded-2xl"
               asChild
             >
               <Link href="/products?category=Beauty">Shop All Beauty</Link>
@@ -101,30 +101,30 @@ export function BeautyPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-pink-600 via-purple-600 to-rose-600 dark:from-pink-800 dark:via-purple-800 dark:to-rose-800 p-12 md:p-16">
             <div className="absolute top-4 left-4">
-              <Badge className="bg-[#F7931A] hover:bg-orange-600 text-white">
+              <Badge className="bg-[var(--primary-color)] hover:bg-orange-600 text-inverse">
                 Hot Deal
               </Badge>
             </div>
             <div className="absolute top-4 right-4">
-              <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
+              <Badge variant="secondary" className="bg-background/20 text-inverse border-white/30">
                 2 / 4
               </Badge>
             </div>
             <div className="relative z-10 max-w-2xl">
-              <p className="text-white/90 text-sm font-medium mb-4 uppercase tracking-wider">
+              <p className="text-inverse/90 text-sm font-medium mb-4 uppercase tracking-wider">
                 PREMIUM BEAUTY ESSENTIALS
               </p>
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              <h2 className="text-4xl md:text-6xl font-bold text-inverse mb-6">
                 Skincare Bundle Sale
               </h2>
-              <p className="text-white/90 text-lg mb-8">
+              <p className="text-inverse/90 text-lg mb-8">
                 Pamper yourself with our exclusive beauty collection. Limited time offer!
               </p>
               <div className="flex items-center gap-4">
-                <Badge className="bg-[#F7931A] hover:bg-orange-600 text-white text-2xl px-6 py-2">
+                <Badge className="bg-[var(--primary-color)] hover:bg-orange-600 text-inverse text-2xl px-6 py-2">
                   40% OFF
                 </Badge>
-                <Button size="lg" className="bg-[#F7931A] hover:bg-orange-600 text-white">
+                <Button size="lg" className="bg-[var(--primary-color)] hover:bg-orange-600 text-inverse">
                   <ShoppingCart className="size-5 mr-2" />
                   Grab Deals
                 </Button>
@@ -147,7 +147,7 @@ export function BeautyPage() {
       {/* Shop for Loved Ones Section */}
       <section className="py-12 bg-gradient-to-br from-pink-50 via-purple-50 to-rose-50 dark:from-gray-950 dark:via-pink-950/20 dark:to-purple-950/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+          <h2 className="text-3xl font-bold text-foreground mb-8">
             Shop by Category
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -161,8 +161,8 @@ export function BeautyPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-pink-900/70 via-pink-900/30 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <h3 className="text-3xl font-bold text-white mb-1">Skincare</h3>
-                <p className="text-white/90 text-sm">Nourish your natural glow</p>
+                <h3 className="text-3xl font-bold text-inverse mb-1">Skincare</h3>
+                <p className="text-inverse/90 text-sm">Nourish your natural glow</p>
               </div>
             </Link>
 
@@ -176,8 +176,8 @@ export function BeautyPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-purple-900/70 via-purple-900/30 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <h3 className="text-3xl font-bold text-white mb-1">Makeup</h3>
-                <p className="text-white/90 text-sm">Express your beauty</p>
+                <h3 className="text-3xl font-bold text-inverse mb-1">Makeup</h3>
+                <p className="text-inverse/90 text-sm">Express your beauty</p>
               </div>
             </Link>
 
@@ -191,8 +191,8 @@ export function BeautyPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-rose-900/70 via-rose-900/30 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <h3 className="text-3xl font-bold text-white mb-1">Fragrances</h3>
-                <p className="text-white/90 text-sm">Signature scents for you</p>
+                <h3 className="text-3xl font-bold text-inverse mb-1">Fragrances</h3>
+                <p className="text-inverse/90 text-sm">Signature scents for you</p>
               </div>
             </Link>
           </div>
@@ -201,4 +201,5 @@ export function BeautyPage() {
     </div>
   );
 }
+
 

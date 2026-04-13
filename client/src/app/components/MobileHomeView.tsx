@@ -330,19 +330,19 @@ export function MobileHomeView() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-orange-50/30 to-purple-50/20 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
       {/* Mobile Header with Glass Effect */}
-      <div className="bg-gradient-to-r from-[#F7931A] to-orange-600 text-white px-4 py-4 sticky top-0 z-50 shadow-xl">
+      <div className="bg-gradient-to-r from-[var(--primary-color)] to-orange-600 text-inverse px-4 py-4 sticky top-0 z-50 shadow-xl">
         <div className="flex items-center justify-center">
-          <h1 className="text-xl font-bold tracking-wide text-white" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>N4ASHYOL</h1>
+          <h1 className="text-xl font-bold tracking-wide text-inverse" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>N4ASHYOL</h1>
         </div>
       </div>
 
       {/* Search Modal Overlay */}
       {showSearch && (
-        <div className="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-white dark:bg-gray-900 p-4 shadow-2xl animate-in slide-in-from-top duration-300">
+        <div className="fixed inset-0 z-[60] bg-inverse/50 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-card p-4 shadow-2xl animate-in slide-in-from-top duration-300">
             <div className="flex items-center gap-3">
               <div className="flex-1 relative">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-gray-400" />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-muted-foreground" />
                 <input
                   type="text"
                   placeholder="Search products..."
@@ -353,7 +353,7 @@ export function MobileHomeView() {
                       handleSearch();
                     }
                   }}
-                  className="w-full pl-12 pr-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#F7931A] focus:border-transparent"
+                  className="w-full pl-12 pr-4 py-3 bg-muted border border-gray-200 dark:border-gray-700 rounded-full text-foreground placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
                   autoFocus
                 />
               </div>
@@ -362,21 +362,21 @@ export function MobileHomeView() {
                   setShowSearch(false);
                   setSearchQuery("");
                 }}
-                className="p-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors"
+                className="p-3 bg-muted hover:bg-border dark:hover:bg-card text-card-foreground rounded-full transition-colors"
               >
-                <span className="text-gray-900 dark:text-white font-medium text-sm">Cancel</span>
+                <span className="text-foreground font-medium text-sm">Cancel</span>
               </button>
             </div>
             
             {/* Quick Search Suggestions */}
             <div className="mt-4 space-y-2">
-              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 px-2">Popular Searches</p>
+              <p className="text-xs font-semibold text-muted-foreground px-2">Popular Searches</p>
               <div className="flex flex-wrap gap-2">
                 {['Electronics', 'Fashion', 'Home Decor', 'Sports', 'Beauty'].map((term) => (
                   <Link key={term}
                     href={`/products?category=${term}`}
                     onClick={() => setShowSearch(false)}
-                    className="px-4 py-2 bg-gray-100 dark:bg-gray-800 hover:bg-[#F7931A] hover:text-white dark:hover:bg-[#F7931A] rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 transition-all"
+                    className="px-4 py-2 bg-muted hover:bg-[var(--primary-color)] hover:text-inverse dark:hover:bg-[var(--primary-color)] rounded-full text-sm font-medium text-muted-foreground transition-all"
                   >
                     {term}
                   </Link>
@@ -388,38 +388,38 @@ export function MobileHomeView() {
       )}
 
       {/* Location Bar with Glass Effect */}
-      <div className="px-4 py-3 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-sm">
+      <div className="px-4 py-3 bg-card border-b border-border shadow-sm">
         <button 
           onClick={() => setShowLocationModal(true)}
-          className="w-full flex items-center gap-3 px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300"
+          className="w-full flex items-center gap-3 px-4 py-2.5 bg-muted border border-gray-200 dark:border-gray-700 rounded-full hover:bg-muted dark:hover:bg-card text-card-foreground transition-all duration-300"
         >
-          <MapPin className="size-5 text-[#F7931A] flex-shrink-0" />
-          <span className="flex-1 text-left text-sm font-medium text-gray-900 dark:text-white">
+          <MapPin className="size-5 text-[var(--primary-color)] flex-shrink-0" />
+          <span className="flex-1 text-left text-sm font-medium text-foreground">
             Deliver to {selectedLocation}
           </span>
-          <ChevronDown className="size-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />
+          <ChevronDown className="size-5 text-muted-foreground flex-shrink-0" />
         </button>
       </div>
 
       {/* Location Selection Modal */}
       {showLocationModal && (
-        <div className="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 rounded-t-3xl shadow-2xl animate-in slide-in-from-bottom duration-300 max-h-[70vh] overflow-hidden">
+        <div className="fixed inset-0 z-[60] bg-inverse/50 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="fixed bottom-0 left-0 right-0 bg-card rounded-t-3xl shadow-2xl animate-in slide-in-from-bottom duration-300 max-h-[70vh] overflow-hidden">
             {/* Modal Header */}
-            <div className="sticky top-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 px-6 py-4 z-10">
+            <div className="sticky top-0 bg-card border-b border-border px-6 py-4 z-10">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <MapPin className="size-6 text-[#F7931A]" />
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">Select Delivery Location</h3>
+                  <MapPin className="size-6 text-[var(--primary-color)]" />
+                  <h3 className="text-lg font-bold text-foreground">Select Delivery Location</h3>
                 </div>
                 <button
                   onClick={() => setShowLocationModal(false)}
-                  className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+                  className="p-2 hover:bg-muted dark:hover:bg-card text-card-foreground rounded-full transition-colors"
                 >
-                  <span className="text-2xl text-gray-500 dark:text-gray-400">&times;</span>
+                  <span className="text-2xl text-muted-foreground">&times;</span>
                 </button>
               </div>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+              <p className="text-sm text-muted-foreground mt-2">
                 Choose your location for accurate delivery estimates
               </p>
             </div>
@@ -436,13 +436,13 @@ export function MobileHomeView() {
                     }}
                     className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 ${
                       selectedLocation === location
-                        ? "bg-gradient-to-r from-[#F7931A] to-orange-600 text-white shadow-lg"
-                        : "bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-white"
+                        ? "bg-gradient-to-r from-[var(--primary-color)] to-orange-600 text-inverse shadow-lg"
+                        : "bg-muted hover:bg-muted dark:hover:bg-card text-card-foreground text-foreground"
                     }`}
                   >
                     <MapPin 
                       className={`size-5 flex-shrink-0 ${
-                        selectedLocation === location ? "text-white" : "text-[#F7931A]"
+                        selectedLocation === location ? "text-inverse" : "text-[var(--primary-color)]"
                       }`} 
                     />
                     <span className="flex-1 text-left font-medium">{location}</span>
@@ -460,7 +460,7 @@ export function MobileHomeView() {
       )}
 
       {/* Hero Banner Carousel */}
-      <div className="relative bg-gradient-to-r from-[#F7931A] to-orange-600 dark:from-orange-600 dark:to-orange-700">
+      <div className="relative bg-gradient-to-r from-[var(--primary-color)] to-orange-600 dark:from-orange-600 dark:to-orange-700">
         <div className="overflow-hidden">
           <div 
             className="flex transition-transform duration-500 ease-out"
@@ -470,14 +470,14 @@ export function MobileHomeView() {
               <div key={index} className="min-w-full px-4 py-8">
                 <div className="flex flex-col md:flex-row items-center gap-6">
                   {/* Left Content */}
-                  <div className="flex-1 text-white">
-                    <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full mb-4">
+                  <div className="flex-1 text-inverse">
+                    <div className="inline-flex items-center gap-2 bg-background/20 backdrop-blur-sm px-3 py-1 rounded-full mb-4">
                       <span className="text-xs font-medium">✨ {slide.badge}</span>
                     </div>
                     <h1 className="text-2xl md:text-4xl font-bold mb-3 leading-tight">
                       {slide.title}
                     </h1>
-                    <p className="text-sm md:text-base text-white/90 mb-6 leading-relaxed">
+                    <p className="text-sm md:text-base text-inverse/90 mb-6 leading-relaxed">
                       {slide.description}
                     </p>
                     <div className="flex flex-wrap gap-3">
@@ -488,8 +488,8 @@ export function MobileHomeView() {
                             <button
                               className={`flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm transition-all ${
                                 button.primary
-                                  ? "bg-white text-[#F7931A] hover:bg-gray-100"
-                                  : "bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
+                                  ? "bg-background text-[var(--primary-color)] hover:bg-muted"
+                                  : "bg-background/20 backdrop-blur-sm text-inverse border border-white/30 hover:bg-background/30"
                               }`}
                             >
                               <Icon className="size-4" />
@@ -514,8 +514,8 @@ export function MobileHomeView() {
               onClick={() => setCurrentSlide(index)}
               className={`h-2 rounded-full transition-all ${
                 currentSlide === index
-                  ? "w-8 bg-white"
-                  : "w-2 bg-white/40 hover:bg-white/60"
+                  ? "w-8 bg-background"
+                  : "w-2 bg-background/40 hover:bg-background/60"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -527,7 +527,7 @@ export function MobileHomeView() {
       <div className="px-4 py-6 bg-transparent">
         <div className="flex items-center gap-2 mb-4">
           <span className="text-2xl">🔥</span>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Clearance offers</h2>
+          <h2 className="text-2xl font-bold text-foreground">Clearance offers</h2>
         </div>
         <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4">
           {[
@@ -573,7 +573,7 @@ export function MobileHomeView() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t ${item.gradient} opacity-60`} />
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-inverse">
                   <h3 className="font-bold text-base mb-1">{item.name}</h3>
                   <span className="text-sm font-semibold text-green-300">{item.discount}</span>
                 </div>
@@ -587,7 +587,7 @@ export function MobileHomeView() {
       <div className="px-4 py-6 bg-transparent">
         <div className="flex items-center gap-2 mb-4">
           <span className="text-2xl">🌸</span>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Basant Panchami Specials</h2>
+          <h2 className="text-2xl font-bold text-foreground">Basant Panchami Specials</h2>
         </div>
         <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4">
           {[
@@ -633,7 +633,7 @@ export function MobileHomeView() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t ${item.gradient} opacity-50`} />
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-inverse">
                   <h3 className="font-bold text-base mb-1">{item.name}</h3>
                   <span className="text-sm font-semibold">{item.price}</span>
                   <span className="inline-block ml-2 text-xl">🌸</span>
@@ -646,7 +646,7 @@ export function MobileHomeView() {
 
       {/* Shop for Loved Ones Section */}
       <div className="px-4 py-6 bg-transparent">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Shop for Loved Ones</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">Shop for Loved Ones</h2>
         <div className="grid grid-cols-1 gap-4">
           {[
             {
@@ -679,9 +679,9 @@ export function MobileHomeView() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-70`} />
-                <div className="absolute inset-0 flex flex-col justify-center px-6 text-white">
+                <div className="absolute inset-0 flex flex-col justify-center px-6 text-inverse">
                   <h3 className="font-bold text-3xl mb-2">{item.name}</h3>
-                  <p className="text-sm font-medium text-white/90">{item.description}</p>
+                  <p className="text-sm font-medium text-inverse/90">{item.description}</p>
                 </div>
               </div>
             </Link>
@@ -839,15 +839,15 @@ export function MobileHomeView() {
       {/* For You Section */}
       <div className="py-6 bg-transparent">
         <div className="px-4 flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">For You</h2>
-          <Link href="/products" className="text-[#F7931A] text-sm font-semibold hover:underline transition-all">
+          <h2 className="text-2xl font-bold text-foreground">For You</h2>
+          <Link href="/products" className="text-[var(--primary-color)] text-sm font-semibold hover:underline transition-all">
             View All →
           </Link>
         </div>
 
         {/* Featured Badge */}
         <div className="px-4 mb-6">
-          <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#F7931A] to-orange-600 text-white text-xs font-semibold px-6 py-2.5 rounded-full shadow-lg pulse-glow">
+          <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[var(--primary-color)] to-orange-600 text-inverse text-xs font-semibold px-6 py-2.5 rounded-full shadow-lg pulse-glow">
             ✨ Featured
           </span>
         </div>
@@ -865,7 +865,7 @@ export function MobileHomeView() {
                     <div className="relative mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
                       <div className="aspect-square">
                         {product.badge && (
-                          <Badge className="absolute top-3 left-3 z-10 bg-gradient-to-r from-[#F7931A] to-orange-600 text-white text-xs font-semibold px-3 py-1 shadow-lg">
+                          <Badge className="absolute top-3 left-3 z-10 bg-gradient-to-r from-[var(--primary-color)] to-orange-600 text-inverse text-xs font-semibold px-3 py-1 shadow-lg">
                             {product.badge}
                           </Badge>
                         )}
@@ -875,7 +875,7 @@ export function MobileHomeView() {
                           className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                         />
                         <button
-                          className="absolute top-3 right-3 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md hover:opacity-100 transition-all active:scale-95"
+                          className="absolute top-3 right-3 bg-background dark:bg-card text-card-foreground p-2 rounded-full shadow-md hover:opacity-100 transition-all active:scale-95"
                           onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();
@@ -892,8 +892,8 @@ export function MobileHomeView() {
                           }}
                         >
                           <Heart
-                            className="size-4 text-[#F7931A]"
-                            fill={isInWishlist(product.id) ? "#F7931A" : "none"}
+                            className="size-4 text-[var(--primary-color)]"
+                            fill={isInWishlist(product.id) ? "var(--primary-color)" : "none"}
                           />
                         </button>
                       </div>
@@ -902,7 +902,7 @@ export function MobileHomeView() {
                     {/* Product Info */}
                     <div className="space-y-3">
                       {/* Product Name */}
-                      <h3 className="text-base font-semibold text-gray-900 dark:text-white line-clamp-2 min-h-[3rem]">
+                      <h3 className="text-base font-semibold text-foreground line-clamp-2 min-h-[3rem]">
                         {product.name}
                       </h3>
                       
@@ -914,13 +914,13 @@ export function MobileHomeView() {
                               key={i}
                               className={`size-3.5 ${
                                 i < Math.floor(product.rating)
-                                  ? "fill-[#F7931A] text-[#F7931A]"
-                                  : "text-gray-300 dark:text-gray-600"
+                                  ? "fill-[var(--primary-color)] text-[var(--primary-color)]"
+                                  : "text-muted dark:text-muted-foreground"
                               }`}
                             />
                           ))}
                         </div>
-                        <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                        <span className="text-xs text-muted-foreground font-medium">
                           ({product.reviews})
                         </span>
                       </div>
@@ -928,10 +928,10 @@ export function MobileHomeView() {
                       {/* Price Section */}
                       <div className="flex items-end justify-between pt-2">
                         <div className="flex flex-col">
-                          <span className="text-2xl font-bold text-[#F7931A]">
+                          <span className="text-2xl font-bold text-[var(--primary-color)]">
                             ${product.price.toFixed(2)}
                           </span>
-                          <span className="text-sm text-gray-400 dark:text-gray-500 line-through">
+                          <span className="text-sm text-muted-foreground dark:text-muted-foreground line-through">
                             ${product.originalPrice.toFixed(2)}
                           </span>
                         </div>
@@ -952,18 +952,18 @@ export function MobileHomeView() {
 
       {/* Features Section */}
       <div className="px-4 py-6 bg-transparent">
-        <Card className="p-5 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-sm">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-5">Why Choose Us?</h2>
+        <Card className="p-5 bg-card border border-border shadow-sm">
+          <h2 className="text-xl font-bold text-foreground mb-5">Why Choose Us?</h2>
           <div className="grid grid-cols-2 gap-3">
             {features.map((feature, index) => (
-              <div key={index} className="flex flex-col items-center text-center p-3 bg-gray-50 dark:bg-gray-800 rounded-xl">
-                <div className="p-3 bg-gradient-to-br from-[#F7931A] to-orange-600 rounded-full mb-2">
-                  <feature.icon className="size-5 text-white" />
+              <div key={index} className="flex flex-col items-center text-center p-3 bg-muted rounded-xl">
+                <div className="p-3 bg-gradient-to-br from-[var(--primary-color)] to-orange-600 rounded-full mb-2">
+                  <feature.icon className="size-5 text-inverse" />
                 </div>
-                <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
+                <h3 className="text-sm font-semibold text-foreground mb-1">
                   {feature.title}
                 </h3>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
+                <p className="text-xs text-muted-foreground">
                   {feature.description}
                 </p>
               </div>
@@ -974,10 +974,10 @@ export function MobileHomeView() {
 
       {/* Categories Section */}
       <div className="px-4 py-6 bg-transparent">
-        <Card className="p-5 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-sm">
+        <Card className="p-5 bg-card border border-border shadow-sm">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white">Shop by Category</h2>
-            <Link href="/products" className="text-[#F7931A] text-sm font-semibold hover:underline">
+            <h2 className="text-xl font-bold text-foreground">Shop by Category</h2>
+            <Link href="/products" className="text-[var(--primary-color)] text-sm font-semibold hover:underline">
               See All →
             </Link>
           </div>
@@ -993,7 +993,7 @@ export function MobileHomeView() {
                     alt={category.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className={`absolute inset-0 bg-gradient-to-t ${category.color} flex flex-col items-center justify-center text-white`}>
+                  <div className={`absolute inset-0 bg-gradient-to-t ${category.color} flex flex-col items-center justify-center text-inverse`}>
                     <h3 className="text-sm font-bold mb-1 text-center px-2 line-clamp-2">
                       {category.name}
                     </h3>
@@ -1008,21 +1008,21 @@ export function MobileHomeView() {
 
       {/* Ad Banner Section */}
       <div className="px-4 py-6 bg-transparent">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Special Offers</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6">Special Offers</h2>
         <AdBanner ads={ads} />
       </div>
 
       {/* Promo Carousel Section */}
       <div className="py-6 bg-transparent">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 px-4">Flash Deals</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6 px-4">Flash Deals</h2>
         <PromoCarousel />
       </div>
 
       {/* CTA Banner for Rewards */}
       <div className="px-4 py-6 pb-24 bg-transparent">
-        <Card className="bg-gradient-to-r from-[#F7931A] to-orange-600 text-white p-6 overflow-hidden relative">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16" />
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12" />
+        <Card className="bg-gradient-to-r from-[var(--primary-color)] to-orange-600 text-inverse p-6 overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-background/10 rounded-full -mr-16 -mt-16" />
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-background/10 rounded-full -ml-12 -mb-12" />
           <div className="relative z-10 text-center">
             <h2 className="text-2xl font-bold mb-3">
               Join Our Rewards Program
@@ -1032,7 +1032,7 @@ export function MobileHomeView() {
             </p>
             <Button
               size="lg"
-              className="bg-white text-[#F7931A] hover:bg-gray-100"
+              className="bg-background text-[var(--primary-color)] hover:bg-muted"
               asChild
             >
               <Link href="/rewards">
@@ -1046,4 +1046,5 @@ export function MobileHomeView() {
     </div>
   );
 }
+
 

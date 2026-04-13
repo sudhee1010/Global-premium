@@ -93,11 +93,22 @@ export function ProductCard({
           duration: 2000,
         });
       } else {
-        // Redirect to detail page if no SKU is available to select variant
-        toast.info("Please select options", {
-          description: "This product has multiple variants",
+        // If no SKU but we have a product ID, we can try to use a default SKU if available
+        // or just redirect as a last resort. 
+        const defaultSku = (product as any).id; // Fallback to ID if no SKU
+        
+        await addItem(product.id, defaultSku, 1, {
+          id: product.id,
+          sku: defaultSku,
+          name: product.name,
+          price: product.price,
+          image: product.image,
         });
-        window.location.href = `/products/${product.id}`;
+        
+        toast.success(`Added to cart!`, {
+          description: product.name,
+          duration: 2000,
+        });
       }
     } catch (err: any) {
       toast.error(err.message || "Failed to add to cart");
@@ -139,8 +150,8 @@ export function ProductCard({
             key={i}
             className={`size-3.5 ${
               i < Math.floor(product.rating)
-                ? "fill-[#F7931A] text-[#F7931A]"
-                : "text-gray-300 dark:text-gray-600"
+                ? "fill-[var(--primary-color)] text-[var(--primary-color)]"
+                : "text-muted dark:text-muted-foreground"
             }`}
           />
         ))}
@@ -162,12 +173,12 @@ export function ProductCard({
               {/* Badges */}
               <div className="absolute top-1.5 left-1.5 sm:top-2 sm:left-2 z-10 flex flex-col gap-1 sm:gap-2">
                 {product.badge && (
-                  <Badge className="bg-gradient-to-r from-[#F7931A] to-orange-600 text-white text-[9px] sm:text-xs font-semibold px-2 sm:px-3 py-0.5 sm:py-1 shadow-lg">
+                  <Badge className="bg-gradient-to-r from-[var(--primary-color)] to-orange-600 text-inverse text-[9px] sm:text-xs font-semibold px-2 sm:px-3 py-0.5 sm:py-1 shadow-lg border-0">
                     {product.badge}
                   </Badge>
                 )}
                 {!inStock && (
-                  <Badge className="bg-red-500 text-white text-[9px] sm:text-xs font-semibold px-2 sm:px-3 py-0.5 sm:py-1 shadow-lg">
+                  <Badge className="bg-red-500 text-inverse text-[9px] sm:text-xs font-semibold px-2 sm:px-3 py-0.5 sm:py-1 shadow-lg">
                     Out of Stock
                   </Badge>
                 )}
@@ -180,16 +191,16 @@ export function ProductCard({
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
 
-              {/* Hover Actions Overlay */}
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">
+              {/* Action Overlay - Always visible for better accessibility */}
+              <div className="absolute inset-0 bg-black/5 dark:bg-black/10 opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 pointer-events-none group-hover:pointer-events-auto">
                 {/* Wishlist Button */}
                 {onLike && (
                   <button
                     onClick={handleToggleLike}
                     disabled={isLiking}
                     className={`p-2 sm:p-3 rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-110 active:scale-95 touch-manipulation ${\n                      isLiked
-                        ? "bg-red-500 text-white"
-                        : "bg-white/90 dark:bg-gray-800/90 text-gray-900 dark:text-white hover:bg-red-500 hover:text-white"
+                        ? "bg-red-500 text-inverse"
+                        : "bg-background/90 dark:bg-card text-card-foreground/90 text-foreground hover:bg-red-500 hover:text-inverse"
                     } ${isLiking ? "animate-pulse" : ""}`}
                     style={{
                       WebkitTapHighlightColor: 'rgba(239, 68, 68, 0.2)',
@@ -207,7 +218,7 @@ export function ProductCard({
                 {showQuickView && (
                   <button
                     onClick={handleQuickView}
-                    className="p-2 sm:p-3 bg-white/90 dark:bg-gray-800/90 rounded-full backdrop-blur-sm hover:bg-[#F7931A] hover:text-white transition-all duration-300 transform hover:scale-110 active:scale-95 touch-manipulation"
+                    className="p-2 sm:p-3 bg-background/90 dark:bg-card text-card-foreground/90 rounded-full backdrop-blur-sm hover:bg-[var(--primary-color)] hover:text-inverse transition-all duration-300 transform hover:scale-110 active:scale-95 touch-manipulation border border-white/10"
                     style={{
                       WebkitTapHighlightColor: 'rgba(247, 147, 26, 0.2)',
                       touchAction: 'manipulation',
@@ -222,9 +233,10 @@ export function ProductCard({
                 <button
                   onClick={handleAddToCart}
                   disabled={!inStock || isAddingToCart}
-                  className={`p-2 sm:p-3 rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-110 active:scale-95 touch-manipulation ${\n                    !inStock
+                  className={`p-2 sm:p-3 rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-110 active:scale-95 touch-manipulation border border-white/10 ${
+                    !inStock
                       ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-[#F7931A] hover:bg-orange-600 text-white"
+                      : "bg-[var(--primary-color)] hover:bg-orange-600 text-inverse"
                   } ${isAddingToCart ? "animate-pulse" : ""}`}
                   style={{
                     WebkitTapHighlightColor: 'rgba(247, 147, 26, 0.2)',
@@ -238,7 +250,7 @@ export function ProductCard({
 
               {/* Discount Badge */}
               {hasDiscount && inStock && (
-                <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 bg-red-500 text-white text-[10px] sm:text-xs font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-lg shadow-lg">
+                <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 bg-red-500 text-inverse text-[10px] sm:text-xs font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-lg shadow-lg">
                   -{discountPercentage}%
                 </div>
               )}
@@ -248,19 +260,19 @@ export function ProductCard({
           {/* Product Info */}
           <div className="flex-1 flex flex-col space-y-2 sm:space-y-3">
             {/* Category */}
-            <span className="text-[10px] sm:text-xs text-[#F7931A] font-semibold uppercase tracking-wide">
+            <span className="text-[10px] sm:text-xs text-[var(--primary-color)] font-semibold uppercase tracking-wide">
               {product.category}
             </span>
 
             {/* Product Name */}
-            <h3 className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white line-clamp-2 min-h-[2.5rem] sm:min-h-[3rem] leading-snug">
+            <h3 className="text-sm sm:text-base font-semibold text-foreground line-clamp-2 min-h-[2.5rem] sm:min-h-[3rem] leading-snug">
               {product.name}
             </h3>
 
             {/* Rating */}
             <div className="flex items-center gap-1 sm:gap-2">
               {renderStars()}
-              <span className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 font-medium">
+              <span className="text-[10px] sm:text-xs text-muted-foreground font-medium">
                 {product.rating} ({product.reviews})
               </span>
             </div>
@@ -268,11 +280,11 @@ export function ProductCard({
             {/* Price Section */}
             <div className="flex items-end justify-between pt-1 sm:pt-2 mt-auto">
               <div className="flex flex-col gap-0.5 sm:gap-1">
-                <span className="text-lg sm:text-2xl font-bold text-[#F7931A]">
+                <span className="text-lg sm:text-2xl font-bold text-[var(--primary-color)]">
                   ${product.price.toFixed(2)}
                 </span>
                 {hasDiscount && (
-                  <span className="text-xs sm:text-sm text-gray-400 dark:text-gray-500 line-through">
+                  <span className="text-xs sm:text-sm text-muted-foreground dark:text-muted-foreground line-through">
                     ${product.originalPrice.toFixed(2)}
                   </span>
                 )}
@@ -290,7 +302,11 @@ export function ProductCard({
             <Button
               onClick={handleAddToCart}
               disabled={!inStock || isAddingToCart}
-              className={`w-full mt-2 sm:mt-3 transition-all duration-300 h-8 sm:h-10 text-xs sm:text-sm active:scale-95 touch-manipulation ${\n                !inStock\n                  ? "bg-gray-400 cursor-not-allowed"\n                  : "bg-gradient-to-r from-[#F7931A] to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white"\n              } ${isAddingToCart ? "opacity-70" : ""}`}
+              className={`w-full mt-2 sm:mt-3 transition-all duration-300 h-8 sm:h-10 text-xs sm:text-sm active:scale-95 touch-manipulation border-0 ${
+                !inStock
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-gradient-to-r from-[var(--primary-color)] to-orange-600 hover:from-orange-600 hover:to-orange-700 text-inverse"
+              } ${isAddingToCart ? "opacity-70" : ""}`}
               style={{
                 WebkitTapHighlightColor: 'rgba(247, 147, 26, 0.2)',
                 touchAction: 'manipulation',
@@ -312,7 +328,7 @@ export function ProductCard({
         <Dialog open={showQuickViewModal} onOpenChange={setShowQuickViewModal}>
           <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle className="text-2xl font-bold text-gray-900 dark:text-white">
+              <DialogTitle className="text-2xl font-bold text-foreground">
                 {product.name}
               </DialogTitle>
               <DialogDescription>
@@ -321,7 +337,7 @@ export function ProductCard({
             </DialogHeader>
             <div className="grid md:grid-cols-2 gap-6 py-4">
               {/* Image */}
-              <div className="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800">
+              <div className="rounded-xl overflow-hidden bg-muted">
                 <ImageWithFallback
                   src={product.image}
                   alt={product.name}
@@ -332,10 +348,10 @@ export function ProductCard({
               {/* Details */}
               <div className="space-y-4">
                 <div>
-                  <span className="text-sm text-[#F7931A] font-semibold uppercase">
+                  <span className="text-sm text-[var(--primary-color)] font-semibold uppercase">
                     {product.category}
                   </span>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-1">
+                  <h3 className="text-xl font-bold text-foreground mt-1">
                     {product.name}
                   </h3>
                 </div>
@@ -343,19 +359,19 @@ export function ProductCard({
                 {/* Rating */}
                 <div className="flex items-center gap-2">
                   {renderStars()}
-                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                  <span className="text-sm text-muted-foreground">
                     {product.rating} ({product.reviews} reviews)
                   </span>
                 </div>
 
                 {/* Price */}
                 <div className="flex items-center gap-3">
-                  <span className="text-3xl font-bold text-[#F7931A]">
+                  <span className="text-3xl font-bold text-[var(--primary-color)]">
                     ${product.price.toFixed(2)}
                   </span>
                   {hasDiscount && (
                     <>
-                      <span className="text-xl text-gray-400 line-through">
+                      <span className="text-xl text-muted-foreground line-through">
                         ${product.originalPrice.toFixed(2)}
                       </span>
                       <Badge className="bg-green-500">-{discountPercentage}%</Badge>
@@ -365,7 +381,7 @@ export function ProductCard({
 
                 {/* Description */}
                 {product.description && (
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-muted-foreground">
                     {product.description}
                   </p>
                 )}
@@ -384,7 +400,7 @@ export function ProductCard({
                   <Button
                     onClick={handleAddToCart}
                     disabled={!inStock || isAddingToCart}
-                    className="flex-1 bg-gradient-to-r from-[#F7931A] to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white h-12"
+                    className="flex-1 bg-gradient-to-r from-[var(--primary-color)] to-orange-600 hover:from-orange-600 hover:to-orange-700 text-inverse h-12 border-0"
                   >
                     <ShoppingCart className="size-5 mr-2" />
                     {!inStock ? "Out of Stock" : "Add to Cart"}
@@ -403,4 +419,5 @@ export function ProductCard({
     </>
   );
 }
+
 

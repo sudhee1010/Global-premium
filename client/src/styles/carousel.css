@@ -106,22 +106,22 @@
 }
 
 .flash-deals-carousel .slick-dots li.slick-active button {
-  background: #F7931A;
+  background: var(--primary-color);
   width: 32px;
   border-radius: 6px;
 }
 
 /* Dark mode support for dots */
-:root[class~="dark"] .flash-deals-carousel .slick-dots li button {
+.dark .flash-deals-carousel .slick-dots li button {
   background: #4b5563;
 }
 
-:root[class~="dark"] .flash-deals-carousel .slick-dots li button:hover {
+.dark .flash-deals-carousel .slick-dots li button:hover {
   background: #6b7280;
 }
 
-:root[class~="dark"] .flash-deals-carousel .slick-dots li.slick-active button {
-  background: #F7931A;
+.dark .flash-deals-carousel .slick-dots li.slick-active button {
+  background: var(--primary-color);
 }
 
 /* Mobile responsive carousel adjustments */
@@ -225,22 +225,22 @@
 }
 
 .featured-products-carousel .slick-dots li.slick-active button {
-  background: #F7931A;
+  background: var(--primary-color);
   width: 28px;
   border-radius: 5px;
 }
 
 /* Dark mode support for featured products dots */
-:root[class~="dark"] .featured-products-carousel .slick-dots li button {
+.dark .featured-products-carousel .slick-dots li button {
   background: #4b5563;
 }
 
-:root[class~="dark"] .featured-products-carousel .slick-dots li button:hover {
+.dark .featured-products-carousel .slick-dots li button:hover {
   background: #6b7280;
 }
 
-:root[class~="dark"] .featured-products-carousel .slick-dots li.slick-active button {
-  background: #F7931A;
+.dark .featured-products-carousel .slick-dots li.slick-active button {
+  background: var(--primary-color);
 }
 
 /* Mobile responsive adjustments for featured products carousel */

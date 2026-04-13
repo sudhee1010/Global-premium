@@ -5,25 +5,19 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { OrderSuccessCard } from "../components/OrderSuccessCard";
 import { Button } from "../components/ui/button";
-import { ArrowLeft, Package, PartyPopper } from "lucide-react";
+import { ArrowLeft, ArrowRight, Package, PartyPopper } from "lucide-react";
 import confetti from "canvas-confetti";
 
 export function OrderSuccessPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  
-  // Get order data from URL params
-  const orderNumber = searchParams.get("order") || "ORD-2026-KH7PIF8";
-  const amount = parseFloat(searchParams.get("amount") || "680.37");
-  const paymentMethod = searchParams.get("method") || "cod";
-  const estimatedDelivery = searchParams.get("delivery") || "Feb 25, 2026";
 
-  // Mock order data - in production, this would be fetched from an API
-  const [orderData] = useState({
-    orderNumber: orderNumber,
-    amount: amount,
-    paymentMethod: paymentMethod,
-    estimatedDelivery: estimatedDelivery,
+  // Get order data from URL params or localStorage
+  const [orderData, setOrderData] = useState({
+    orderNumber: "ORD-2026-KH7PIF8",
+    amount: 680.37,
+    paymentMethod: "cod",
+    estimatedDelivery: "Feb 25, 2026",
     shippingAddress: {
       name: "Rahul Bose",
       address: "National highway",
@@ -31,8 +25,29 @@ export function OrderSuccessPage() {
       state: "Kerala",
       zip: "695004",
     },
-    itemCount: 3,
+    itemCount: 0,
+    items: [] as any[],
   });
+
+  useEffect(() => {
+    const lastOrder = localStorage.getItem("lastOrder");
+    if (lastOrder) {
+      try {
+        const parsed = JSON.parse(lastOrder);
+        setOrderData({
+          orderNumber: parsed.orderNumber || parsed.id || "ORD-2026-" + Math.random().toString(36).substring(2, 9).toUpperCase(),
+          amount: parsed.amount || parsed.total || 0,
+          paymentMethod: parsed.paymentMethod || "Credit Card",
+          estimatedDelivery: parsed.estimatedDelivery || "Feb 28, 2026",
+          shippingAddress: parsed.shippingAddress || orderData.shippingAddress,
+          itemCount: parsed.items?.length || parsed.itemCount || 0,
+          items: parsed.items || [],
+        });
+      } catch (err) {
+        console.error("Failed to parse lastOrder", err);
+      }
+    }
+  }, []);
 
   const handleClose = () => {
     router.push("/");
@@ -43,7 +58,7 @@ export function OrderSuccessPage() {
     const count = 200;
     const defaults = {
       origin: { y: 0.7 },
-      colors: ['#F7931A', '#22c55e', '#3b82f6', '#f59e0b', '#10b981', '#ec4899'],
+      colors: ['var(--primary-color)', '#22c55e', '#3b82f6', '#f59e0b', '#10b981', '#ec4899'],
     };
 
     function fire(particleRatio: number, opts: any) {
@@ -89,15 +104,16 @@ export function OrderSuccessPage() {
             className="gap-2"
           >
             <ArrowLeft className="size-4" />
-            Back to Home
+            Continue Shopping
+            <ArrowRight className="size-4 ml-2" />
           </Button>
           <div className="flex items-center gap-3">
             <Button
               variant="outline"
               onClick={handleCelebrate}
-              className="gap-2 bg-gradient-to-r from-[#F7931A]/10 to-orange-500/10 hover:from-[#F7931A]/20 hover:to-orange-500/20 border-[#F7931A]/30"
+              className="gap-2 bg-gradient-to-r from-[var(--primary-color)]/10 to-orange-500/10 hover:from-[var(--primary-color)]/20 hover:to-orange-500/20 border-[var(--primary-color)]/30"
             >
-              <PartyPopper className="size-4 text-[#F7931A]" />
+              <PartyPopper className="size-4 text-[var(--primary-color)]" />
               Celebrate!
             </Button>
             <Button
@@ -131,4 +147,5 @@ export function OrderSuccessPage() {
     </div>
   );
 }
+
 

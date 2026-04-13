@@ -149,25 +149,25 @@ export function TrackOrderPage() {
       case "processing":
         return "bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border-purple-200 dark:border-purple-800";
       default:
-        return "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-400 border-gray-200 dark:border-gray-700";
+        return "bg-muted text-muted-foreground dark:text-muted-foreground border-gray-200 dark:border-gray-700";
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-900 dark:to-blue-950 text-white">
+      <div className="bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-900 dark:to-blue-950 text-inverse">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <Button
             variant="ghost"
             onClick={() => router.back()}
-            className="text-white hover:bg-white/20 mb-4"
+            className="text-inverse hover:bg-background/20 mb-4"
           >
             <ArrowLeft className="size-4 mr-2" />
             Back
           </Button>
           <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-white/20 rounded-xl">
+            <div className="p-3 bg-background/20 rounded-xl">
               <Package className="size-8" />
             </div>
             <div>
@@ -182,7 +182,7 @@ export function TrackOrderPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Search Section */}
-        <Card className="p-6 mb-8 bg-white dark:bg-gray-900">
+        <Card className="p-6 mb-8 bg-card">
           <Label htmlFor="orderNumber" className="text-lg font-semibold mb-4 block">
             Enter Order Number
           </Label>
@@ -206,7 +206,7 @@ export function TrackOrderPage() {
               Track Order
             </Button>
           </div>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-3">
+          <p className="text-sm text-muted-foreground mt-3">
             You can find your order number in the confirmation email or on the
             orders page
           </p>
@@ -216,11 +216,11 @@ export function TrackOrderPage() {
         {trackingData && (
           <div className="space-y-6">
             {/* Status Overview */}
-            <Card className="p-6 bg-white dark:bg-gray-900">
+            <Card className="p-6 bg-card">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
                 <div>
                   <div className="flex items-center gap-3 mb-2">
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                    <h2 className="text-2xl font-bold text-foreground">
                       Order {trackingData.orderNumber}
                     </h2>
                     <Badge
@@ -230,15 +230,15 @@ export function TrackOrderPage() {
                       {trackingData.status}
                     </Badge>
                   </div>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-muted-foreground">
                     {trackingData.currentLocation}
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                  <p className="text-sm text-muted-foreground mb-1">
                     Estimated Delivery
                   </p>
-                  <p className="text-2xl font-bold text-[#F7931A]">
+                  <p className="text-2xl font-bold text-[var(--primary-color)]">
                     {trackingData.estimatedDelivery}
                   </p>
                 </div>
@@ -248,35 +248,35 @@ export function TrackOrderPage() {
 
               {/* Carrier Info */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                <div className="flex items-center gap-3 p-3 bg-muted rounded-lg">
                   <Truck className="size-5 text-blue-600" />
                   <div>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                    <p className="text-xs text-muted-foreground">
                       Carrier
                     </p>
-                    <p className="font-semibold text-gray-900 dark:text-white">
+                    <p className="font-semibold text-foreground">
                       {trackingData.carrier}
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                <div className="flex items-center gap-3 p-3 bg-muted rounded-lg">
                   <Package className="size-5 text-blue-600" />
                   <div>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                    <p className="text-xs text-muted-foreground">
                       Tracking Number
                     </p>
-                    <p className="font-semibold text-gray-900 dark:text-white text-sm">
+                    <p className="font-semibold text-foreground text-sm">
                       {trackingData.trackingNumber}
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                <div className="flex items-center gap-3 p-3 bg-muted rounded-lg">
                   <Calendar className="size-5 text-blue-600" />
                   <div>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                    <p className="text-xs text-muted-foreground">
                       Order Date
                     </p>
-                    <p className="font-semibold text-gray-900 dark:text-white">
+                    <p className="font-semibold text-foreground">
                       {trackingData.orderDate}
                     </p>
                   </div>
@@ -287,8 +287,8 @@ export function TrackOrderPage() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Timeline */}
               <div className="lg:col-span-2">
-                <Card className="p-6 bg-white dark:bg-gray-900">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
+                <Card className="p-6 bg-card">
+                  <h3 className="text-xl font-bold text-foreground mb-6">
                     Tracking Timeline
                   </h3>
                   <div className="space-y-4">
@@ -302,13 +302,13 @@ export function TrackOrderPage() {
                                 ? "bg-blue-600 border-blue-600"
                                 : event.completed
                                 ? "bg-green-600 border-green-600"
-                                : "bg-gray-200 dark:bg-gray-700 border-gray-300 dark:border-gray-600"
+                                : "bg-border dark:bg-card text-card-foreground border-gray-300 dark:border-gray-600"
                             }`}
                           >
                             {event.completed ? (
-                              <CheckCircle2 className="size-5 text-white" />
+                              <CheckCircle2 className="size-5 text-inverse" />
                             ) : (
-                              <div className="size-3 rounded-full bg-white" />
+                              <div className="size-3 rounded-full bg-background" />
                             )}
                           </div>
                           {index < trackingData.timeline.length - 1 && (
@@ -316,7 +316,7 @@ export function TrackOrderPage() {
                               className={`w-0.5 h-16 ${
                                 event.completed
                                   ? "bg-green-600"
-                                  : "bg-gray-300 dark:bg-gray-700"
+                                  : "bg-border dark:bg-card text-card-foreground"
                               }`}
                             />
                           )}
@@ -329,24 +329,24 @@ export function TrackOrderPage() {
                               event.current
                                 ? "bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800"
                                 : event.completed
-                                ? "bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700"
-                                : "bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 opacity-50"
+                                ? "bg-muted border-gray-200 dark:border-gray-700"
+                                : "bg-muted border-gray-200 dark:border-gray-700 opacity-50"
                             }`}
                           >
                             <div className="flex items-start justify-between mb-2">
-                              <h4 className="font-bold text-gray-900 dark:text-white">
+                              <h4 className="font-bold text-foreground">
                                 {event.status}
                               </h4>
                               {event.current && (
-                                <Badge className="bg-blue-600 text-white">
+                                <Badge className="bg-blue-600 text-inverse">
                                   Current
                                 </Badge>
                               )}
                             </div>
-                            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                            <p className="text-sm text-muted-foreground mb-2">
                               {event.description}
                             </p>
-                            <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
+                            <div className="flex items-center gap-4 text-xs text-muted-foreground">
                               <span className="flex items-center gap-1">
                                 <MapPin className="size-3" />
                                 {event.location}
@@ -371,15 +371,15 @@ export function TrackOrderPage() {
               {/* Sidebar */}
               <div className="space-y-6">
                 {/* Order Items */}
-                <Card className="p-6 bg-white dark:bg-gray-900">
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-4">
+                <Card className="p-6 bg-card">
+                  <h3 className="font-bold text-foreground mb-4">
                     Order Items
                   </h3>
                   <div className="space-y-3">
                     {trackingData.items.map((item: any) => (
                       <div
                         key={item.id}
-                        className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg"
+                        className="flex items-center gap-3 p-3 bg-muted rounded-lg"
                       >
                         <img
                           src={item.image}
@@ -387,10 +387,10 @@ export function TrackOrderPage() {
                           className="size-16 object-cover rounded"
                         />
                         <div className="flex-1 min-w-0">
-                          <p className="font-medium text-sm text-gray-900 dark:text-white truncate">
+                          <p className="font-medium text-sm text-foreground truncate">
                             {item.name}
                           </p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">
+                          <p className="text-xs text-muted-foreground">
                             Qty: {item.quantity}
                           </p>
                         </div>
@@ -400,13 +400,13 @@ export function TrackOrderPage() {
                 </Card>
 
                 {/* Shipping Address */}
-                <Card className="p-6 bg-white dark:bg-gray-900">
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                    <Home className="size-5 text-[#F7931A]" />
+                <Card className="p-6 bg-card">
+                  <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+                    <Home className="size-5 text-[var(--primary-color)]" />
                     Shipping Address
                   </h3>
-                  <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                    <p className="font-semibold text-gray-900 dark:text-white">
+                  <div className="space-y-2 text-sm text-muted-foreground">
+                    <p className="font-semibold text-foreground">
                       {trackingData.shippingAddress.name}
                     </p>
                     <p>{trackingData.shippingAddress.street}</p>
@@ -417,19 +417,19 @@ export function TrackOrderPage() {
                     </p>
                     <Separator className="my-3" />
                     <p className="flex items-center gap-2">
-                      <Phone className="size-4 text-[#F7931A]" />
+                      <Phone className="size-4 text-[var(--primary-color)]" />
                       {trackingData.shippingAddress.phone}
                     </p>
                     <p className="flex items-center gap-2">
-                      <Mail className="size-4 text-[#F7931A]" />
+                      <Mail className="size-4 text-[var(--primary-color)]" />
                       {trackingData.shippingAddress.email}
                     </p>
                   </div>
                 </Card>
 
                 {/* Actions */}
-                <Card className="p-6 bg-gradient-to-br from-[#F7931A]/10 to-orange-500/10 dark:from-[#F7931A]/20 dark:to-orange-500/20 border-2 border-[#F7931A]/30">
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-4">
+                <Card className="p-6 bg-gradient-to-br from-[var(--primary-color)]/10 to-orange-500/10 dark:from-[var(--primary-color)]/20 dark:to-orange-500/20 border-2 border-[var(--primary-color)]/30">
+                  <h3 className="font-bold text-foreground mb-4">
                     Need Help?
                   </h3>
                   <div className="space-y-2">
@@ -459,4 +459,5 @@ export function TrackOrderPage() {
     </div>
   );
 }
+
 

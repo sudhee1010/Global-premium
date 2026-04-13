@@ -11,18 +11,19 @@ export function FilterButton() {
       onClick={toggleFilter}
       className={`fixed right-6 bottom-24 md:bottom-8 z-40 size-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 border-2 ${
         isFilterOpen
-          ? "bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-800 border-gray-700 dark:border-gray-600"
-          : "bg-[#F7931A] hover:bg-orange-600 border-orange-600 dark:border-orange-500"
+          ? "bg-card text-card-foreground hover:bg-card text-card-foreground dark:bg-card text-card-foreground dark:hover:bg-card text-card-foreground border-gray-700 dark:border-gray-600"
+          : "bg-[var(--primary-color)] hover:bg-orange-600 border-orange-600 dark:border-orange-500"
       }`}
       size="icon"
     >
-      <SlidersHorizontal className="size-6 text-white" />
+      <SlidersHorizontal className="size-6 text-inverse" />
       {isFilterOpen && (
-        <Badge className="absolute -top-1 -right-1 size-6 flex items-center justify-center p-0 bg-green-500 hover:bg-green-500 text-white text-xs font-bold rounded-full border-2 border-white dark:border-gray-900">
+        <Badge className="absolute -top-1 -right-1 size-6 flex items-center justify-center p-0 bg-green-500 hover:bg-green-500 text-inverse text-xs font-bold rounded-full border-2 border-white dark:border-gray-900">
           ✓
         </Badge>
       )}
     </Button>
   );
 }
+
 

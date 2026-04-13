@@ -38,13 +38,10 @@ export function Header() {
   const [searchQuery, setSearchQuery] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
-  const { isDark, toggleTheme } = useTheme();
-  const { items, updateQuantity, removeItem } = useCart();
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === "dark";
   const { wishlistCount } = useWishlist();
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  
-  const openDrawer = () => setIsDrawerOpen(true);
-  const closeDrawer = () => setIsDrawerOpen(false);
+  const { items, updateQuantity, removeItem, openDrawer, isDrawerOpen } = useCart();
   
   // Dynamic promotional messages
   const [currentPromoIndex, setCurrentPromoIndex] = useState(0);
@@ -89,24 +86,26 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b glass-navbar shadow-lg">
       {/* Top Bar */}
-      <div className="bg-gradient-to-r from-[#F7931A] to-orange-600 text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-10 text-sm font-medium">
-            <div className="hidden md:block flex-1 overflow-hidden">
-              <p 
-                key={currentPromoIndex}
-                className="animate-[slideIn_0.5s_ease-in-out]"
-                style={{
-                  animation: 'slideIn 0.5s ease-in-out'
-                }}
-              >
-                {promoMessages[currentPromoIndex]}
-              </p>
-            </div>
-            <p className="md:ml-auto">24/7 Customer Support 🎧</p>
-          </div>
-        </div>
+      <div className="bg-gradient-to-r from-[var(--primary-color)] via-orange-500 to-orange-600 text-white overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex items-center justify-between h-10 text-sm font-medium">
+
+      <div className="hidden md:block flex-1 overflow-hidden">
+        <p
+          key={currentPromoIndex}
+          className="animate-[slideIn_0.5s_ease-in-out]"
+        >
+          {promoMessages[currentPromoIndex]}
+        </p>
       </div>
+
+      <p className="md:ml-auto text-white/90">
+        24/7 Customer Support 🎧
+      </p>
+
+    </div>
+  </div>
+</div>
 
       {/* Main Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -123,13 +122,13 @@ export function Header() {
           {/* Search Bar - Desktop */}
           <div className="flex-1 max-w-2xl hidden md:block">
             <div className="relative">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 size-5 text-gray-500 dark:text-gray-400" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 size-5 text-muted-foreground" />
               <Input
                 type="search"
                 placeholder="Search products..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-11 pr-4 h-12 bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white placeholder:text-gray-600 dark:placeholder:text-gray-400"
+                className="pl-11 pr-4 h-12 bg-muted/50 border-border text-foreground placeholder:text-muted-foreground"
               />
             </div>
           </div>
@@ -145,14 +144,14 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="relative hover:bg-gray-100 dark:hover:bg-gray-800 hidden md:flex"
+              className="relative hover:bg-muted dark:hover:bg-card text-card-foreground hidden md:flex"
               asChild
             >
               <Link href="/wishlist">
-                <Heart className="size-5 text-gray-700 dark:text-gray-300" />
+                <Heart className="size-5 text-muted-foreground hover:text-foreground" />
                 {wishlistCount > 0 && (
                   <Badge
-                    className="absolute -top-1 -right-1 size-5 flex items-center justify-center p-0 bg-[#F7931A] hover:bg-[#F7931A] text-white text-xs font-bold"
+                    className="absolute -top-1 -right-1 size-5 flex items-center justify-center p-0 bg-[var(--primary-color)] hover:bg-[var(--primary-color)] text-inverse text-xs font-bold"
                   >
                     {wishlistCount}
                   </Badge>
@@ -164,13 +163,13 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="relative hover:bg-gray-100 dark:hover:bg-gray-800 hidden md:flex"
+              className="relative hover:bg-muted dark:hover:bg-card text-card-foreground hidden md:flex"
               onClick={openDrawer}
             >
-              <ShoppingCart className="size-5 text-gray-700 dark:text-gray-300" />
+              <ShoppingCart className="size-5 text-muted-foreground hover:text-foreground transition-colors" />
               {cartItemsCount > 0 && (
                 <Badge
-                  className="absolute -top-1 -right-1 size-5 flex items-center justify-center p-0 bg-[#F7931A] hover:bg-[#F7931A] text-white text-xs font-bold"
+                  className="absolute -top-1 -right-1 size-5 flex items-center justify-center p-0 bg-[var(--primary-color)] hover:bg-[var(--primary-color)] text-inverse text-xs font-bold"
                 >
                   {cartItemsCount}
                 </Badge>
@@ -185,19 +184,19 @@ export function Header() {
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="hover:bg-gray-100 dark:hover:bg-gray-800"
+                      className="hover:bg-muted dark:hover:bg-card text-card-foreground"
                     >
-                      <User className="size-5 text-gray-700 dark:text-gray-300" />
+                      <User className="size-5 text-muted-foreground hover:text-foreground transition-colors" />
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-56">
                     <div className="flex items-center gap-3 p-2">
-                      <div className="size-10 bg-gradient-to-br from-[#F7931A] to-orange-600 rounded-full flex items-center justify-center text-white font-semibold">
+                      <div className="size-10 bg-gradient-to-br from-[var(--primary-color)] to-orange-600 rounded-full flex items-center justify-center text-inverse font-semibold">
                         {(user.name || "U").slice(0, 2).toUpperCase()}
                       </div>
                       <div>
-                        <p className="font-medium text-sm dark:text-white">{user.name}</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">{user.email}</p>
+                        <p className="font-medium text-sm text-foreground">{user.name}</p>
+                        <p className="text-xs text-muted-foreground">{user.email}</p>
                       </div>
                     </div>
                     <DropdownMenuSeparator />
@@ -230,7 +229,7 @@ export function Header() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
-                <Button variant="ghost" size="sm" className="text-gray-700 dark:text-gray-300" asChild>
+                <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground" asChild>
                   <Link href="/login">Sign In</Link>
                 </Button>
               )}
@@ -242,13 +241,13 @@ export function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="md:hidden hover:bg-gray-100 dark:hover:bg-gray-800 active:scale-95 transition-transform touch-manipulation"
+                  className="md:hidden hover:bg-muted dark:hover:bg-card text-card-foreground active:scale-95 transition-transform touch-manipulation"
                   style={{
                     WebkitTapHighlightColor: 'rgba(247, 147, 26, 0.2)',
                     touchAction: 'manipulation',
                   }}
                 >
-                  <Menu className="size-5 text-gray-700 dark:text-gray-300" />
+                  <Menu className="size-5 text-muted-foreground hover:text-foreground" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-80">
@@ -275,12 +274,12 @@ export function Header() {
                   <div className="flex items-center gap-3 p-4 glass-card rounded-xl mb-4">
                     {user ? (
                       <>
-                        <div className="size-12 bg-gradient-to-br from-[#F7931A] to-orange-600 rounded-full flex items-center justify-center text-white font-semibold">
+                        <div className="size-12 bg-gradient-to-br from-[var(--primary-color)] to-orange-600 rounded-full flex items-center justify-center text-inverse font-semibold">
                           {(user.name || "U").slice(0, 2).toUpperCase()}
                         </div>
                         <div>
-                          <p className="font-medium text-sm dark:text-white">{user.name}</p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">{user.email}</p>
+                          <p className="font-medium text-sm dark:text-inverse">{user.name}</p>
+                          <p className="text-xs text-muted-foreground">{user.email}</p>
                         </div>
                       </>
                     ) : (
@@ -289,10 +288,10 @@ export function Header() {
                         className="flex items-center gap-3 w-full"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        <div className="size-12 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
-                          <User className="size-6 text-gray-500" />
+                        <div className="size-12 bg-border dark:bg-card text-card-foreground rounded-full flex items-center justify-center">
+                          <User className="size-6 text-muted-foreground" />
                         </div>
-                        <span className="font-medium text-sm text-gray-700 dark:text-gray-300">Sign In</span>
+                        <span className="font-medium text-sm text-muted-foreground">Sign In</span>
                       </Link>
                     )}
                   </div>
@@ -302,7 +301,7 @@ export function Header() {
                     <div className="space-y-1">
                       <Link
                         href="/"
-                        className="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium text-gray-900 dark:text-white transition-colors active:scale-95 touch-manipulation"
+                        className="block px-4 py-3 rounded-lg hover:bg-muted dark:hover:bg-card text-card-foreground font-medium text-foreground transition-colors active:scale-95 touch-manipulation"
                         onClick={() => setMobileMenuOpen(false)}
                         style={{
                           WebkitTapHighlightColor: 'rgba(247, 147, 26, 0.2)',
@@ -313,7 +312,7 @@ export function Header() {
                       </Link>
                       <Link
                         href="/products"
-                        className="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium text-gray-900 dark:text-white transition-colors active:scale-95 touch-manipulation"
+                        className="block px-4 py-3 rounded-lg hover:bg-muted dark:hover:bg-card text-card-foreground font-medium text-foreground transition-colors active:scale-95 touch-manipulation"
                         onClick={() => setMobileMenuOpen(false)}
                         style={{
                           WebkitTapHighlightColor: 'rgba(247, 147, 26, 0.2)',
@@ -322,14 +321,14 @@ export function Header() {
                       >
                         All Products
                       </Link>
-                      <div className="px-4 py-2 text-sm font-semibold text-gray-500 dark:text-gray-400">
+                      <div className="px-4 py-2 text-sm font-semibold text-muted-foreground">
                         Categories
                       </div>
                       {/* {categories.map((category) => (
                         <Link
                           key={category}
                           href={`/products?category=${category}`}
-                          className="block px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition-colors active:scale-95 touch-manipulation"
+                          className="block px-4 py-2 rounded-lg hover:bg-muted dark:hover:bg-card text-card-foreground text-muted-foreground transition-colors active:scale-95 touch-manipulation"
                           onClick={() => setMobileMenuOpen(false)}
                           style={{
                             WebkitTapHighlightColor: 'rgba(247, 147, 26, 0.2)',
@@ -340,11 +339,11 @@ export function Header() {
                         </Link>
                       ))} */}
                       
-                      <div className="h-px bg-gray-200 dark:bg-gray-800 my-3" />
+                      <div className="h-px bg-border dark:bg-card text-card-foreground my-3" />
                       
                       <Link
                         href="/wishlist"
-                        className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium text-gray-900 dark:text-white transition-colors active:scale-95 touch-manipulation"
+                        className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted dark:hover:bg-card text-card-foreground font-medium text-foreground transition-colors active:scale-95 touch-manipulation"
                         onClick={() => setMobileMenuOpen(false)}
                         style={{
                           WebkitTapHighlightColor: 'rgba(247, 147, 26, 0.2)',
@@ -354,7 +353,7 @@ export function Header() {
                         <Heart className="size-5" />
                         Wishlist
                         {wishlistCount > 0 && (
-                          <Badge className="ml-auto bg-[#F7931A] hover:bg-[#F7931A] text-white">
+                          <Badge className="ml-auto bg-[var(--primary-color)] hover:bg-[var(--primary-color)] text-inverse">
                             {wishlistCount}
                           </Badge>
                         )}
@@ -362,7 +361,7 @@ export function Header() {
                       
                       <Link
                         href="/orders"
-                        className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium text-gray-900 dark:text-white transition-colors active:scale-95 touch-manipulation"
+                        className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted dark:hover:bg-card text-card-foreground font-medium text-foreground transition-colors active:scale-95 touch-manipulation"
                         onClick={() => setMobileMenuOpen(false)}
                         style={{
                           WebkitTapHighlightColor: 'rgba(247, 147, 26, 0.2)',
@@ -375,7 +374,7 @@ export function Header() {
                       
                       <Link
                         href="/rewards"
-                        className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium text-gray-900 dark:text-white transition-colors active:scale-95 touch-manipulation"
+                        className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted dark:hover:bg-card text-card-foreground font-medium text-foreground transition-colors active:scale-95 touch-manipulation"
                         onClick={() => setMobileMenuOpen(false)}
                         style={{
                           WebkitTapHighlightColor: 'rgba(247, 147, 26, 0.2)',
@@ -386,9 +385,9 @@ export function Header() {
                         Rewards & Coupons
                       </Link>
                       
-                      <div className="h-px bg-gray-200 dark:bg-gray-800 my-3" />
+                      <div className="h-px bg-border dark:bg-card text-card-foreground my-3" />
                       
-                      <div className="px-4 py-2 text-sm font-semibold text-gray-500 dark:text-gray-400">
+                      <div className="px-4 py-2 text-sm font-semibold text-muted-foreground">
                         Theme
                       </div>
                       <div className="px-4 py-2">
@@ -405,13 +404,13 @@ export function Header() {
         {/* Mobile Search Bar - Below logo on mobile only */}
         <div className="md:hidden pb-4">
           <div className="relative">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 size-5 text-gray-500 dark:text-gray-400 pointer-events-none" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 size-5 text-muted-foreground pointer-events-none" />
             <Input
               type="search"
               placeholder="Search products..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-11 pr-4 h-11 bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white placeholder:text-gray-600 dark:placeholder:text-gray-400 rounded-full touch-manipulation"
+              className="pl-11 pr-4 h-11 bg-muted/50 border-border text-foreground placeholder:text-muted-foreground rounded-full touch-manipulation"
               style={{
                 WebkitUserSelect: 'text',
                 userSelect: 'text',
@@ -424,12 +423,12 @@ export function Header() {
       </div>
 
       {/* Categories Navigation */}
-      <div className="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 hidden md:block">
+      <div className="border-t border-border bg-background hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-8 h-14 overflow-x-auto">
             <Link
               href="/products"
-              className="text-sm font-semibold text-gray-900 dark:text-white hover:text-[#F7931A] dark:hover:text-[#F7931A] whitespace-nowrap transition-colors py-4"
+              className="text-sm font-semibold text-foreground hover:text-[var(--primary-color)] dark:hover:text-[var(--primary-color)] whitespace-nowrap transition-colors py-4"
             >
               All Products
             </Link>
@@ -437,7 +436,7 @@ export function Header() {
             {/* {categories.map((category) => (
               <Link key={category}
                 href={`/products?category=${category}`}
-                className="text-sm font-semibold text-gray-900 dark:text-white hover:text-[#F7931A] dark:hover:text-[#F7931A] whitespace-nowrap transition-colors py-4"
+                className="text-sm font-semibold text-foreground hover:text-[var(--primary-color)] dark:hover:text-[var(--primary-color)] whitespace-nowrap transition-colors py-4"
               >
                 {category}
               </Link>
@@ -445,41 +444,41 @@ export function Header() {
 
             <Link
               href="/electronics"
-              className="text-sm font-semibold text-gray-900 dark:text-white hover:text-[#F7931A] dark:hover:text-[#F7931A] whitespace-nowrap transition-colors py-4"
+              className="text-sm font-semibold text-foreground hover:text-primary whitespace-nowrap transition-colors py-4"
             >
               Electronics
             </Link>
 
              <Link
               href="/fashion"
-              className="text-sm font-semibold text-gray-900 dark:text-white hover:text-[#F7931A] dark:hover:text-[#F7931A] whitespace-nowrap transition-colors py-4"
+              className="text-sm font-semibold text-foreground hover:text-primary whitespace-nowrap transition-colors py-4"
             >
               Fashion
             </Link>
             
              <Link
               href="/home-garden"
-              className="text-sm font-semibold text-gray-900 dark:text-white hover:text-[#F7931A] dark:hover:text-[#F7931A] whitespace-nowrap transition-colors py-4"
+              className="text-sm font-semibold text-foreground hover:text-primary whitespace-nowrap transition-colors py-4"
             >
               Home & Garden
             </Link>
             
              <Link
               href="/sports"
-              className="text-sm font-semibold text-gray-900 dark:text-white hover:text-[#F7931A] dark:hover:text-[#F7931A] whitespace-nowrap transition-colors py-4"
+              className="text-sm font-semibold text-foreground hover:text-primary whitespace-nowrap transition-colors py-4"
             >
               Sports
             </Link>
             
              <Link
               href="/beauty"
-              className="text-sm font-semibold text-gray-900 dark:text-white hover:text-[#F7931A] dark:hover:text-[#F7931A] whitespace-nowrap transition-colors py-4"
+              className="text-sm font-semibold text-foreground hover:text-primary whitespace-nowrap transition-colors py-4"
             >
               Beauty
             </Link>
              <Link
               href="/books"
-              className="text-sm font-semibold text-gray-900 dark:text-white hover:text-[#F7931A] dark:hover:text-[#F7931A] whitespace-nowrap transition-colors py-4"
+              className="text-sm font-semibold text-foreground hover:text-primary whitespace-nowrap transition-colors py-4"
             >
               Books
             </Link>
@@ -490,15 +489,8 @@ export function Header() {
         </div>
       </div>
 
-      {/* Cart Drawer */}
-      <CartDrawer
-        isOpen={isDrawerOpen}
-        onClose={closeDrawer}
-        items={items}
-        onUpdateQuantity={(productId, sku, quantity) => updateQuantity(productId, sku, quantity)}
-        onRemoveItem={(productId, sku) => removeItem(productId, sku)}
-      />
     </header>
   );
 }
+
 

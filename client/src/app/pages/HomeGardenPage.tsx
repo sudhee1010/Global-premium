@@ -31,14 +31,14 @@ export function HomeGardenPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 dark:from-gray-950 dark:via-green-950/20 dark:to-emerald-950/20">
       {/* Home & Garden Products Section */}
-      <section className="py-12 bg-white dark:bg-gray-950">
+      <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-bold text-foreground">
               Home & Garden
             </h2>
             <Link href="/products?category=Home & Garden"
-              className="text-[#F7931A] hover:text-orange-600 font-semibold text-sm"
+              className="text-[var(--primary-color)] hover:text-orange-600 font-semibold text-sm"
             >
               View All →
             </Link>
@@ -66,14 +66,14 @@ export function HomeGardenPage() {
                 href={`/products?subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
-                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <ImageWithFallback
                     src={product.image}
                     alt={product.name}
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                   {product.name}
                 </p>
               </Link>
@@ -86,15 +86,15 @@ export function HomeGardenPage() {
       <section className="relative bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 dark:from-green-900 dark:via-emerald-900 dark:to-teal-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-white mb-4">
+            <h1 className="text-4xl font-bold text-inverse mb-4">
               Home & Garden Essentials
             </h1>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-inverse/90 mb-8">
               Transform your space with our curated collection
             </p>
             <Button
               size="lg"
-              className="bg-white text-green-600 hover:bg-gray-100 rounded-2xl"
+              className="bg-background text-green-600 hover:bg-muted rounded-2xl"
               asChild
             >
               <Link href="/products?category=Home & Garden">
@@ -109,10 +109,10 @@ export function HomeGardenPage() {
       <section className="py-12 bg-red-500 dark:bg-red-900 border-8 border-yellow-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 bg-yellow-300 p-8">
-            <h2 className="text-3xl font-bold text-black mb-2">
+            <h2 className="text-3xl font-bold text-foreground mb-2">
               🔥🔥🔥 Flash Deals & Offers 🔥🔥🔥
             </h2>
-            <p className="text-black text-2xl">
+            <p className="text-foreground text-2xl">
               Don't miss out on these amazing limited-time offers
             </p>
           </div>
@@ -120,22 +120,22 @@ export function HomeGardenPage() {
             <Link href="/sports" className="group block">
               <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-500 via-red-600 to-red-700 p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 min-h-[240px] flex flex-col justify-between">
                 <div>
-                  <Badge className="bg-white/20 hover:bg-white/30 text-white border-white/30 backdrop-blur-sm mb-4">
+                  <Badge className="bg-background/20 hover:bg-background/30 text-inverse border-white/30 backdrop-blur-sm mb-4">
                     <Dumbbell className="size-4 mr-1" />
                     Sports
                   </Badge>
-                  <h3 className="text-2xl font-bold text-white mb-2">
+                  <h3 className="text-2xl font-bold text-inverse mb-2">
                     Fitness Gear Sale
                   </h3>
-                  <p className="text-white/90 text-sm mb-6">
+                  <p className="text-inverse/90 text-sm mb-6">
                     Get fit with premium sports equipment at great prices
                   </p>
                 </div>
                 <div className="flex items-center justify-between">
-                  <Button className="bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-2xl">
+                  <Button className="bg-background hover:bg-muted text-foreground font-semibold rounded-2xl">
                     Shop
                   </Button>
-                  <div className="text-2xl font-bold text-white">
+                  <div className="text-2xl font-bold text-inverse">
                     30% OFF
                   </div>
                 </div>
@@ -145,22 +145,22 @@ export function HomeGardenPage() {
             <Link href="/home-garden" className="group block">
               <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-500 via-teal-600 to-teal-700 p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 min-h-[240px] flex flex-col justify-between">
                 <div>
-                  <Badge className="bg-white/20 hover:bg-white/30 text-white border-white/30 backdrop-blur-sm mb-4">
+                  <Badge className="bg-background/20 hover:bg-background/30 text-inverse border-white/30 backdrop-blur-sm mb-4">
                     <Home className="size-4 mr-1" />
                     Home
                   </Badge>
-                  <h3 className="text-2xl font-bold text-white mb-2">
+                  <h3 className="text-2xl font-bold text-inverse mb-2">
                     Home Essentials
                   </h3>
-                  <p className="text-white/90 text-sm mb-6">
+                  <p className="text-inverse/90 text-sm mb-6">
                     Upgrade your living space with quality items
                   </p>
                 </div>
                 <div className="flex items-center justify-between">
-                  <Button className="bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-2xl">
+                  <Button className="bg-background hover:bg-muted text-foreground font-semibold rounded-2xl">
                     Browse
                   </Button>
-                  <div className="text-2xl font-bold text-white">
+                  <div className="text-2xl font-bold text-inverse">
                     Free Ship
                   </div>
                 </div>
@@ -170,22 +170,22 @@ export function HomeGardenPage() {
             <Link href="/beauty" className="group block">
               <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-pink-500 via-pink-600 to-pink-700 p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 min-h-[240px] flex flex-col justify-between">
                 <div>
-                  <Badge className="bg-white/20 hover:bg-white/30 text-white border-white/30 backdrop-blur-sm mb-4">
+                  <Badge className="bg-background/20 hover:bg-background/30 text-inverse border-white/30 backdrop-blur-sm mb-4">
                     <Flower className="size-4 mr-1" />
                     Beauty
                   </Badge>
-                  <h3 className="text-2xl font-bold text-white mb-2">
+                  <h3 className="text-2xl font-bold text-inverse mb-2">
                     Beauty Essentials
                   </h3>
-                  <p className="text-white/90 text-sm mb-6">
+                  <p className="text-inverse/90 text-sm mb-6">
                     Premium skincare and cosmetics for glowing skin
                   </p>
                 </div>
                 <div className="flex items-center justify-between">
-                  <Button className="bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-2xl">
+                  <Button className="bg-background hover:bg-muted text-foreground font-semibold rounded-2xl">
                     Explore
                   </Button>
-                  <div className="text-2xl font-bold text-white">
+                  <div className="text-2xl font-bold text-inverse">
                     15% OFF
                   </div>
                 </div>
@@ -199,10 +199,10 @@ export function HomeGardenPage() {
       <section className="py-12 bg-blue-500 dark:bg-blue-900 border-8 border-purple-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8 bg-purple-300 p-8">
-            <h2 className="text-3xl font-bold text-black mb-2">
+            <h2 className="text-3xl font-bold text-foreground mb-2">
               ⚡⚡⚡ Electronics Products ⚡⚡⚡
             </h2>
-            <p className="text-black text-2xl">
+            <p className="text-foreground text-2xl">
               Discover our complete collection of premium products
             </p>
           </div>
@@ -210,252 +210,252 @@ export function HomeGardenPage() {
             <Link href="/products?category=Smartphones"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400"
                   alt="Smartphones"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Smartphones
               </p>
             </Link>
             <Link href="/products?category=Laptops"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400"
                   alt="Laptops"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Laptops
               </p>
             </Link>
             <Link href="/products?category=Headphones"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400"
                   alt="Headphones"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Headphones
               </p>
             </Link>
             <Link href="/products?category=Cameras"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400"
                   alt="Cameras"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Cameras
               </p>
             </Link>
             <Link href="/products?category=Smartwatches"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400"
                   alt="Smartwatches"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Smartwatches
               </p>
             </Link>
             <Link href="/products?category=Gaming%20Consoles"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400"
                   alt="Gaming Consoles"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Gaming Consoles
               </p>
             </Link>
             <Link href="/products?category=TVs"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=400"
                   alt="TVs"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 TVs
               </p>
             </Link>
             <Link href="/products?category=Tablets"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1585790050230-5dd28404f8f3?w=400"
                   alt="Tablets"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Tablets
               </p>
             </Link>
             <Link href="/products?category=Speakers"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400"
                   alt="Speakers"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Speakers
               </p>
             </Link>
             <Link href="/products?category=Drones"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=400"
                   alt="Drones"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Drones
               </p>
             </Link>
             <Link href="/products?category=Keyboards"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400"
                   alt="Keyboards"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Keyboards
               </p>
             </Link>
             <Link href="/products?category=Gaming%20Mouse"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=400"
                   alt="Gaming Mouse"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Gaming Mouse
               </p>
             </Link>
             <Link href="/products?category=Storage"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400"
                   alt="Storage"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Storage
               </p>
             </Link>
             <Link href="/products?category=Cables%20%26%20Chargers"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400"
                   alt="Cables & Chargers"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Cables & Chargers
               </p>
             </Link>
             <Link href="/products?category=Power%20Banks"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400"
                   alt="Power Banks"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Power Banks
               </p>
             </Link>
             <Link href="/products?category=Webcams"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1589739900243-c63304f77f34?w=400"
                   alt="Webcams"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Webcams
               </p>
             </Link>
             <Link href="/products?category=Routers"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=400"
                   alt="Routers"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Routers
               </p>
             </Link>
             <Link href="/products?category=Microphones"
               className="group flex flex-col items-center"
             >
-              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=400"
                   alt="Microphones"
                   className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+              <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                 Microphones
               </p>
             </Link>
@@ -467,14 +467,14 @@ export function HomeGardenPage() {
       <ShopByCategorySection />
 
       {/* Featured Home & Garden Products */}
-      <section className="py-12 bg-white dark:bg-gray-950">
+      <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+              <h2 className="text-3xl font-bold text-foreground mb-2">
                 Featured Home & Garden Products
               </h2>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-muted-foreground">
                 Discover our curated collection of {products.length} premium items
               </p>
             </div>
@@ -488,22 +488,22 @@ export function HomeGardenPage() {
             {products.map((product) => (
               <Link key={product.id}
                 href={`/products/${product.id}`}
-                className="group relative bg-white dark:bg-gray-800 [border-radius:0!important] shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden hover:scale-105 border-2 border-gray-200 dark:border-gray-700"
+                className="group relative bg-background dark:bg-card text-card-foreground [border-radius:0!important] shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden hover:scale-105 border-2 border-gray-200 dark:border-gray-700"
               >
                 {/* Product Image */}
-                <div className="relative aspect-square overflow-hidden bg-gray-100 dark:bg-gray-800">
+                <div className="relative aspect-square overflow-hidden bg-muted">
                   <ImageWithFallback
                     src={product.image}
                     alt={product.name}
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                   />
                   {product.badge && (
-                    <Badge className="absolute top-2 left-2 bg-[#F7931A] text-white [border-radius:0!important] z-10">
+                    <Badge className="absolute top-2 left-2 bg-[var(--primary-color)] text-inverse [border-radius:0!important] z-10 border-0">
                       {product.badge}
                     </Badge>
                   )}
                   {product.originalPrice && (
-                    <Badge className="absolute top-2 right-2 bg-red-500 text-white [border-radius:0!important] z-10">
+                    <Badge className="absolute top-2 right-2 bg-red-500 text-inverse [border-radius:0!important] z-10">
                       Sale
                     </Badge>
                   )}
@@ -514,16 +514,17 @@ export function HomeGardenPage() {
                     <button
                       onClick={(e) => {
                         e.preventDefault();
-                        addItem({
+                        e.stopPropagation();
+                        addItem(product.id, (product as any).sku || product.id, 1, {
                           id: product.id,
+                          sku: (product as any).sku || product.id,
                           name: product.name,
                           price: product.price,
                           image: product.image,
-                          quantity: 1,
                         });
                         toast.success("Added to cart!");
                       }}
-                      className="p-2 bg-[#F7931A] hover:bg-orange-600 text-white [border-radius:0!important] shadow-lg transition-colors"
+                      className="p-2 bg-[var(--primary-color)] hover:bg-orange-600 text-inverse [border-radius:0!important] shadow-lg transition-colors border-0"
                     >
                       <ShoppingCart className="size-4" />
                     </button>
@@ -532,7 +533,7 @@ export function HomeGardenPage() {
                         e.preventDefault();
                         toast.success("Added to wishlist!");
                       }}
-                      className="p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 [border-radius:0!important] shadow-lg transition-colors"
+                      className="p-2 bg-background dark:bg-card text-card-foreground text-foreground hover:bg-muted dark:hover:bg-card text-card-foreground [border-radius:0!important] shadow-lg transition-colors"
                     >
                       <Heart className="size-4" />
                     </button>
@@ -541,10 +542,10 @@ export function HomeGardenPage() {
 
                 {/* Product Info */}
                 <div className="p-3 sm:p-4">
-                  <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white mb-1 line-clamp-2 group-hover:text-[#F7931A] transition-colors">
+                  <h3 className="font-semibold text-sm sm:text-base text-foreground mb-1 line-clamp-2 group-hover:text-[var(--primary-color)] transition-colors">
                     {product.name}
                   </h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                  <p className="text-xs text-muted-foreground mb-2">
                     {product.subcategory}
                   </p>
                   
@@ -556,13 +557,13 @@ export function HomeGardenPage() {
                           key={i}
                           className={`size-3 sm:size-4 ${
                             i < Math.floor(product.rating)
-                              ? "fill-yellow-400 text-yellow-400"
-                              : "fill-gray-300 text-gray-300 dark:fill-gray-600 dark:text-gray-600"
+                              ? "fill-[var(--primary-color)] text-[var(--primary-color)]"
+                              : "fill-gray-300 text-muted dark:fill-gray-600 dark:text-muted-foreground"
                           }`}
                         />
                       ))}
                     </div>
-                    <span className="text-xs text-gray-500 dark:text-gray-400">
+                    <span className="text-xs text-muted-foreground">
                       ({product.reviews})
                     </span>
                   </div>
@@ -570,11 +571,11 @@ export function HomeGardenPage() {
                   {/* Price */}
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-lg sm:text-xl font-bold text-[#F7931A]">
+                      <span className="text-lg sm:text-xl font-bold text-[var(--primary-color)]">
                         ${product.price.toFixed(2)}
                       </span>
                       {product.originalPrice && (
-                        <span className="ml-2 text-xs sm:text-sm text-gray-500 dark:text-gray-400 line-through">
+                        <span className="ml-2 text-xs sm:text-sm text-muted-foreground line-through">
                           ${product.originalPrice.toFixed(2)}
                         </span>
                       )}
@@ -599,7 +600,7 @@ export function HomeGardenPage() {
       {/* Shop for Loved Ones Section */}
       <section className="py-12 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 dark:from-gray-950 dark:via-green-950/20 dark:to-emerald-950/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+          <h2 className="text-3xl font-bold text-foreground mb-8">
             Shop by Room
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -613,8 +614,8 @@ export function HomeGardenPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 via-blue-900/30 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <h3 className="text-3xl font-bold text-white mb-1">Living Room</h3>
-                <p className="text-white/90 text-sm">Furniture & decor essentials</p>
+                <h3 className="text-3xl font-bold text-inverse mb-1">Living Room</h3>
+                <p className="text-inverse/90 text-sm">Furniture & decor essentials</p>
               </div>
             </Link>
 
@@ -628,8 +629,8 @@ export function HomeGardenPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-purple-900/70 via-purple-900/30 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <h3 className="text-3xl font-bold text-white mb-1">Bedroom</h3>
-                <p className="text-white/90 text-sm">Comfort & style for rest</p>
+                <h3 className="text-3xl font-bold text-inverse mb-1">Bedroom</h3>
+                <p className="text-inverse/90 text-sm">Comfort & style for rest</p>
               </div>
             </Link>
 
@@ -643,8 +644,8 @@ export function HomeGardenPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-orange-900/70 via-orange-900/30 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <h3 className="text-3xl font-bold text-white mb-1">Kitchen</h3>
-                <p className="text-white/90 text-sm">Modern kitchen essentials</p>
+                <h3 className="text-3xl font-bold text-inverse mb-1">Kitchen</h3>
+                <p className="text-inverse/90 text-sm">Modern kitchen essentials</p>
               </div>
             </Link>
           </div>
@@ -653,4 +654,5 @@ export function HomeGardenPage() {
     </div>
   );
 }
+
 

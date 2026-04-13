@@ -53,18 +53,18 @@ export function ShopByCategorySection() {
   ];
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-950">
+    <section className="py-16 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+            <h2 className="text-3xl font-bold text-foreground mb-2">
               Shop by Category
             </h2>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-muted-foreground">
               Find exactly what you're looking for
             </p>
           </div>
-          <Button variant="ghost" className="text-[#F7931A] hover:text-orange-600" asChild>
+          <Button variant="ghost" className="text-[var(--primary-color)] hover:text-orange-600" asChild>
             <Link href="/products">
               View All
               <ArrowRight className="size-4 ml-2" />
@@ -78,7 +78,7 @@ export function ShopByCategorySection() {
               href={`/products?category=${encodeURIComponent(category.name)}`}
               className="group"
             >
-              <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 border-2 border-gray-800 hover:border-[#F7931A] bg-gray-900 rounded-3xl">
+              <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 border-2 border-gray-800 hover:border-[var(--primary-color)] bg-card text-card-foreground rounded-3xl">
                 <div className="relative aspect-square">
                   <ImageWithFallback
                     src={category.image}
@@ -88,7 +88,7 @@ export function ShopByCategorySection() {
                   <div
                     className={`absolute inset-0 bg-gradient-to-t ${category.color} opacity-60`}
                   />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-4">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-inverse text-center p-4">
                     <h3 className="font-bold text-lg mb-1">
                       {category.name}
                     </h3>
@@ -103,4 +103,5 @@ export function ShopByCategorySection() {
     </section>
   );
 }
+
 

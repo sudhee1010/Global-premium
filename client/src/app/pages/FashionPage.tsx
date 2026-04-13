@@ -222,10 +222,10 @@ function StarRating({ rating }: { rating: number }) {
           key={star}
           className={`size-3 ${
             star <= Math.floor(rating)
-              ? "fill-yellow-400 text-yellow-400"
+              ? "fill-[var(--primary-color)] text-[var(--primary-color)]"
               : star - 0.5 <= rating
-              ? "fill-yellow-400/50 text-yellow-400"
-              : "fill-gray-600 text-gray-600"
+              ? "fill-[var(--primary-color)]/50 text-[var(--primary-color)]"
+              : "fill-gray-600 text-muted-foreground"
           }`}
         />
       ))}
@@ -242,7 +242,7 @@ function ProductCard({
   onAddToCart: (p: (typeof featuredProducts)[0]) => void;
 }) {
   return (
-    <div className="rounded-2xl overflow-hidden bg-[#1a1d23] group flex flex-col h-full">
+    <div className="rounded-2xl overflow-hidden bg-card group flex flex-col h-full">
       {/* Image area */}
       <div className="relative overflow-hidden aspect-[4/3]">
         <ImageWithFallback
@@ -252,41 +252,41 @@ function ProductCard({
         />
         {product.badge && (
           <div className="absolute top-3 left-3 z-10">
-            <span className="text-white text-[10px] font-semibold px-2.5 py-1 rounded-full bg-[#F7931A]">
+            <span className="text-inverse text-[10px] font-semibold px-2.5 py-1 rounded-full bg-[var(--primary-color)]">
               {product.badge}
             </span>
           </div>
         )}
-        <button className="absolute top-3 right-3 z-10 w-7 h-7 rounded-full bg-black/50 flex items-center justify-center hover:bg-black/80 transition-colors">
-          <Heart className="size-3.5 text-white" />
+        <button className="absolute top-3 right-3 z-10 w-7 h-7 rounded-full bg-inverse/50 flex items-center justify-center hover:bg-inverse/80 transition-colors">
+          <Heart className="size-3.5 text-foreground" />
         </button>
       </div>
 
       {/* Info area */}
       <div className="p-3 flex flex-col flex-1">
         {/* Category label */}
-        <p className="text-[#F7931A] text-[10px] font-semibold uppercase tracking-wide mb-1">
+        <p className="text-[var(--primary-color)] text-[10px] font-semibold uppercase tracking-wide mb-1">
           {product.category}
         </p>
 
         {/* Product name */}
-        <h3 className="text-white text-sm font-semibold mb-1.5 line-clamp-1">
+        <h3 className="text-foreground text-sm font-semibold mb-1.5 line-clamp-1">
           {product.name}
         </h3>
 
         {/* Stars + review count */}
         <div className="flex items-center gap-1.5 mb-2">
           <StarRating rating={product.rating} />
-          <span className="text-gray-400 text-[10px]">
+          <span className="text-muted-foreground text-[10px]">
             {product.rating} ({product.reviews})
           </span>
         </div>
 
         {/* Price row */}
         <div className="flex items-center gap-2 mb-3">
-          <span className="text-white font-bold text-sm">${product.price}</span>
+          <span className="text-[var(--primary-color)] font-bold text-sm">${product.price}</span>
           {product.originalPrice && (
-            <span className="text-gray-500 text-xs line-through">
+            <span className="text-muted-foreground text-xs line-through">
               ${product.originalPrice}
             </span>
           )}
@@ -295,7 +295,7 @@ function ProductCard({
         {/* Add to Cart — full width orange button */}
         <Button
           size="sm"
-          className="w-full mt-auto bg-[#F7931A] hover:bg-orange-500 active:bg-orange-600 text-white text-xs font-semibold rounded-xl h-8 transition-colors"
+          className="w-full mt-auto bg-[var(--primary-color)] hover:bg-orange-500 active:bg-orange-600 text-inverse text-xs font-semibold rounded-xl h-8 transition-colors border-0"
           onClick={() => onAddToCart(product)}
         >
           Add to Cart
@@ -321,32 +321,32 @@ export function FashionPage() {
     setCurrentSlide((c) => (c === heroSlides.length - 1 ? 0 : c + 1));
 
   const handleAddToCart = (product: (typeof featuredProducts)[0]) => {
-    addItem({
+    addItem(String(product.id), String(product.id), 1, {
       id: String(product.id),
+      sku: String(product.id),
       name: product.name,
       price: product.price,
       image: product.image,
-      quantity: 1,
     });
     toast.success(`${product.name} added to cart!`);
   };
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
+    <div className="min-h-screen bg-background text-foreground">
 
       {/* ── 1. FASHION SUBCATEGORIES ── */}
-      <section className="py-8 bg-gray-900 border-b border-gray-800">
+      <section className="py-8 bg-card border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-1">
-            <h2 className="text-xl font-bold text-white">Fashion Products</h2>
+            <h2 className="text-xl font-bold text-foreground">Fashion Products</h2>
             <Link
               href="/products?category=Fashion"
-              className="text-[#F7931A] hover:text-orange-400 font-semibold text-sm"
+              className="text-[var(--primary-color)] hover:text-orange-400 font-semibold text-sm"
             >
               View All →
             </Link>
           </div>
-          <p className="text-gray-400 text-sm mb-5">
+          <p className="text-muted-foreground text-sm mb-5">
             Discover our complete collection of premium products
           </p>
           <div className="grid grid-cols-5 sm:grid-cols-7 md:grid-cols-9 lg:grid-cols-10 gap-3">
@@ -356,7 +356,7 @@ export function FashionPage() {
                 href={`/products?subcategory=${encodeURIComponent(item.name)}`}
                 className="group flex flex-col items-center"
               >
-                <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-1.5 bg-gray-800 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105">
+                <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-1.5 bg-muted hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105">
                   <ImageWithFallback
                     src={item.image}
                     alt={item.name}
@@ -364,7 +364,7 @@ export function FashionPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <p className="text-[10px] text-center text-gray-300 group-hover:text-white font-medium line-clamp-2 leading-tight">
+                <p className="text-[10px] text-center text-muted group-hover:text-foreground font-medium line-clamp-2 leading-tight">
                   {item.name}
                 </p>
               </Link>
@@ -374,7 +374,7 @@ export function FashionPage() {
       </section>
 
       {/* ── 2. HERO CAROUSEL ── */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 py-5 bg-gray-950">
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-5 bg-background">
         <div
           className="relative w-full overflow-hidden rounded-2xl"
           style={{ minHeight: 420 }}
@@ -419,22 +419,22 @@ export function FashionPage() {
           >
             <div className="mb-4">
               <span
-                className="inline-block text-white text-sm font-semibold px-5 py-1.5 rounded-full"
-                style={{ background: "#F7931A" }}
+                className="inline-block text-inverse text-sm font-semibold px-5 py-1.5 rounded-full"
+                style={{ background: "var(--primary-color)" }}
               >
                 {slide.badge}
               </span>
             </div>
 
             <p
-              className="text-white font-semibold uppercase mb-3"
+              className="text-foreground font-semibold uppercase mb-3"
               style={{ fontSize: "0.75rem", letterSpacing: "0.22em" }}
             >
               {slide.label}
             </p>
 
             <h1
-              className="text-white font-black leading-[1.05] mb-5"
+              className="text-foreground font-black leading-[1.05] mb-5"
               style={{ fontSize: "clamp(2.6rem, 5.5vw, 5rem)" }}
             >
               {slide.titleLines.map((line, i) => (
@@ -443,7 +443,7 @@ export function FashionPage() {
             </h1>
 
             <p
-              className="text-white/85 mb-8 max-w-sm"
+              className="text-foreground/85 mb-8 max-w-sm"
               style={{ fontSize: "0.94rem", lineHeight: 1.65 }}
             >
               {slide.description}
@@ -452,10 +452,10 @@ export function FashionPage() {
             <div className="flex flex-col gap-3" style={{ width: "fit-content" }}>
               <Link
                 href={slide.primaryCtaHref}
-                className="inline-flex items-center justify-center px-8 py-3 rounded-full font-bold transition-all duration-200 hover:bg-white/10"
+                className="inline-flex items-center justify-center px-8 py-3 rounded-full font-bold transition-all duration-200 hover:bg-background/10"
                 style={{
                   border: "2px solid rgba(255,255,255,0.50)",
-                  color: "#F7931A",
+                  color: "var(--primary-color)",
                   fontSize: "1.05rem",
                   minWidth: 220,
                   background: "rgba(255,255,255,0.04)",
@@ -466,9 +466,9 @@ export function FashionPage() {
 
               <Link
                 href={slide.secondaryCtaHref}
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-3 rounded-full font-bold text-white transition-all duration-200 hover:bg-orange-500"
+                className="inline-flex items-center justify-center gap-2.5 px-8 py-3 rounded-full font-bold text-inverse transition-all duration-200 hover:bg-orange-500"
                 style={{
-                  background: "#F7931A",
+                  background: "var(--primary-color)",
                   fontSize: "1rem",
                   minWidth: 220,
                 }}
@@ -482,7 +482,7 @@ export function FashionPage() {
           {/* Slide counter */}
           <div className="absolute top-4 right-4 z-20">
             <span
-              className="text-white text-sm font-semibold px-4 py-1.5 rounded-full"
+              className="text-foreground text-sm font-semibold px-4 py-1.5 rounded-full"
               style={{
                 background: "rgba(20,30,40,0.68)",
                 backdropFilter: "blur(6px)",
@@ -496,7 +496,7 @@ export function FashionPage() {
           <button
             onClick={prevSlide}
             aria-label="Previous slide"
-            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center rounded-full transition-all duration-200 hover:bg-black/60"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center rounded-full transition-all duration-200 hover:bg-inverse/60"
             style={{
               width: 38, height: 38,
               background: "rgba(20,30,40,0.65)",
@@ -504,13 +504,13 @@ export function FashionPage() {
               border: "1px solid rgba(255,255,255,0.14)",
             }}
           >
-            <ChevronLeft className="size-5 text-white" />
+            <ChevronLeft className="size-5 text-foreground" />
           </button>
 
           <button
             onClick={nextSlide}
             aria-label="Next slide"
-            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center rounded-full transition-all duration-200 hover:bg-black/60"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center rounded-full transition-all duration-200 hover:bg-inverse/60"
             style={{
               width: 38, height: 38,
               background: "rgba(20,30,40,0.65)",
@@ -518,7 +518,7 @@ export function FashionPage() {
               border: "1px solid rgba(255,255,255,0.14)",
             }}
           >
-            <ChevronRight className="size-5 text-white" />
+            <ChevronRight className="size-5 text-foreground" />
           </button>
 
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
@@ -530,7 +530,7 @@ export function FashionPage() {
                 className="h-1.5 rounded-full transition-all duration-300"
                 style={{
                   width: i === currentSlide ? 24 : 6,
-                  background: i === currentSlide ? "#F7931A" : "rgba(255,255,255,0.40)",
+                  background: i === currentSlide ? "var(--primary-color)" : "rgba(255,255,255,0.40)",
                 }}
               />
             ))}
@@ -542,9 +542,9 @@ export function FashionPage() {
       <FlashDealsSection />
 
       {/* ── 4. SHOP FOR LOVED ONES ── */}
-      <section className="py-12 bg-gray-950">
+      <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-white mb-6">Shop for Loved Ones</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Shop for Loved Ones</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {shopForLovedOnes.map((item) => (
               <Link
@@ -560,12 +560,12 @@ export function FashionPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 {item.badge && (
                   <div className="absolute top-3 left-3">
-                    <Badge className="bg-[#F7931A] text-white text-xs">{item.badge}</Badge>
+                    <Badge className="bg-[var(--primary-color)] text-inverse text-xs border-0">{item.badge}</Badge>
                   </div>
                 )}
                 <div className="absolute bottom-4 left-4">
-                  <h3 className="text-2xl font-bold text-white">{item.name}</h3>
-                  <p className="text-white/70 text-xs mt-0.5">{item.description}</p>
+                  <h3 className="text-2xl font-bold text-foreground">{item.name}</h3>
+                  <p className="text-foreground/70 text-xs mt-0.5">{item.description}</p>
                 </div>
               </Link>
             ))}
@@ -577,22 +577,22 @@ export function FashionPage() {
       <ShopByCategorySection />
 
       {/* ── 6. PRODUCTS GRID — exact match to screenshot ── */}
-      <section className="py-10 bg-gray-950">
+      <section className="py-10 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Toolbar row */}
           <div className="flex items-center justify-between mb-5">
-            <p className="text-gray-400 text-sm">
+            <p className="text-muted-foreground text-sm">
               Showing {featuredProducts.length} products
             </p>
             <div className="flex items-center gap-2">
               {/* Filters button — outlined */}
-              <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-700 text-gray-300 hover:bg-gray-800 text-xs font-medium transition-colors">
+              <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-700 text-muted hover:bg-muted text-xs font-medium transition-colors">
                 <SlidersHorizontal className="size-3.5" />
                 Filters
               </button>
               {/* Featured button — solid dark */}
-              <button className="px-3 py-1.5 rounded-lg bg-gray-800 text-white hover:bg-gray-700 text-xs font-medium transition-colors">
+              <button className="px-3 py-1.5 rounded-lg bg-muted text-foreground hover:bg-card text-card-foreground text-xs font-medium transition-colors">
                 Featured
               </button>
             </div>
@@ -623,36 +623,36 @@ export function FashionPage() {
       </section>
 
       {/* ── 7. HOT DEALS PROMO BANNER ── */}
-      <section className="py-12 bg-gray-900">
+      <section className="py-12 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-600 via-red-600 to-pink-700 p-12 md:p-16">
             <div className="absolute top-4 left-4">
-              <Badge className="bg-white/20 border border-white/30 text-white text-xs">
+              <Badge className="bg-background/20 border border-white/30 text-foreground text-xs">
                 Hot Deal
               </Badge>
             </div>
             <div className="absolute top-4 right-4">
-              <Badge className="bg-white/20 border border-white/30 text-white text-xs">
+              <Badge className="bg-background/20 border border-white/30 text-foreground text-xs">
                 1 / 4
               </Badge>
             </div>
             <div className="relative z-10 max-w-xl">
-              <p className="text-white/80 text-xs font-semibold mb-3 uppercase tracking-widest">
+              <p className="text-foreground/80 text-xs font-semibold mb-3 uppercase tracking-widest">
                 FASHION COLLECTION 2026
               </p>
-              <h2 className="text-4xl md:text-6xl font-black text-white mb-5">
+              <h2 className="text-4xl md:text-6xl font-black text-foreground mb-5">
                 Style Bundle Sale
               </h2>
-              <p className="text-white/90 text-base mb-8">
+              <p className="text-foreground/90 text-base mb-8">
                 Elevate your wardrobe with our exclusive fashion collection. Limited time offer!
               </p>
               <div className="flex items-center gap-4 flex-wrap">
-                <Badge className="bg-white text-orange-600 text-2xl font-black px-6 py-2">
+                <Badge className="bg-background text-orange-600 text-2xl font-black px-6 py-2">
                   50% OFF
                 </Badge>
                 <Button
                   size="lg"
-                  className="bg-white text-orange-600 hover:bg-gray-100 font-bold rounded-full"
+                  className="bg-background text-orange-600 hover:bg-muted font-bold rounded-full"
                 >
                   <ShoppingCart className="size-5 mr-2" />
                   Grab Deals
@@ -671,9 +671,9 @@ export function FashionPage() {
       </section>
 
       {/* ── 8. SHOP BY STYLE ── */}
-      <section className="py-12 bg-gray-950">
+      <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-white mb-8">Shop by Style</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-8">Shop by Style</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               {
@@ -712,8 +712,8 @@ export function FashionPage() {
                   className={`absolute inset-0 bg-gradient-to-t ${style.overlay} via-black/30 to-transparent`}
                 />
                 <div className="absolute bottom-6 left-6">
-                  <h3 className="text-2xl font-bold text-white mb-1">{style.name}</h3>
-                  <p className="text-white/80 text-sm">{style.description}</p>
+                  <h3 className="text-2xl font-bold text-foreground mb-1">{style.name}</h3>
+                  <p className="text-foreground/80 text-sm">{style.description}</p>
                 </div>
               </Link>
             ))}

@@ -98,7 +98,7 @@ export function ProductsPage() {
     <div className="space-y-6">
       {/* Categories */}
       <div>
-        <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Categories</h3>
+        <h3 className="font-semibold text-foreground mb-3">Categories</h3>
         <div className="space-y-2">
           {categories.map((category) => (
             <div key={category} className="flex items-center gap-2">
@@ -109,7 +109,7 @@ export function ProductsPage() {
               />
               <Label
                 htmlFor={`category-${category}`}
-                className="text-sm cursor-pointer text-gray-800 dark:text-gray-200"
+                className="text-sm cursor-pointer text-foreground dark:text-muted"
               >
                 {category}
               </Label>
@@ -122,7 +122,7 @@ export function ProductsPage() {
 
       {/* Price Range */}
       <div>
-        <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Price Range</h3>
+        <h3 className="font-semibold text-foreground mb-3">Price Range</h3>
         <div className="space-y-4">
           <Select
             value={selectedPriceRange}
@@ -147,7 +147,7 @@ export function ProductsPage() {
 
       {/* Rating */}
       <div>
-        <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Rating</h3>
+        <h3 className="font-semibold text-foreground mb-3">Rating</h3>
         <div className="space-y-2">
           {[5, 4, 3].map((rating) => (
             <div key={rating} className="flex items-center gap-2">
@@ -164,8 +164,8 @@ export function ProductsPage() {
                   <Star
                     key={i}
                     className={`size-4 ${i < rating
-                        ? "fill-[#F7931A] text-[#F7931A]"
-                        : "text-gray-300"
+                        ? "fill-[var(--primary-color)] text-[var(--primary-color)]"
+                        : "text-muted"
                       }`}
                   />
                 ))}
@@ -180,17 +180,17 @@ export function ProductsPage() {
 
       {/* Availability */}
       <div>
-        <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Availability</h3>
+        <h3 className="font-semibold text-foreground mb-3">Availability</h3>
         <div className="space-y-2">
           <div className="flex items-center gap-2">
             <Checkbox id="in-stock" />
-            <Label htmlFor="in-stock" className="text-sm cursor-pointer text-gray-800 dark:text-gray-200">
+            <Label htmlFor="in-stock" className="text-sm cursor-pointer text-foreground dark:text-muted">
               In Stock
             </Label>
           </div>
           <div className="flex items-center gap-2">
             <Checkbox id="on-sale" />
-            <Label htmlFor="on-sale" className="text-sm cursor-pointer text-gray-800 dark:text-gray-200">
+            <Label htmlFor="on-sale" className="text-sm cursor-pointer text-foreground dark:text-muted">
               On Sale
             </Label>
           </div>
@@ -208,7 +208,7 @@ export function ProductsPage() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-950 dark:bg-black relative overflow-hidden">
+    <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Animated Background Gradients - macOS style */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute -top-40 -left-40 w-96 h-96 bg-gradient-to-br from-orange-500/25 via-red-500/15 to-pink-500/10 rounded-full blur-3xl"></div>
@@ -221,10 +221,10 @@ export function ProductsPage() {
         {/* Header with Glass Effect */}
         <div className="glass-navbar border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">
+            <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
               {categoryParam ? `${categoryParam} Products` : "All Products"}
             </h1>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
+            <p className="text-sm sm:text-base text-muted-foreground dark:text-muted">
               Discover our complete collection of premium products
             </p>
           </div>
@@ -261,14 +261,14 @@ export function ProductsPage() {
                       href={`/category?category=Fashion&subcategory=${encodeURIComponent(category.name)}`}
                       className="group flex flex-col items-center"
                     >
-                      <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                      <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                         <ImageWithFallback
                           src={category.image}
                           alt={category.name}
                           className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                         />
                       </div>
-                      <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                      <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                         {category.name}
                       </p>
                     </Link>
@@ -290,7 +290,7 @@ export function ProductsPage() {
             {/* Shop for Loved Ones Section */}
             <section className="py-12 relative">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+                <h2 className="text-3xl font-bold text-foreground mb-8">
                   Shop for Loved Ones
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -304,8 +304,8 @@ export function ProductsPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                     <div className="absolute bottom-6 left-6">
-                      <h3 className="text-3xl font-bold text-white mb-1">Men</h3>
-                      <p className="text-white/90 text-sm">Discover men's collection</p>
+                      <h3 className="text-3xl font-bold text-inverse mb-1">Men</h3>
+                      <p className="text-inverse/90 text-sm">Discover men's collection</p>
                     </div>
                   </Link>
 
@@ -319,8 +319,8 @@ export function ProductsPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                     <div className="absolute bottom-6 left-6">
-                      <h3 className="text-3xl font-bold text-white mb-1">Women</h3>
-                      <p className="text-white/90 text-sm">Explore women's collection</p>
+                      <h3 className="text-3xl font-bold text-inverse mb-1">Women</h3>
+                      <p className="text-inverse/90 text-sm">Explore women's collection</p>
                     </div>
                   </Link>
 
@@ -334,11 +334,11 @@ export function ProductsPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                     <div className="absolute bottom-6 left-6">
-                      <div className="inline-block bg-green-400 text-gray-900 font-bold px-3 py-1 rounded-full text-sm mb-2">
+                      <div className="inline-block bg-green-400 text-foreground font-bold px-3 py-1 rounded-full text-sm mb-2">
                         spoyl
                       </div>
-                      <h3 className="text-3xl font-bold text-white mb-1">Gen Z Drips</h3>
-                      <p className="text-white/90 text-sm">Trending Gen Z styles</p>
+                      <h3 className="text-3xl font-bold text-inverse mb-1">Gen Z Drips</h3>
+                      <p className="text-inverse/90 text-sm">Trending Gen Z styles</p>
                     </div>
                   </Link>
                 </div>
@@ -354,7 +354,7 @@ export function ProductsPage() {
         {categoryParam === "Electronics" && (
           <>
             {/* Category Grid Section */}
-            <section className="py-8 bg-white dark:bg-gray-950">
+            <section className="py-8 bg-background">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-3">
                   {[
@@ -381,14 +381,14 @@ export function ProductsPage() {
                       href={`/category?category=Electronics&subcategory=${encodeURIComponent(category.name)}`}
                       className="group flex flex-col items-center"
                     >
-                      <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                      <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                         <ImageWithFallback
                           src={category.image}
                           alt={category.name}
                           className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                         />
                       </div>
-                      <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                      <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                         {category.name}
                       </p>
                     </Link>
@@ -409,13 +409,13 @@ export function ProductsPage() {
         {categoryParam === "Home & Garden" && (
           <>
             {/* Flash Deals & Offers Section - Home & Garden Only */}
-            <section className="py-12 bg-white dark:bg-gray-950">
+            <section className="py-12 bg-background">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                  <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">
+                  <h2 className="text-4xl font-bold text-foreground mb-3">
                     Flash Deals & Offers
                   </h2>
-                  <p className="text-gray-700 dark:text-gray-300 text-lg">
+                  <p className="text-muted-foreground text-lg">
                     Don't miss out on these amazing limited-time offers
                   </p>
                 </div>
@@ -449,25 +449,25 @@ export function ProductsPage() {
                   {/* Home Essentials Card */}
                   <div className="px-3">
                     <div className="relative rounded-3xl p-8 bg-gradient-to-br from-teal-500 to-teal-600 dark:from-teal-600 dark:to-teal-700 overflow-hidden shadow-xl h-[280px] flex flex-col justify-between">
-                      <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2">
-                        <Home className="w-4 h-4 text-white" />
-                        <span className="text-white text-sm font-medium">Home</span>
+                      <div className="absolute top-4 left-4 bg-background/20 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2">
+                        <Home className="w-4 h-4 text-inverse" />
+                        <span className="text-inverse text-sm font-medium">Home</span>
                       </div>
                       <div className="mt-12 mb-auto">
-                        <h3 className="text-2xl font-bold text-white mb-2">
+                        <h3 className="text-2xl font-bold text-inverse mb-2">
                           Home Essentials
                         </h3>
-                        <p className="text-white/90 text-sm">
+                        <p className="text-inverse/90 text-sm">
                           Upgrade your living space with quality items
                         </p>
                       </div>
                       <div className="flex items-center justify-between mt-8">
                         <Link href="/category?category=Home%20%26%20Garden&subcategory=Home%20Decor"
-                          className="bg-white text-teal-600 px-6 py-2 rounded-full font-semibold hover:bg-teal-50 transition-colors"
+                          className="bg-background text-teal-600 px-6 py-2 rounded-full font-semibold hover:bg-teal-50 transition-colors"
                         >
                           Browse
                         </Link>
-                        <span className="text-white text-2xl font-bold">
+                        <span className="text-inverse text-2xl font-bold">
                           Free Ship
                         </span>
                       </div>
@@ -477,25 +477,25 @@ export function ProductsPage() {
                   {/* Garden Tools Card */}
                   <div className="px-3">
                     <div className="relative rounded-3xl p-8 bg-gradient-to-br from-green-600 to-green-700 dark:from-green-700 dark:to-green-800 overflow-hidden shadow-xl h-[280px] flex flex-col justify-between">
-                      <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2">
-                        <Leaf className="w-4 h-4 text-white" />
-                        <span className="text-white text-sm font-medium">Garden</span>
+                      <div className="absolute top-4 left-4 bg-background/20 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2">
+                        <Leaf className="w-4 h-4 text-inverse" />
+                        <span className="text-inverse text-sm font-medium">Garden</span>
                       </div>
                       <div className="mt-12 mb-auto">
-                        <h3 className="text-2xl font-bold text-white mb-2">
+                        <h3 className="text-2xl font-bold text-inverse mb-2">
                           Garden Tools
                         </h3>
-                        <p className="text-white/90 text-sm">
+                        <p className="text-inverse/90 text-sm">
                           Premium gardening equipment at great prices
                         </p>
                       </div>
                       <div className="flex items-center justify-between mt-8">
                         <Link href="/category?category=Home%20%26%20Garden&subcategory=Garden%20Tools"
-                          className="bg-white text-green-700 px-6 py-2 rounded-full font-semibold hover:bg-green-50 transition-colors"
+                          className="bg-background text-green-700 px-6 py-2 rounded-full font-semibold hover:bg-green-50 transition-colors"
                         >
                           Shop
                         </Link>
-                        <span className="text-white text-2xl font-bold">
+                        <span className="text-inverse text-2xl font-bold">
                           25% OFF
                         </span>
                       </div>
@@ -505,25 +505,25 @@ export function ProductsPage() {
                   {/* Kitchen Appliances Card */}
                   <div className="px-3">
                     <div className="relative rounded-3xl p-8 bg-gradient-to-br from-orange-500 to-orange-600 dark:from-orange-600 dark:to-orange-700 overflow-hidden shadow-xl h-[280px] flex flex-col justify-between">
-                      <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2">
-                        <UtensilsCrossed className="w-4 h-4 text-white" />
-                        <span className="text-white text-sm font-medium">Kitchen</span>
+                      <div className="absolute top-4 left-4 bg-background/20 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2">
+                        <UtensilsCrossed className="w-4 h-4 text-inverse" />
+                        <span className="text-inverse text-sm font-medium">Kitchen</span>
                       </div>
                       <div className="mt-12 mb-auto">
-                        <h3 className="text-2xl font-bold text-white mb-2">
+                        <h3 className="text-2xl font-bold text-inverse mb-2">
                           Kitchen Deals
                         </h3>
-                        <p className="text-white/90 text-sm">
+                        <p className="text-inverse/90 text-sm">
                           Modern appliances for your cooking needs
                         </p>
                       </div>
                       <div className="flex items-center justify-between mt-8">
                         <Link href="/category?category=Home%20%26%20Garden&subcategory=Kitchen%20Appliances"
-                          className="bg-white text-orange-600 px-6 py-2 rounded-full font-semibold hover:bg-orange-50 transition-colors"
+                          className="bg-background text-orange-600 px-6 py-2 rounded-full font-semibold hover:bg-orange-50 transition-colors"
                         >
                           Explore
                         </Link>
-                        <span className="text-white text-2xl font-bold">
+                        <span className="text-inverse text-2xl font-bold">
                           20% OFF
                         </span>
                       </div>
@@ -533,25 +533,25 @@ export function ProductsPage() {
                   {/* Furniture Card */}
                   <div className="px-3">
                     <div className="relative rounded-3xl p-8 bg-gradient-to-br from-purple-600 to-purple-700 dark:from-purple-700 dark:to-purple-800 overflow-hidden shadow-xl h-[280px] flex flex-col justify-between">
-                      <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2">
-                        <Sofa className="w-4 h-4 text-white" />
-                        <span className="text-white text-sm font-medium">Furniture</span>
+                      <div className="absolute top-4 left-4 bg-background/20 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2">
+                        <Sofa className="w-4 h-4 text-inverse" />
+                        <span className="text-inverse text-sm font-medium">Furniture</span>
                       </div>
                       <div className="mt-12 mb-auto">
-                        <h3 className="text-2xl font-bold text-white mb-2">
+                        <h3 className="text-2xl font-bold text-inverse mb-2">
                           Furniture Sale
                         </h3>
-                        <p className="text-white/90 text-sm">
+                        <p className="text-inverse/90 text-sm">
                           Transform your space with modern designs
                         </p>
                       </div>
                       <div className="flex items-center justify-between mt-8">
                         <Link href="/category?category=Home%20%26%20Garden&subcategory=Furniture"
-                          className="bg-white text-purple-700 px-6 py-2 rounded-full font-semibold hover:bg-purple-50 transition-colors"
+                          className="bg-background text-purple-700 px-6 py-2 rounded-full font-semibold hover:bg-purple-50 transition-colors"
                         >
                           Shop
                         </Link>
-                        <span className="text-white text-2xl font-bold">
+                        <span className="text-inverse text-2xl font-bold">
                           30% OFF
                         </span>
                       </div>
@@ -561,25 +561,25 @@ export function ProductsPage() {
                   {/* Bedding Card */}
                   <div className="px-3">
                     <div className="relative rounded-3xl p-8 bg-gradient-to-br from-blue-600 to-blue-700 dark:from-blue-700 dark:to-blue-800 overflow-hidden shadow-xl h-[280px] flex flex-col justify-between">
-                      <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2">
-                        <Home className="w-4 h-4 text-white" />
-                        <span className="text-white text-sm font-medium">Bedroom</span>
+                      <div className="absolute top-4 left-4 bg-background/20 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2">
+                        <Home className="w-4 h-4 text-inverse" />
+                        <span className="text-inverse text-sm font-medium">Bedroom</span>
                       </div>
                       <div className="mt-12 mb-auto">
-                        <h3 className="text-2xl font-bold text-white mb-2">
+                        <h3 className="text-2xl font-bold text-inverse mb-2">
                           Bedding Sale
                         </h3>
-                        <p className="text-white/90 text-sm">
+                        <p className="text-inverse/90 text-sm">
                           Premium bedding for a perfect night's sleep
                         </p>
                       </div>
                       <div className="flex items-center justify-between mt-8">
                         <Link href="/category?category=Home%20%26%20Garden&subcategory=Bedding"
-                          className="bg-white text-blue-700 px-6 py-2 rounded-full font-semibold hover:bg-blue-50 transition-colors"
+                          className="bg-background text-blue-700 px-6 py-2 rounded-full font-semibold hover:bg-blue-50 transition-colors"
                         >
                           Shop
                         </Link>
-                        <span className="text-white text-2xl font-bold">
+                        <span className="text-inverse text-2xl font-bold">
                           35% OFF
                         </span>
                       </div>
@@ -590,13 +590,13 @@ export function ProductsPage() {
             </section>
 
             {/* Category Grid Section */}
-            <section className="py-8 bg-gray-50 dark:bg-gray-900/30">
+            <section className="py-8 bg-muted/30">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mb-8">
-                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                  <h2 className="text-3xl font-bold text-foreground mb-2">
                     Shop by Category
                   </h2>
-                  <p className="text-gray-700 dark:text-gray-300">
+                  <p className="text-muted-foreground">
                     Browse our complete collection of home & garden products
                   </p>
                 </div>
@@ -625,14 +625,14 @@ export function ProductsPage() {
                       href={`/category?category=Home%20%26%20Garden&subcategory=${encodeURIComponent(category.name)}`}
                       className="group flex flex-col items-center"
                     >
-                      <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                      <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                         <ImageWithFallback
                           src={category.image}
                           alt={category.name}
                           className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                         />
                       </div>
-                      <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                      <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                         {category.name}
                       </p>
                     </Link>
@@ -651,13 +651,13 @@ export function ProductsPage() {
 
             {/* Electronics Section - All Products only */}
             {!categoryParam && (
-              <section className="py-12 bg-gray-50 dark:bg-gray-900/30">
+              <section className="py-12 bg-muted/30">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                   <div className="mb-8">
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                    <h2 className="text-3xl font-bold text-foreground mb-2">
                       Electronics Products
                     </h2>
-                    <p className="text-gray-700 dark:text-gray-300">
+                    <p className="text-muted-foreground">
                       Discover our complete collection of premium products
                     </p>
                   </div>
@@ -687,14 +687,14 @@ export function ProductsPage() {
                         href={`/category?category=Electronics&subcategory=${encodeURIComponent(category.name)}`}
                         className="group flex flex-col items-center"
                       >
-                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                           <ImageWithFallback
                             src={category.image}
                             alt={category.name}
                             className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                           />
                         </div>
-                        <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                        <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                           {category.name}
                         </p>
                       </Link>
@@ -706,13 +706,13 @@ export function ProductsPage() {
 
             {/* Fashion Section - All Products only */}
             {!categoryParam && (
-              <section className="py-12 bg-white dark:bg-gray-950">
+              <section className="py-12 bg-background">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                   <div className="mb-8">
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                    <h2 className="text-3xl font-bold text-foreground mb-2">
                       Fashion Products
                     </h2>
-                    <p className="text-gray-700 dark:text-gray-300">
+                    <p className="text-muted-foreground">
                       Discover our complete collection of premium products
                     </p>
                   </div>
@@ -742,14 +742,14 @@ export function ProductsPage() {
                         href={`/category?category=Fashion&subcategory=${encodeURIComponent(category.name)}`}
                         className="group flex flex-col items-center"
                       >
-                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                           <ImageWithFallback
                             src={category.image}
                             alt={category.name}
                             className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                           />
                         </div>
-                        <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                        <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                           {category.name}
                         </p>
                       </Link>
@@ -764,13 +764,13 @@ export function ProductsPage() {
 
             {/* Home & Garden Section - All Products only */}
             {!categoryParam && (
-              <section className="py-12 bg-gray-50 dark:bg-gray-900/30">
+              <section className="py-12 bg-muted/30">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                   <div className="mb-8">
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                    <h2 className="text-3xl font-bold text-foreground mb-2">
                       Home & Garden Products
                     </h2>
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <p className="text-muted-foreground">
                       Discover our complete collection of premium products
                     </p>
                   </div>
@@ -800,14 +800,14 @@ export function ProductsPage() {
                         href={`/category?category=Home%20%26%20Garden&subcategory=${encodeURIComponent(subcategory.name)}`}
                         className="group flex flex-col items-center"
                       >
-                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                           <ImageWithFallback
                             src={subcategory.image}
                             alt={subcategory.name}
                             className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                           />
                         </div>
-                        <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                        <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                           {subcategory.name}
                         </p>
                       </Link>
@@ -819,7 +819,7 @@ export function ProductsPage() {
 
             {/* Trending Fashion Categories - All Products only */}
             {!categoryParam && (
-              <section className="py-12 bg-gray-50 dark:bg-gray-900/30">
+              <section className="py-12 bg-muted/30">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                   <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-9 xl:grid-cols-10 gap-4">
                     {[
@@ -846,14 +846,14 @@ export function ProductsPage() {
                         href={`/category?category=Fashion&subcategory=${encodeURIComponent(category.name)}`}
                         className="group flex flex-col items-center"
                       >
-                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                           <ImageWithFallback
                             src={category.image}
                             alt={category.name}
                             className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                           />
                         </div>
-                        <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                        <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                           {category.name}
                         </p>
                       </Link>
@@ -865,13 +865,13 @@ export function ProductsPage() {
 
             {/* Sports Section - All Products only */}
             {!categoryParam && (
-              <section className="py-12 bg-white dark:bg-gray-950">
+              <section className="py-12 bg-background">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                   <div className="mb-8">
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                    <h2 className="text-3xl font-bold text-foreground mb-2">
                       Sports Products
                     </h2>
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <p className="text-muted-foreground">
                       Discover our complete collection of premium products
                     </p>
                   </div>
@@ -901,14 +901,14 @@ export function ProductsPage() {
                         href={`/category?category=Sports&subcategory=${encodeURIComponent(category.name)}`}
                         className="group flex flex-col items-center"
                       >
-                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                           <ImageWithFallback
                             src={category.image}
                             alt={category.name}
                             className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                           />
                         </div>
-                        <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                        <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                           {category.name}
                         </p>
                       </Link>
@@ -920,13 +920,13 @@ export function ProductsPage() {
 
             {/* Beauty Section - All Products only */}
             {!categoryParam && (
-              <section className="py-12 bg-gray-50 dark:bg-gray-900/30">
+              <section className="py-12 bg-muted/30">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                   <div className="mb-8">
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                    <h2 className="text-3xl font-bold text-foreground mb-2">
                       Beauty Products
                     </h2>
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <p className="text-muted-foreground">
                       Discover our complete collection of premium products
                     </p>
                   </div>
@@ -956,14 +956,14 @@ export function ProductsPage() {
                         href={`/category?category=Beauty&subcategory=${encodeURIComponent(category.name)}`}
                         className="group flex flex-col items-center"
                       >
-                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                           <ImageWithFallback
                             src={category.image}
                             alt={category.name}
                             className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                           />
                         </div>
-                        <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                        <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                           {category.name}
                         </p>
                       </Link>
@@ -975,13 +975,13 @@ export function ProductsPage() {
 
             {/* Books Section - All Products only */}
             {!categoryParam && (
-              <section className="py-12 bg-white dark:bg-gray-950">
+              <section className="py-12 bg-background">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                   <div className="mb-8">
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                    <h2 className="text-3xl font-bold text-foreground mb-2">
                       Books
                     </h2>
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <p className="text-muted-foreground">
                       Discover our complete collection of premium products
                     </p>
                   </div>
@@ -1011,14 +1011,14 @@ export function ProductsPage() {
                         href={`/category?category=Books&subcategory=${encodeURIComponent(category.name)}`}
                         className="group flex flex-col items-center"
                       >
-                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                           <ImageWithFallback
                             src={category.image}
                             alt={category.name}
                             className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                           />
                         </div>
-                        <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                        <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                           {category.name}
                         </p>
                       </Link>
@@ -1029,9 +1029,9 @@ export function ProductsPage() {
             )}
 
             {/* Shop for Loved Ones - always shown in this branch */}
-            <section className="py-12 bg-white dark:bg-gray-950">
+            <section className="py-12 bg-background">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+                <h2 className="text-3xl font-bold text-foreground mb-8">
                   Shop for Loved Ones
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -1045,8 +1045,8 @@ export function ProductsPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 via-blue-900/30 to-transparent" />
                     <div className="absolute bottom-6 left-6">
-                      <h3 className="text-3xl font-bold text-white mb-1">Men</h3>
-                      <p className="text-white/90 text-sm">Discover men's collection</p>
+                      <h3 className="text-3xl font-bold text-inverse mb-1">Men</h3>
+                      <p className="text-inverse/90 text-sm">Discover men's collection</p>
                     </div>
                   </Link>
 
@@ -1060,8 +1060,8 @@ export function ProductsPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                     <div className="absolute bottom-6 left-6">
-                      <h3 className="text-3xl font-bold text-white mb-1">Women</h3>
-                      <p className="text-white/90 text-sm">Explore women's collection</p>
+                      <h3 className="text-3xl font-bold text-inverse mb-1">Women</h3>
+                      <p className="text-inverse/90 text-sm">Explore women's collection</p>
                     </div>
                   </Link>
 
@@ -1075,11 +1075,11 @@ export function ProductsPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-green-900/70 via-green-900/30 to-transparent" />
                     <div className="absolute bottom-6 left-6">
-                      <div className="inline-block bg-green-400 text-gray-900 font-bold px-3 py-1 rounded-full text-sm mb-2">
+                      <div className="inline-block bg-green-400 text-foreground font-bold px-3 py-1 rounded-full text-sm mb-2">
                         spoyl
                       </div>
-                      <h3 className="text-3xl font-bold text-white mb-1">Gen Z Drips</h3>
-                      <p className="text-white/90 text-sm">Trending Gen Z styles</p>
+                      <h3 className="text-3xl font-bold text-inverse mb-1">Gen Z Drips</h3>
+                      <p className="text-inverse/90 text-sm">Trending Gen Z styles</p>
                     </div>
                   </Link>
                 </div>
@@ -1095,7 +1095,7 @@ export function ProductsPage() {
               {/* Toolbar */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 sm:mb-6 gap-3 sm:gap-4">
                 <div className="flex items-center gap-2">
-                  <p className="text-xs sm:text-sm text-gray-900 dark:text-white font-medium">
+                  <p className="text-xs sm:text-sm text-foreground font-medium">
                     Showing {products.length} products
                   </p>
                 </div>
@@ -1104,15 +1104,15 @@ export function ProductsPage() {
                   {/* Filter Button */}
                   <Sheet open={isFilterSheetOpen} onOpenChange={setIsFilterSheetOpen}>
                     <SheetTrigger asChild>
-                      <Button variant="outline" size="sm" className="glass-input flex items-center gap-2 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600">
+                      <Button variant="outline" size="sm" className="glass-input flex items-center gap-2 text-foreground border-gray-300 dark:border-gray-600">
                         <SlidersHorizontal className="w-4 h-4" />
                         <span className="hidden sm:inline">Filters</span>
                       </Button>
                     </SheetTrigger>
                     <SheetContent side="left" className="glass-lg w-80 overflow-y-auto">
                       <SheetHeader>
-                        <SheetTitle className="text-gray-900 dark:text-white">Filters</SheetTitle>
-                        <SheetDescription className="text-gray-600 dark:text-gray-400">
+                        <SheetTitle className="text-foreground">Filters</SheetTitle>
+                        <SheetDescription className="text-muted-foreground">
                           Refine your product search
                         </SheetDescription>
                       </SheetHeader>
@@ -1124,7 +1124,7 @@ export function ProductsPage() {
 
                   {/* Sort By */}
                   <Select value={sortBy} onValueChange={setSortBy}>
-                    <SelectTrigger className="w-full sm:w-48 glass-input bg-white dark:bg-transparent text-gray-900 dark:text-white border-gray-300 dark:border-gray-600">
+                    <SelectTrigger className="w-full sm:w-48 glass-input bg-background dark:bg-transparent text-foreground border-gray-300 dark:border-gray-600">
                       <SelectValue placeholder="Sort by" />
                     </SelectTrigger>
                     <SelectContent className="glass-lg">
@@ -1143,24 +1143,24 @@ export function ProductsPage() {
                 {products.map((product, index) => (
                   <div
                     key={product.id}
-                    className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 group overflow-hidden hover:scale-102 sm:hover:scale-105 transition-all duration-300 rounded-lg sm:rounded-xl shadow-sm hover:shadow-lg"
+                    className="bg-background dark:bg-card text-card-foreground border border-gray-200 dark:border-gray-700 group overflow-hidden hover:scale-102 sm:hover:scale-105 transition-all duration-300 rounded-lg sm:rounded-xl shadow-sm hover:shadow-lg"
                     style={{ animationDelay: `${(index % 12) * 0.05}s` }}
                   >
                     <Link href={`/products/${product.id}`} className="relative block aspect-square overflow-hidden bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
                       {product.badge && (
-                        <Badge className="absolute top-1 right-1 sm:top-2 sm:right-2 z-10 bg-gradient-to-r from-[#F7931A] to-orange-600 text-white hover:from-[#F7931A] hover:to-orange-600 pulse-glow text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5">
+                        <Badge className="absolute top-1 right-1 sm:top-2 sm:right-2 z-10 bg-gradient-to-r from-[var(--primary-color)] to-orange-600 text-inverse hover:from-[var(--primary-color)] hover:to-orange-600 pulse-glow text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 border-0">
                           {product.badge}
                         </Badge>
                       )}
                       {!product.inStock && (
-                        <Badge className="absolute top-1 right-1 sm:top-2 sm:right-2 z-10 bg-red-600 text-white hover:bg-red-600 text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5">
+                        <Badge className="absolute top-1 right-1 sm:top-2 sm:right-2 z-10 bg-red-600 text-inverse hover:bg-red-600 text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5">
                           Out of Stock
                         </Badge>
                       )}
                       <Button
                         size="icon"
                         variant="secondary"
-                        className="absolute top-1 left-1 sm:top-2 sm:left-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity size-6 sm:size-7 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        className="absolute top-1 left-1 sm:top-2 sm:left-2 z-10 opacity-100 transition-opacity size-6 sm:size-7 bg-background dark:bg-card text-card-foreground hover:bg-muted dark:hover:bg-card text-card-foreground shadow-sm"
                         onClick={(e) => {
                           e.preventDefault();
                           toggleWishlist({
@@ -1177,8 +1177,8 @@ export function ProductsPage() {
                       >
                         <Heart
                           className={`size-3 sm:size-3.5 transition-all ${isInWishlist(product.id)
-                              ? "fill-[#F7931A] text-[#F7931A]"
-                              : "text-[#F7931A]"
+                              ? "fill-[var(--primary-color)] text-[var(--primary-color)]"
+                              : "text-[var(--primary-color)]"
                             }`}
                         />
                       </Button>
@@ -1188,14 +1188,14 @@ export function ProductsPage() {
                         className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
                       />
                     </Link>
-                    <div className="p-2 sm:p-3 bg-white dark:bg-gray-800">
+                    <div className="p-2 sm:p-3 bg-background dark:bg-card text-card-foreground">
                       <Badge variant="outline" className="mb-1 sm:mb-1.5 text-[9px] sm:text-[10px] border-gray-300 dark:border-gray-600">
                         {product.category}
                       </Badge>
-                      <h3 className="font-semibold text-xs sm:text-sm text-gray-900 dark:text-white mb-1 sm:mb-1.5 line-clamp-2">
+                      <h3 className="font-semibold text-xs sm:text-sm text-foreground mb-1 sm:mb-1.5 line-clamp-2">
                         <Link
                           href={`/products/${product.id}`}
-                          className="hover:text-[#F7931A] transition-colors"
+                          className="hover:text-[var(--primary-color)] transition-colors"
                         >
                           {product.name}
                         </Link>
@@ -1205,44 +1205,46 @@ export function ProductsPage() {
                           <Star
                             key={i}
                             className={`size-2.5 sm:size-3 ${i < Math.floor(product.rating)
-                                ? "fill-[#F7931A] text-[#F7931A]"
-                                : "text-gray-300 dark:text-gray-600"
+                                ? "fill-[var(--primary-color)] text-[var(--primary-color)]"
+                                : "text-muted dark:text-muted-foreground"
                               }`}
                           />
                         ))}
                         </div>
-                        <span className="text-[10px] sm:text-xs text-gray-700 dark:text-gray-300">
+                        <span className="text-[10px] sm:text-xs text-muted-foreground">
                           {product.rating} ({product.reviews})
                         </span>
                       </div>
                       <div className="flex items-center gap-1 sm:gap-2 mb-1 sm:mb-2">
-                        <span className="text-sm sm:text-lg font-bold text-[#F7931A]">
+                        <span className="text-sm sm:text-lg font-bold text-[var(--primary-color)]">
                           ${product.price}
                         </span>
                         {product.originalPrice && (
-                          <span className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 line-through">
+                          <span className="text-[10px] sm:text-xs text-muted-foreground line-through">
                             ${product.originalPrice}
                           </span>
                         )}
                       </div>
                       <Button
-                        className="w-full bg-[#F7931A] hover:bg-orange-600 h-7 sm:h-8 text-xs sm:text-sm"
-                        disabled={!product.inStock}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          if (product.inStock) {
-                            addItem({
-                              id: product.id,
-                              name: product.name,
-                              price: product.price,
-                              image: product.image,
-                            });
-                            toast.success(`${product.name} added to cart!`);
-                          }
-                        }}
-                      >
-                        {product.inStock ? "Add to Cart" : "Out of Stock"}
-                      </Button>
+  className="w-full bg-[var(--primary-color)] text-white hover:bg-orange-600 h-9 text-sm font-semibold transition-all duration-200 border-0"
+  disabled={!product.inStock}
+  onClick={(e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (product.inStock) {
+      addItem(product.id, (product as any).sku || product.id, 1, {
+        id: product.id,
+        sku: (product as any).sku || product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+      });
+      toast.success(`${product.name} added to cart!`);
+    }
+  }}
+>
+  {product.inStock ? "Add to Cart" : "Out of Stock"}
+</Button>
                     </div>
                   </div>
                 ))}

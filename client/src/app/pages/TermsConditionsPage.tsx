@@ -143,23 +143,23 @@ export function TermsConditionsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-muted">
       {/* Header */}
-      <div className="bg-white dark:bg-gray-950 border-b dark:border-gray-800">
+      <div className="bg-background border-b dark:border-gray-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex items-center gap-3 mb-4">
-            <div className="size-12 bg-gradient-to-br from-[#F7931A] to-orange-600 rounded-lg flex items-center justify-center">
-              <FileText className="size-6 text-white" />
+            <div className="size-12 bg-gradient-to-br from-[var(--primary-color)] to-orange-600 rounded-lg flex items-center justify-center">
+              <FileText className="size-6 text-inverse" />
             </div>
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+            <h1 className="text-4xl font-bold text-foreground">
               Terms & Conditions
             </h1>
           </div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
+          <p className="text-lg text-muted-foreground mb-4">
             Please read these terms carefully before using N4ASHYOL's services. These
             terms govern your access to and use of our website and services.
           </p>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-muted-foreground">
             Last updated: {lastUpdated}
           </p>
         </div>
@@ -171,10 +171,10 @@ export function TermsConditionsPage() {
           <div className="flex items-start gap-4">
             <AlertCircle className="size-6 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-1" />
             <div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">
+              <h3 className="font-bold text-foreground mb-2">
                 Important Notice
               </h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 These Terms and Conditions constitute a legally binding agreement between
                 you and N4ASHYOL. By using our website or services, you acknowledge that
                 you have read, understood, and agree to be bound by these terms. If you do
@@ -191,13 +191,13 @@ export function TermsConditionsPage() {
             return (
               <Card key={index} className="p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <Icon className="size-8 text-[#F7931A]" />
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                  <Icon className="size-8 text-[var(--primary-color)]" />
+                  <h2 className="text-2xl font-bold text-foreground">
                     {section.title}
                   </h2>
                 </div>
                 {section.content && (
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed">
                     {section.content}
                   </p>
                 )}
@@ -205,10 +205,10 @@ export function TermsConditionsPage() {
                   <div className="space-y-6">
                     {section.subsections.map((subsection, subIndex) => (
                       <div key={subIndex}>
-                        <h3 className="font-bold text-gray-900 dark:text-white mb-2">
+                        <h3 className="font-bold text-foreground mb-2">
                           {subsection.subtitle}
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        <p className="text-muted-foreground leading-relaxed">
                           {subsection.description}
                         </p>
                         {subIndex < section.subsections.length - 1 && (
@@ -225,16 +225,16 @@ export function TermsConditionsPage() {
 
         {/* Additional Terms */}
         <div className="mt-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-2xl font-bold text-foreground mb-6">
             Additional Terms
           </h2>
           <Card className="divide-y dark:divide-gray-800">
             {additionalTerms.map((term, index) => (
               <div key={index} className="p-6">
-                <h3 className="font-bold text-gray-900 dark:text-white mb-2">
+                <h3 className="font-bold text-foreground mb-2">
                   {term.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   {term.description}
                 </p>
               </div>
@@ -243,25 +243,25 @@ export function TermsConditionsPage() {
         </div>
 
         {/* Contact Information */}
-        <Card className="p-8 mt-8 bg-gray-100 dark:bg-gray-800 border-0">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+        <Card className="p-8 mt-8 bg-muted border-0">
+          <h3 className="text-xl font-bold text-foreground mb-4">
             Questions About These Terms?
           </h3>
-          <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+          <p className="text-muted-foreground mb-4 leading-relaxed">
             If you have any questions or concerns about these Terms and Conditions, please
             contact our legal team:
           </p>
-          <div className="space-y-2 text-gray-600 dark:text-gray-400">
+          <div className="space-y-2 text-muted-foreground">
             <p>
-              <strong className="text-gray-900 dark:text-white">Email:</strong>{" "}
+              <strong className="text-foreground">Email:</strong>{" "}
               legal@n4ashyol.com
             </p>
             <p>
-              <strong className="text-gray-900 dark:text-white">Phone:</strong>{" "}
+              <strong className="text-foreground">Phone:</strong>{" "}
               1-800-N4ASHYOL
             </p>
             <p>
-              <strong className="text-gray-900 dark:text-white">Mail:</strong> N4ASHYOL
+              <strong className="text-foreground">Mail:</strong> N4ASHYOL
               Legal Department, 123 Commerce Street, Suite 100, New York, NY 10001
             </p>
           </div>
@@ -269,10 +269,10 @@ export function TermsConditionsPage() {
 
         {/* Agreement Acknowledgment */}
         <Card className="p-8 mt-8 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+          <h3 className="text-xl font-bold text-foreground mb-3">
             Your Agreement
           </h3>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed">
             By continuing to use N4ASHYOL's services, you acknowledge that you have read
             these Terms and Conditions, understand them, and agree to be bound by them.
             You also acknowledge that you have read and agree to our Privacy Policy. These
@@ -284,4 +284,5 @@ export function TermsConditionsPage() {
     </div>
   );
 }
+
 

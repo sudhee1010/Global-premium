@@ -107,7 +107,7 @@ export function CouponsReferralsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 pt-24 pb-12">
+    <div className="min-h-screen bg-muted pt-24 pb-12">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
           <div className="flex items-center gap-4">
@@ -115,13 +115,13 @@ export function CouponsReferralsPage() {
               <Gift className="size-8 text-primary" />
             </div>
             <div>
-              <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white">Rewards & Referrals</h1>
-              <p className="text-gray-600 dark:text-gray-400">Share with friends and earn rewards</p>
+              <h1 className="text-3xl font-extrabold text-foreground">Rewards & Referrals</h1>
+              <p className="text-muted-foreground">Share with friends and earn rewards</p>
             </div>
           </div>
-          <div className="flex items-center gap-3 bg-white dark:bg-gray-900 p-2 pl-4 rounded-2xl border shadow-sm">
+          <div className="flex items-center gap-3 bg-card p-2 pl-4 rounded-2xl border shadow-sm">
             <div>
-              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Wallet Balance</p>
+              <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Wallet Balance</p>
               <p className="text-xl font-black text-primary">${stats?.walletBalance?.toFixed(2) || "0.00"}</p>
             </div>
             <Button size="icon" variant="ghost" className="rounded-xl"><ChevronRight className="size-5" /></Button>
@@ -129,12 +129,12 @@ export function CouponsReferralsPage() {
         </div>
 
         <Tabs defaultValue="referrals" className="space-y-8">
-          <TabsList className="bg-white dark:bg-gray-900 p-1.5 rounded-2xl border shadow-sm w-full md:w-auto h-auto">
-            <TabsTrigger value="referrals" className="rounded-xl px-8 py-3 font-bold data-[state=active]:bg-primary data-[state=active]:text-white transition-all">
+          <TabsList className="bg-card p-1.5 rounded-2xl border shadow-sm w-full md:w-auto h-auto">
+            <TabsTrigger value="referrals" className="rounded-xl px-8 py-3 font-bold data-[state=active]:bg-primary data-[state=active]:text-inverse transition-all">
               <Users className="size-4 mr-2" />
               Referrals
             </TabsTrigger>
-            <TabsTrigger value="coupons" className="rounded-xl px-8 py-3 font-bold data-[state=active]:bg-primary data-[state=active]:text-white transition-all">
+            <TabsTrigger value="coupons" className="rounded-xl px-8 py-3 font-bold data-[state=active]:bg-primary data-[state=active]:text-inverse transition-all">
               <Tag className="size-4 mr-2" />
               My Coupons
             </TabsTrigger>
@@ -142,20 +142,20 @@ export function CouponsReferralsPage() {
 
           <TabsContent value="referrals" className="space-y-8 animate-in fade-in duration-500">
             {/* Referral Card */}
-            <Card className="overflow-hidden border-0 shadow-xl rounded-[2.5rem] bg-gradient-to-br from-primary to-orange-600 p-8 md:p-12 text-white relative">
+            <Card className="overflow-hidden border-0 shadow-xl rounded-[2.5rem] bg-gradient-to-br from-primary to-orange-600 p-8 md:p-12 text-inverse relative">
               <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className="space-y-6">
-                  <Badge className="bg-white/20 text-white border-0 py-1.5 px-4 rounded-full font-bold uppercase tracking-wider">Limited Time Offer</Badge>
+                  <Badge className="bg-background/20 text-inverse border-0 py-1.5 px-4 rounded-full font-bold uppercase tracking-wider">Limited Time Offer</Badge>
                   <h2 className="text-4xl md:text-5xl font-black leading-tight">Refer a Friend, Get <span className="text-orange-200">5% Reward</span></h2>
-                  <p className="text-white/80 text-lg font-medium leading-relaxed">Share your unique link. When they make their first purchase, we'll add 5% of their order value to your wallet.</p>
+                  <p className="text-inverse/80 text-lg font-medium leading-relaxed">Share your unique link. When they make their first purchase, we'll add 5% of their order value to your wallet.</p>
                   
                   <div className="space-y-4 pt-4">
-                    <p className="text-sm font-bold uppercase tracking-widest text-white/60">Your Referral Code</p>
+                    <p className="text-sm font-bold uppercase tracking-widest text-inverse/60">Your Referral Code</p>
                     <div className="flex gap-3">
-                      <div className="flex-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 font-mono text-2xl font-black tracking-widest">
+                      <div className="flex-1 bg-background/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 font-mono text-2xl font-black tracking-widest">
                         {referralCode}
                       </div>
-                      <Button onClick={handleCopyReferralLink} className="h-full px-8 bg-white text-primary hover:bg-orange-50 font-black rounded-2xl shadow-lg">
+                      <Button onClick={handleCopyReferralLink} className="h-full px-8 bg-background text-primary hover:bg-orange-50 font-black rounded-2xl shadow-lg">
                         {copiedReferral ? <Check className="size-6" /> : <Copy className="size-6" />}
                       </Button>
                     </div>
@@ -167,23 +167,23 @@ export function CouponsReferralsPage() {
                     { label: "Total Referrals", value: stats?.referralCount || 0, icon: Users },
                     { label: "Wallet Rewards", value: `$${stats?.walletBalance || 0}`, icon: Trophy },
                   ].map((stat, i) => (
-                    <div key={i} className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-3xl">
-                      <div className="bg-white/20 p-3 rounded-2xl w-fit mb-4">
-                        <stat.icon className="size-6 text-white" />
+                    <div key={i} className="bg-background/10 backdrop-blur-md border border-white/20 p-6 rounded-3xl">
+                      <div className="bg-background/20 p-3 rounded-2xl w-fit mb-4">
+                        <stat.icon className="size-6 text-inverse" />
                       </div>
-                      <p className="text-sm font-bold text-white/60 uppercase tracking-wider mb-1">{stat.label}</p>
+                      <p className="text-sm font-bold text-inverse/60 uppercase tracking-wider mb-1">{stat.label}</p>
                       <p className="text-3xl font-black">{stat.value}</p>
                     </div>
                   ))}
                 </div>
               </div>
-              <Sparkles className="absolute top-10 right-10 size-32 text-white/5" />
+              <Sparkles className="absolute top-10 right-10 size-32 text-inverse/5" />
             </Card>
 
             {/* Apply Referral Code */}
-            <Card className="p-8 border-0 shadow-sm rounded-3xl bg-white dark:bg-gray-900">
+            <Card className="p-8 border-0 shadow-sm rounded-3xl bg-card">
               <h3 className="text-xl font-bold mb-4">Got a referral code?</h3>
-              <p className="text-gray-500 mb-6">Enter it below to link your account and get special discounts on your first order.</p>
+              <p className="text-muted-foreground mb-6">Enter it below to link your account and get special discounts on your first order.</p>
               <div className="flex gap-4 max-w-md">
                 <Input 
                   placeholder="Enter code (e.g. FRIEND50)" 
@@ -199,8 +199,8 @@ export function CouponsReferralsPage() {
           <TabsContent value="coupons" className="space-y-6 animate-in fade-in duration-500">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {availableCoupons.map((coupon) => (
-                <Card key={coupon.id} className="group relative overflow-hidden border-0 shadow-md rounded-3xl bg-white dark:bg-gray-900 flex flex-col sm:flex-row">
-                  <div className="bg-gradient-to-br from-primary to-orange-600 sm:w-1/3 p-8 flex flex-col items-center justify-center text-white text-center relative overflow-hidden">
+                <Card key={coupon.id} className="group relative overflow-hidden border-0 shadow-md rounded-3xl bg-card flex flex-col sm:flex-row">
+                  <div className="bg-gradient-to-br from-primary to-orange-600 sm:w-1/3 p-8 flex flex-col items-center justify-center text-inverse text-center relative overflow-hidden">
                     <div className="relative z-10">
                       <p className="text-4xl font-black">{coupon.discount}{coupon.discountType === "percentage" ? "%" : "$"}</p>
                       <p className="text-sm font-bold uppercase tracking-widest mt-1 opacity-80">OFF</p>
@@ -211,11 +211,11 @@ export function CouponsReferralsPage() {
                   </div>
                   <div className="flex-1 p-8">
                     <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-xl font-black text-gray-900 dark:text-white uppercase tracking-tight">{coupon.code}</h3>
+                      <h3 className="text-xl font-black text-foreground uppercase tracking-tight">{coupon.code}</h3>
                       <Badge variant="outline" className="rounded-full font-bold border-green-500 text-green-600">ACTIVE</Badge>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-400 font-medium mb-6">{coupon.description}</p>
-                    <div className="flex items-center gap-2 text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">
+                    <p className="text-muted-foreground font-medium mb-6">{coupon.description}</p>
+                    <div className="flex items-center gap-2 text-xs font-bold text-muted-foreground uppercase tracking-widest mb-6">
                       <Clock className="size-3.5" />
                       Expires {new Date(coupon.expiryDate).toLocaleDateString()}
                     </div>
@@ -237,3 +237,4 @@ export function CouponsReferralsPage() {
     </div>
   );
 }
+

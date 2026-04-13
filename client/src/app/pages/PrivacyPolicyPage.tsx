@@ -180,23 +180,23 @@ export function PrivacyPolicyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-muted">
       {/* Header */}
-      <div className="bg-white dark:bg-gray-950 border-b dark:border-gray-800">
+      <div className="bg-background border-b dark:border-gray-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex items-center gap-3 mb-4">
-            <div className="size-12 bg-gradient-to-br from-[#F7931A] to-orange-600 rounded-lg flex items-center justify-center">
-              <Shield className="size-6 text-white" />
+            <div className="size-12 bg-gradient-to-br from-[var(--primary-color)] to-orange-600 rounded-lg flex items-center justify-center">
+              <Shield className="size-6 text-inverse" />
             </div>
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+            <h1 className="text-4xl font-bold text-foreground">
               Privacy Policy
             </h1>
           </div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
+          <p className="text-lg text-muted-foreground mb-4">
             At N4ASHYOL, we take your privacy seriously. This policy explains how we
             collect, use, and protect your personal information.
           </p>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-muted-foreground">
             Last updated: {lastUpdated}
           </p>
         </div>
@@ -205,7 +205,7 @@ export function PrivacyPolicyPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Introduction */}
         <Card className="p-8 mb-8 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800">
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed">
             This Privacy Policy describes how N4ASHYOL ("we," "us," or "our") collects,
             uses, and shares your personal information when you visit or make a purchase
             from our website. By using our services, you agree to the collection and use
@@ -220,18 +220,18 @@ export function PrivacyPolicyPage() {
             return (
               <Card key={index} className="p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <Icon className="size-8 text-[#F7931A]" />
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                  <Icon className="size-8 text-[var(--primary-color)]" />
+                  <h2 className="text-2xl font-bold text-foreground">
                     {section.title}
                   </h2>
                 </div>
                 <div className="space-y-6">
                   {section.content.map((item, itemIndex) => (
                     <div key={itemIndex}>
-                      <h3 className="font-bold text-gray-900 dark:text-white mb-2">
+                      <h3 className="font-bold text-foreground mb-2">
                         {item.subtitle}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                      <p className="text-muted-foreground leading-relaxed">
                         {item.description}
                       </p>
                       {itemIndex < section.content.length - 1 && (
@@ -248,19 +248,19 @@ export function PrivacyPolicyPage() {
         {/* Additional Policies */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
           <Card className="p-6">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+            <h3 className="text-xl font-bold text-foreground mb-3">
               {childrenPolicy.title}
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               {childrenPolicy.description}
             </p>
           </Card>
 
           <Card className="p-6">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+            <h3 className="text-xl font-bold text-foreground mb-3">
               {internationalUsers.title}
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               {internationalUsers.description}
             </p>
           </Card>
@@ -268,15 +268,15 @@ export function PrivacyPolicyPage() {
 
         {/* Changes to Policy */}
         <Card className="p-8 mt-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
             Changes to This Policy
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+          <p className="text-muted-foreground leading-relaxed mb-4">
             We may update this Privacy Policy from time to time to reflect changes in our
             practices or legal requirements. We will notify you of any material changes by
             posting the new policy on this page and updating the "Last Updated" date.
           </p>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed">
             We encourage you to review this policy periodically to stay informed about how
             we protect your information. Your continued use of our services after changes
             are posted constitutes your acceptance of the updated policy.
@@ -284,28 +284,28 @@ export function PrivacyPolicyPage() {
         </Card>
 
         {/* Contact Information */}
-        <Card className="p-8 mt-8 bg-gray-100 dark:bg-gray-800 border-0">
+        <Card className="p-8 mt-8 bg-muted border-0">
           <div className="flex items-start gap-4">
-            <Mail className="size-8 text-[#F7931A] flex-shrink-0 mt-1" />
+            <Mail className="size-8 text-[var(--primary-color)] flex-shrink-0 mt-1" />
             <div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+              <h3 className="text-xl font-bold text-foreground mb-3">
                 Contact Us About Privacy
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+              <p className="text-muted-foreground mb-4 leading-relaxed">
                 If you have any questions, concerns, or requests regarding this Privacy
                 Policy or our data practices, please contact us:
               </p>
-              <div className="space-y-2 text-gray-600 dark:text-gray-400">
+              <div className="space-y-2 text-muted-foreground">
                 <p>
-                  <strong className="text-gray-900 dark:text-white">Email:</strong>{" "}
+                  <strong className="text-foreground">Email:</strong>{" "}
                   privacy@n4ashyol.com
                 </p>
                 <p>
-                  <strong className="text-gray-900 dark:text-white">Phone:</strong>{" "}
+                  <strong className="text-foreground">Phone:</strong>{" "}
                   1-800-N4ASHYOL
                 </p>
                 <p>
-                  <strong className="text-gray-900 dark:text-white">Mail:</strong>{" "}
+                  <strong className="text-foreground">Mail:</strong>{" "}
                   N4ASHYOL Privacy Team, 123 Commerce Street, Suite 100, New York, NY
                   10001
                 </p>
@@ -316,25 +316,25 @@ export function PrivacyPolicyPage() {
 
         {/* Trust Badges */}
         <div className="mt-12 text-center">
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+          <p className="text-sm text-muted-foreground mb-4">
             We are committed to protecting your privacy and security
           </p>
           <div className="flex items-center justify-center gap-6 flex-wrap">
             <div className="flex items-center gap-2">
               <Shield className="size-5 text-green-600 dark:text-green-400" />
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              <span className="text-sm font-medium text-muted-foreground">
                 SSL Secured
               </span>
             </div>
             <div className="flex items-center gap-2">
               <Lock className="size-5 text-blue-600 dark:text-blue-400" />
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              <span className="text-sm font-medium text-muted-foreground">
                 PCI Compliant
               </span>
             </div>
             <div className="flex items-center gap-2">
               <Database className="size-5 text-purple-600 dark:text-purple-400" />
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              <span className="text-sm font-medium text-muted-foreground">
                 GDPR Ready
               </span>
             </div>
@@ -344,4 +344,5 @@ export function PrivacyPolicyPage() {
     </div>
   );
 }
+
 
