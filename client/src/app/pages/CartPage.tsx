@@ -160,11 +160,12 @@ export function CartPage() {
                   />
                   <Button variant="outline" onClick={applyCoupon} className="font-bold border-2 border-border rounded-xl hover:bg-muted dark:hover:bg-card text-card-foreground">Apply</Button>
                 </div>
-                <Button className="w-full h-14 font-bold text-lg bg-gradient-to-r from-[var(--primary-color)] to-orange-600 hover:from-orange-600 hover:to-[var(--primary-color)] text-inverse shadow-xl shadow-orange-500/20 rounded-2xl group transition-all border-0" asChild>
-                  <Link href="/checkout">
-                    Proceed to Checkout
-                    <ArrowRight className="size-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                <Button
+                  className="w-full h-14 font-bold text-lg bg-gradient-to-r from-[var(--primary-color)] to-orange-600 hover:from-orange-600 hover:to-[var(--primary-color)] text-inverse shadow-xl shadow-orange-500/20 rounded-2xl group transition-all border-0"
+                  onClick={() => router.push("/checkout")}
+                >
+                  Proceed to Checkout
+                  <ArrowRight className="size-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
 

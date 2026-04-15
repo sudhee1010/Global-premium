@@ -21,19 +21,25 @@ export function BooksPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 dark:from-gray-950 dark:via-amber-950/20 dark:to-yellow-950/20">
       {/* Books Section */}
-      <section className="py-12 bg-gradient-to-b from-amber-50 to-white dark:from-gray-900 dark:to-gray-950">
+      <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-foreground">
-              Books
-            </h2>
-            <Link href="/products?category=Books"
-              className="text-[var(--primary-color)] hover:text-orange-600 font-semibold text-sm"
-            >
-              View All →
-            </Link>
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-3xl font-bold text-foreground mb-2">
+                Shop by Category
+              </h2>
+              <p className="text-muted-foreground">
+                Find exactly what you're looking for
+              </p>
+            </div>
+            <Button variant="ghost" className="text-[var(--primary-color)]" asChild>
+              <Link href="/category?category=Books">
+                View All
+                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+              </Link>
+            </Button>
           </div>
-          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3">
+          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-3">
             {[
               { name: "Fiction", image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400" },
               { name: "Non-Fiction", image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400" },
@@ -53,7 +59,7 @@ export function BooksPage() {
               { name: "Travel", image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400" },
             ].map((product) => (
               <Link key={product.name}
-                href={`/products?subcategory=${encodeURIComponent(product.name)}`}
+                href={`/category?category=Books&subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
                 <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -94,15 +100,23 @@ export function BooksPage() {
       </section>
 
       {/* Category Grid Section */}
-      <section className="py-8 bg-background">
+      <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold text-foreground mb-2">
-              Books
-            </h2>
-            <p className="text-muted-foreground">
-              Discover our complete collection of premium products
-            </p>
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-3xl font-bold text-foreground mb-2">
+                Browse Genres
+              </h2>
+              <p className="text-muted-foreground">
+                Find exactly what you're looking for
+              </p>
+            </div>
+            <Button variant="ghost" className="text-[var(--primary-color)]" asChild>
+              <Link href="/category?category=Books">
+                View All
+                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+              </Link>
+            </Button>
           </div>
           <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-3">
             {[
@@ -126,7 +140,7 @@ export function BooksPage() {
               { name: "Art & Design", image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400" },
             ].map((category) => (
               <Link key={category.name}
-                href={`/products?subcategory=${encodeURIComponent(category.name)}`}
+                href={`/category?category=Books&subcategory=${encodeURIComponent(category.name)}`}
                 className="group flex flex-col items-center"
               >
                 <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">

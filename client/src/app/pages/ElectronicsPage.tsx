@@ -55,8 +55,24 @@ export function ElectronicsPage() {
       </section>
 
       {/* Category Grid Section */}
-      <section className="py-8 bg-background">
+      <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-3xl font-bold text-foreground mb-2">
+                Shop by Category
+              </h2>
+              <p className="text-muted-foreground">
+                Find exactly what you're looking for
+              </p>
+            </div>
+            <Button variant="ghost" className="text-[var(--primary-color)]" asChild>
+              <Link href="/category?category=Electronics">
+                View All
+                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+              </Link>
+            </Button>
+          </div>
           <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-3">
             {[
               { name: "Smartphones", image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400" },
@@ -79,7 +95,7 @@ export function ElectronicsPage() {
               { name: "Storage", image: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400" },
             ].map((category) => (
               <Link key={category.name}
-                href={`/products?subcategory=${encodeURIComponent(category.name)}`}
+                href={`/category?category=Electronics&subcategory=${encodeURIComponent(category.name)}`}
                 className="group flex flex-col items-center"
               >
                 <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">

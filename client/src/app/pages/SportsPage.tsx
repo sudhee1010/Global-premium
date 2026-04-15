@@ -23,19 +23,25 @@ export function SportsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 via-orange-50 to-amber-50 dark:from-gray-950 dark:via-red-950/20 dark:to-orange-950/20">
       {/* Sports Products Section */}
-      <section className="py-12 bg-gradient-to-b from-orange-50 to-white dark:from-gray-900 dark:to-gray-950">
+      <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-foreground">
-              Sports Products
-            </h2>
-            <Link href="/products?category=Sports"
-              className="text-[var(--primary-color)] hover:text-orange-600 font-semibold text-sm"
-            >
-              View All →
-            </Link>
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-3xl font-bold text-foreground mb-2">
+                Shop by Category
+              </h2>
+              <p className="text-muted-foreground">
+                Find exactly what you're looking for
+              </p>
+            </div>
+            <Button variant="ghost" className="text-[var(--primary-color)]" asChild>
+              <Link href="/category?category=Sports">
+                View All
+                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+              </Link>
+            </Button>
           </div>
-          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3">
+          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-3">
             {[
               { name: "Running Shoes", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" },
               { name: "Yoga Mats", image: "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=400" },
@@ -55,7 +61,7 @@ export function SportsPage() {
               { name: "Water Bottles", image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400" },
             ].map((product) => (
               <Link key={product.name}
-                href={`/products?subcategory=${encodeURIComponent(product.name)}`}
+                href={`/category?category=Sports&subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
                 <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">

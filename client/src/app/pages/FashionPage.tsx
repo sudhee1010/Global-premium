@@ -335,36 +335,37 @@ export function FashionPage() {
     <div className="min-h-screen bg-background text-foreground">
 
       {/* ── 1. FASHION SUBCATEGORIES ── */}
-      <section className="py-8 bg-card border-b border-gray-800">
+      <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-1">
-            <h2 className="text-xl font-bold text-foreground">Fashion Products</h2>
-            <Link
-              href="/products?category=Fashion"
-              className="text-[var(--primary-color)] hover:text-orange-400 font-semibold text-sm"
-            >
-              View All →
-            </Link>
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-3xl font-bold text-foreground mb-2">Shop by Category</h2>
+              <p className="text-muted-foreground">
+                Find exactly what you're looking for
+              </p>
+            </div>
+            <Button variant="ghost" className="text-[var(--primary-color)]" asChild>
+              <Link href="/category?category=Fashion">
+                View All
+                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+              </Link>
+            </Button>
           </div>
-          <p className="text-muted-foreground text-sm mb-5">
-            Discover our complete collection of premium products
-          </p>
-          <div className="grid grid-cols-5 sm:grid-cols-7 md:grid-cols-9 lg:grid-cols-10 gap-3">
+          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-3">
             {fashionSubcategories.map((item) => (
               <Link
                 key={item.name}
-                href={`/products?subcategory=${encodeURIComponent(item.name)}`}
+                href={`/category?category=Fashion&subcategory=${encodeURIComponent(item.name)}`}
                 className="group flex flex-col items-center"
               >
-                <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-1.5 bg-muted hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105">
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <ImageWithFallback
                     src={item.image}
                     alt={item.name}
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <p className="text-[10px] text-center text-muted group-hover:text-foreground font-medium line-clamp-2 leading-tight">
+                <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                   {item.name}
                 </p>
               </Link>

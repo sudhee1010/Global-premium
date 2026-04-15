@@ -31,19 +31,25 @@ export function HomeGardenPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 dark:from-gray-950 dark:via-green-950/20 dark:to-emerald-950/20">
       {/* Home & Garden Products Section */}
-      <section className="py-12 bg-background">
+      <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-foreground">
-              Home & Garden
-            </h2>
-            <Link href="/products?category=Home & Garden"
-              className="text-[var(--primary-color)] hover:text-orange-600 font-semibold text-sm"
-            >
-              View All →
-            </Link>
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-3xl font-bold text-foreground mb-2">
+                Shop by Category
+              </h2>
+              <p className="text-muted-foreground">
+                Find exactly what you're looking for
+              </p>
+            </div>
+            <Button variant="ghost" className="text-[var(--primary-color)]" asChild>
+              <Link href="/category?category=Home%20%26%20Garden">
+                View All
+                <svg xmlns="http://www.w3.org/2000/svg" className="size-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+              </Link>
+            </Button>
           </div>
-          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3">
+          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-3">
             {[
               { name: "Furniture", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400" },
               { name: "Bedding", image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400" },
@@ -63,7 +69,7 @@ export function HomeGardenPage() {
               { name: "Cushions", image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400" },
             ].map((product) => (
               <Link key={product.name}
-                href={`/products?subcategory=${encodeURIComponent(product.name)}`}
+                href={`/category?category=${encodeURIComponent('Home & Garden')}&subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
                 <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
