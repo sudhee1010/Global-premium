@@ -82,9 +82,9 @@ export function FashionAdCarousel() {
     return (
       <button
         onClick={onClick}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 size-10 rounded-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-lg hover:scale-110 transition-all duration-300 flex items-center justify-center group"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 size-10 rounded-full bg-background/90 dark:bg-card text-card-foreground/90 backdrop-blur-sm shadow-lg hover:scale-110 transition-all duration-300 flex items-center justify-center group"
       >
-        <ChevronLeft className="size-6 text-gray-900 dark:text-white group-hover:text-[#F7931A]" />
+        <ChevronLeft className="size-6 text-foreground group-hover:text-[var(--primary-color)]" />
       </button>
     );
   };
@@ -94,9 +94,9 @@ export function FashionAdCarousel() {
     return (
       <button
         onClick={onClick}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 size-10 rounded-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-lg hover:scale-110 transition-all duration-300 flex items-center justify-center group"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 size-10 rounded-full bg-background/90 dark:bg-card text-card-foreground/90 backdrop-blur-sm shadow-lg hover:scale-110 transition-all duration-300 flex items-center justify-center group"
       >
-        <ChevronRight className="size-6 text-gray-900 dark:text-white group-hover:text-[#F7931A]" />
+        <ChevronRight className="size-6 text-foreground group-hover:text-[var(--primary-color)]" />
       </button>
     );
   };
@@ -122,8 +122,8 @@ export function FashionAdCarousel() {
       <div
         className={`w-2 h-2 rounded-full transition-all duration-300 ${
           i === currentSlide
-            ? "bg-[#F7931A] w-8"
-            : "bg-white/50 hover:bg-white/80"
+            ? "bg-[var(--primary-color)] w-8"
+            : "bg-background/50 hover:bg-background/80"
         }`}
       />
     ),
@@ -150,30 +150,30 @@ export function FashionAdCarousel() {
                 <div className="max-w-2xl space-y-4 md:space-y-6">
                   {/* Badge */}
                   {ad.badge && (
-                    <Badge className="bg-[#F7931A] hover:bg-[#F7931A] text-white px-4 py-1.5 text-sm font-bold animate-pulse">
+                    <Badge className="bg-[var(--primary-color)] hover:bg-[var(--primary-color)] text-inverse px-4 py-1.5 text-sm font-bold animate-pulse">
                       {ad.badge}
                     </Badge>
                   )}
 
                   {/* Subtitle */}
-                  <p className="text-white/90 text-sm md:text-base font-medium tracking-wider uppercase">
+                  <p className="text-inverse/90 text-sm md:text-base font-medium tracking-wider uppercase">
                     {ad.subtitle}
                   </p>
 
                   {/* Title */}
-                  <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+                  <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-inverse leading-tight">
                     {ad.title}
                   </h2>
 
                   {/* Description */}
-                  <p className="text-white/80 text-base md:text-lg max-w-xl">
+                  <p className="text-inverse/80 text-base md:text-lg max-w-xl">
                     {ad.description}
                   </p>
 
                   {/* Discount */}
                   {ad.discount && (
                     <div className="inline-block">
-                      <p className="text-2xl md:text-3xl font-bold text-[#F7931A] bg-white/20 backdrop-blur-sm px-6 py-2 rounded-full border-2 border-white/30">
+                      <p className="text-2xl md:text-3xl font-bold text-[var(--primary-color)] bg-background/20 backdrop-blur-sm px-6 py-2 rounded-full border-2 border-white/30">
                         {ad.discount}
                       </p>
                     </div>
@@ -184,7 +184,7 @@ export function FashionAdCarousel() {
                     <Button
                       asChild
                       size="lg"
-                      className="bg-[#F7931A] hover:bg-orange-600 text-white font-bold px-8 py-6 text-lg rounded-full shadow-2xl hover:scale-105 transition-all duration-300"
+                      className="bg-[var(--primary-color)] hover:bg-orange-600 text-inverse font-bold px-8 py-6 text-lg rounded-full shadow-2xl hover:scale-105 transition-all duration-300"
                     >
                       <Link href={ad.ctaLink}>
                         <ShoppingBag className="size-5 mr-2" />
@@ -197,8 +197,8 @@ export function FashionAdCarousel() {
                 {/* Decorative Elements */}
                 <div className="hidden lg:block absolute right-12 top-1/2 -translate-y-1/2">
                   <div className="relative w-72 h-72">
-                    <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-full animate-pulse" />
-                    <div className="absolute inset-4 bg-white/5 backdrop-blur-sm rounded-full" />
+                    <div className="absolute inset-0 bg-background/10 backdrop-blur-sm rounded-full animate-pulse" />
+                    <div className="absolute inset-4 bg-background/5 backdrop-blur-sm rounded-full" />
                   </div>
                 </div>
               </div>
@@ -208,10 +208,11 @@ export function FashionAdCarousel() {
       </Slider>
 
       {/* Slide Counter */}
-      <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium z-10">
+      <div className="absolute top-4 right-4 bg-inverse/50 backdrop-blur-sm text-inverse px-4 py-2 rounded-full text-sm font-medium z-10">
         {currentSlide + 1} / {fashionAds.length}
       </div>
     </div>
   );
 }
+
 

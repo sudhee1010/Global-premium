@@ -49,6 +49,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [subtotal, setSubtotal] = useState(0);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const calculateSubtotal = (cartItems: CartItem[]) => {
+    return cartItems.reduce((acc, i) => acc + i.price * i.quantity, 0);
+  };
 
   const refreshCart = useCallback(async () => {
     if (!token) return;
@@ -56,36 +61,41 @@ export function CartProvider({ children }: { children: ReactNode }) {
       const data = await cartApi.get();
       const mapped = (data.items || []).map(mapApiItemToCartItem);
       setItems(mapped);
-      setSubtotal(data.subtotal ?? 0);
+      setSubtotal(data.subtotal ?? calculateSubtotal(mapped));
+      setIsLoaded(true);
     } catch {
       setItems([]);
       setSubtotal(0);
+      setIsLoaded(true);
     }
   }, [token]);
 
   useEffect(() => {
-    if (token) refreshCart();
-    else {
+    if (token) {
+      refreshCart();
+    } else {
       // Load from local storage for non-logged in users
       const localCart = localStorage.getItem("cart");
       if (localCart) {
         try {
           const parsed = JSON.parse(localCart);
-          setItems(parsed.items || []);
-          setSubtotal(parsed.subtotal || 0);
+          const cartItems = parsed.items || [];
+          setItems(cartItems);
+          setSubtotal(parsed.subtotal || calculateSubtotal(cartItems));
         } catch {}
       }
+      setIsLoaded(true);
     }
   }, [token, refreshCart]);
 
   // Persist local cart
   useEffect(() => {
-    if (!token) {
-      const sub = items.reduce((acc, i) => acc + i.price * i.quantity, 0);
+    if (isLoaded && !token) {
+      const sub = calculateSubtotal(items);
       setSubtotal(sub);
       localStorage.setItem("cart", JSON.stringify({ items, subtotal: sub }));
     }
-  }, [items, token]);
+  }, [items, token, isLoaded]);
 
   const addItem = useCallback(
     async (productId: string, sku: string, quantity: number = 1, fallbackItem?: Omit<CartItem, "quantity">) => {
@@ -93,8 +103,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
         try {
           await cartApi.add(productId, sku, quantity);
           await refreshCart();
-        } catch (e) {
-          throw e;
+        } catch (e: any) {
+          console.error("Cart error:", e);
+          throw new Error(e.response?.data?.message || "Failed to add item to cart");
         }
       } else {
         setItems((prev) => {
@@ -157,11 +168,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const openDrawer = () => setIsDrawerOpen(true);
   const closeDrawer = () => setIsDrawerOpen(false);
-  const clearCart = () => {
+  const clearCart = useCallback(() => {
     setItems([]);
     setSubtotal(0);
-    if (!token) localStorage.removeItem("cart");
-  };
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("cart");
+    }
+  }, []);
 
   const value = {
     items,
@@ -186,3 +199,4 @@ export function useCart() {
   }
   return context;
 }
+

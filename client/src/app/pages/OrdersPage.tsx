@@ -150,7 +150,7 @@ export function OrdersPage() {
       case "Cancelled":
         return "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border-red-200 dark:border-red-800";
       default:
-        return "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-400 border-gray-200 dark:border-gray-700";
+        return "bg-muted text-muted-foreground dark:text-muted-foreground border-gray-200 dark:border-gray-700";
     }
   };
 
@@ -200,19 +200,19 @@ export function OrdersPage() {
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 pb-24 md:pb-0">
       {/* Hero Header */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F7931A] to-orange-600 dark:from-orange-600 dark:to-orange-800"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary-color)] to-orange-600 dark:from-orange-600 dark:to-orange-800"></div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnptLTEyIDEyYzMuMzE0IDAgNiAyLjY4NiA2IDZzLTIuNjg2IDYtNiA2LTYtMi42ODYtNi02IDIuNjg2LTYgNi02eiIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIuMDUiLz48L2c+PC9zdmc+')] opacity-30"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           <div className="flex items-center gap-4">
-            <div className="p-4 bg-white/20 backdrop-blur-sm rounded-2xl">
-              <Package className="size-8 md:size-10 text-white" />
+            <div className="p-4 bg-background/20 backdrop-blur-sm rounded-2xl">
+              <Package className="size-8 md:size-10 text-inverse" />
             </div>
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-white drop-shadow-lg">
+              <h1 className="text-3xl md:text-4xl font-bold text-inverse drop-shadow-lg">
                 My Orders
               </h1>
-              <p className="text-white/90 text-sm md:text-base mt-1">
+              <p className="text-inverse/90 text-sm md:text-base mt-1">
                 Track and manage your orders
               </p>
             </div>
@@ -231,7 +231,7 @@ export function OrdersPage() {
               <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-3">
                 <div>
                   <div className="flex items-center gap-3 mb-2">
-                    <h3 className="font-bold text-lg text-gray-900 dark:text-white">
+                    <h3 className="font-bold text-lg text-foreground">
                       Order {order.id}
                     </h3>
                     <Badge
@@ -241,7 +241,7 @@ export function OrdersPage() {
                       {order.status}
                     </Badge>
                   </div>
-                  <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
                     <span className="flex items-center gap-1">
                       <Calendar className="size-4" />
                       {order.date}
@@ -251,10 +251,10 @@ export function OrdersPage() {
                   </div>
                 </div>
                 <div className="text-left md:text-right">
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-sm text-muted-foreground">
                     Total Amount
                   </p>
-                  <p className="text-2xl font-bold text-[#F7931A]">
+                  <p className="text-2xl font-bold text-[var(--primary-color)]">
                     ${order.total.toFixed(2)}
                   </p>
                 </div>
@@ -274,8 +274,8 @@ export function OrdersPage() {
                     />
                   ))}
                   {order.items.length > 4 && (
-                    <div className="size-16 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <span className="text-sm font-semibold text-gray-600 dark:text-gray-400">
+                    <div className="size-16 bg-muted rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-sm font-semibold text-muted-foreground">
                         +{order.items.length - 4}
                       </span>
                     </div>
@@ -341,8 +341,8 @@ export function OrdersPage() {
           <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-[#F7931A]/10 rounded-lg">
-                  <Box className="size-6 text-[#F7931A]" />
+                <div className="p-2 bg-[var(--primary-color)]/10 rounded-lg">
+                  <Box className="size-6 text-[var(--primary-color)]" />
                 </div>
                 <DialogTitle className="text-2xl">Order Details</DialogTitle>
               </div>
@@ -351,16 +351,16 @@ export function OrdersPage() {
             <div className="space-y-6 py-4">
               {/* Order Info */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                <div className="p-4 bg-muted rounded-xl">
+                  <p className="text-sm text-muted-foreground mb-1">
                     Order Number
                   </p>
-                  <p className="font-bold text-gray-900 dark:text-white">
+                  <p className="font-bold text-foreground">
                     {selectedOrder.orderNumber}
                   </p>
                 </div>
-                <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                <div className="p-4 bg-muted rounded-xl">
+                  <p className="text-sm text-muted-foreground mb-1">
                     Status
                   </p>
                   <Badge
@@ -370,19 +370,19 @@ export function OrdersPage() {
                     {selectedOrder.status}
                   </Badge>
                 </div>
-                <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                <div className="p-4 bg-muted rounded-xl">
+                  <p className="text-sm text-muted-foreground mb-1">
                     Order Date
                   </p>
-                  <p className="font-bold text-gray-900 dark:text-white">
+                  <p className="font-bold text-foreground">
                     {selectedOrder.date}
                   </p>
                 </div>
-                <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                <div className="p-4 bg-muted rounded-xl">
+                  <p className="text-sm text-muted-foreground mb-1">
                     Delivery Date
                   </p>
-                  <p className="font-bold text-gray-900 dark:text-white">
+                  <p className="font-bold text-foreground">
                     {selectedOrder.deliveryDate}
                   </p>
                 </div>
@@ -392,14 +392,14 @@ export function OrdersPage() {
 
               {/* Order Items */}
               <div>
-                <h3 className="font-bold text-gray-900 dark:text-white mb-4">
+                <h3 className="font-bold text-foreground mb-4">
                   Order Items ({selectedOrder.items.length})
                 </h3>
                 <div className="space-y-3">
                   {selectedOrder.items.map((item: any) => (
                     <div
                       key={item.id}
-                      className="flex items-center gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-xl"
+                      className="flex items-center gap-4 p-4 bg-muted rounded-xl"
                     >
                       <img
                         src={item.image}
@@ -407,14 +407,14 @@ export function OrdersPage() {
                         className="size-20 object-cover rounded-lg"
                       />
                       <div className="flex-1">
-                        <p className="font-semibold text-gray-900 dark:text-white">
+                        <p className="font-semibold text-foreground">
                           {item.name}
                         </p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                        <p className="text-sm text-muted-foreground">
                           Qty: {item.quantity}
                         </p>
                       </div>
-                      <p className="font-bold text-gray-900 dark:text-white">
+                      <p className="font-bold text-foreground">
                         ${(item.price * item.quantity).toFixed(2)}
                       </p>
                     </div>
@@ -426,13 +426,13 @@ export function OrdersPage() {
 
               {/* Shipping & Payment */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                    <MapPin className="size-5 text-[#F7931A]" />
+                <div className="p-4 bg-muted rounded-xl">
+                  <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                    <MapPin className="size-5 text-[var(--primary-color)]" />
                     Shipping Address
                   </h4>
-                  <div className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
-                    <p className="font-medium text-gray-900 dark:text-white">
+                  <div className="text-sm text-muted-foreground space-y-1">
+                    <p className="font-medium text-foreground">
                       {selectedOrder.shippingAddress.name}
                     </p>
                     <p>{selectedOrder.shippingAddress.address}</p>
@@ -444,20 +444,20 @@ export function OrdersPage() {
                   </div>
                 </div>
 
-                <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                    <CreditCard className="size-5 text-[#F7931A]" />
+                <div className="p-4 bg-muted rounded-xl">
+                  <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                    <CreditCard className="size-5 text-[var(--primary-color)]" />
                     Payment Method
                   </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-sm text-muted-foreground">
                     {selectedOrder.paymentMethod}
                   </p>
                   <Separator className="my-3" />
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-600 dark:text-gray-400">
+                    <span className="text-sm text-muted-foreground">
                       Total Paid
                     </span>
-                    <span className="text-xl font-bold text-[#F7931A]">
+                    <span className="text-xl font-bold text-[var(--primary-color)]">
                       ${selectedOrder.total.toFixed(2)}
                     </span>
                   </div>
@@ -471,10 +471,10 @@ export function OrdersPage() {
                   <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h4 className="font-semibold text-gray-900 dark:text-white mb-1">
+                        <h4 className="font-semibold text-foreground mb-1">
                           Tracking Number
                         </h4>
-                        <p className="text-sm text-gray-600 dark:text-gray-400 font-mono">
+                        <p className="text-sm text-muted-foreground font-mono">
                           {selectedOrder.trackingNumber}
                         </p>
                       </div>
@@ -520,4 +520,5 @@ export function OrdersPage() {
     </div>
   );
 }
+
 

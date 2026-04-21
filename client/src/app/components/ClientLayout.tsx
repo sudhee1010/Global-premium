@@ -8,8 +8,6 @@ import { useCart } from "../contexts/CartContext";
 import { CartDrawer } from "./CartDrawer";
 
 export function ClientLayout({ children }: { children: React.ReactNode }) {
-  const { items, isDrawerOpen, closeDrawer, updateQuantity, removeItem } = useCart();
-
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">
       {/* Header - always visible */}
@@ -27,15 +25,10 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
       </div>
       {/* Global Filter Drawer */}
       <FilterDrawer />
-      {/* Cart Drawer */}
-      <CartDrawer
-        isOpen={isDrawerOpen}
-        onClose={closeDrawer}
-        items={items}
-        onUpdateQuantity={updateQuantity}
-        onRemoveItem={removeItem}
-      />
+      {/* Global Cart Drawer */}
+      <CartDrawer />
     </div>
   );
 }
+
 

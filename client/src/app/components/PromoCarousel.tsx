@@ -130,26 +130,26 @@ export function PromoCarousel() {
                 <div className="p-5 sm:p-6 lg:p-8 flex flex-col min-h-[260px] sm:min-h-[280px] lg:min-h-[300px]">
                   <div className="flex-1 space-y-2 sm:space-y-3 lg:space-y-4">
                     <Badge
-                      className={`w-fit bg-white ${card.badgeColor} hover:bg-white border-0 font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm`}
+                      className={`w-fit bg-background ${card.badgeColor} hover:bg-background border-0 font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm`}
                     >
                       {card.emoji} {card.badge}
                     </Badge>
-                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-tight">
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-inverse leading-tight">
                       {card.title}
                     </h3>
-                    <p className="text-sm sm:text-base text-white/90 leading-relaxed line-clamp-2">
+                    <p className="text-sm sm:text-base text-inverse/90 leading-relaxed line-clamp-2">
                       {card.description}
                     </p>
                   </div>
                   <div className="flex items-center justify-between gap-3 sm:gap-4 mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-white/20">
                     <Button
                       size="sm"
-                      className="bg-white text-gray-900 hover:bg-gray-100 shadow-lg font-semibold px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl text-sm sm:text-base flex-shrink-0"
+                      className="bg-background text-foreground hover:bg-muted shadow-lg font-semibold px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl text-sm sm:text-base flex-shrink-0"
                       asChild
                     >
                       <Link href={card.buttonLink}>{card.buttonText}</Link>
                     </Button>
-                    <div className="text-white font-bold text-lg sm:text-xl lg:text-2xl whitespace-nowrap flex-shrink-0">
+                    <div className="text-inverse font-bold text-lg sm:text-xl lg:text-2xl whitespace-nowrap flex-shrink-0">
                       {card.offer}
                     </div>
                   </div>
@@ -162,4 +162,5 @@ export function PromoCarousel() {
     </div>
   );
 }
+
 

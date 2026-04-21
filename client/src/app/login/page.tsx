@@ -32,13 +32,13 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-muted px-4">
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Sign in</h1>
-          <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+          <h1 className="text-2xl font-bold text-foreground">Sign in</h1>
+          <p className="mt-1 text-sm text-muted-foreground">
             Or{" "}
-            <Link href="/register" className="text-[#F7931A] hover:underline">
+            <Link href="/register" className="text-[var(--primary-color)] hover:underline">
               create an account
             </Link>
           </p>
@@ -68,12 +68,12 @@ export default function LoginPage() {
               placeholder="••••••••"
             />
           </div>
-          <Button type="submit" className="w-full bg-[#F7931A] hover:bg-orange-600" disabled={loading}>
+          <Button type="submit" className="w-full bg-[var(--primary-color)] hover:bg-orange-600" disabled={loading}>
             {loading ? "Signing in..." : "Sign in"}
           </Button>
         </form>
-        <p className="text-center text-sm text-gray-500">
-          <Link href="/" className="text-[#F7931A] hover:underline">
+        <p className="text-center text-sm text-muted-foreground">
+          <Link href="/" className="text-[var(--primary-color)] hover:underline">
             ← Back to home
           </Link>
         </p>
@@ -81,3 +81,4 @@ export default function LoginPage() {
     </div>
   );
 }
+

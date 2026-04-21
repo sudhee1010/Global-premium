@@ -65,10 +65,10 @@ export function CategoryPromoCarousel() {
     return (
       <button
         onClick={onClick}
-        className="hidden md:flex absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 z-10 size-10 lg:size-12 rounded-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800 shadow-lg items-center justify-center transition-all duration-300 hover:scale-110"
+        className="hidden md:flex absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 z-10 size-10 lg:size-12 rounded-full bg-background/90 dark:bg-card text-card-foreground/90 backdrop-blur-sm hover:bg-background dark:hover:bg-card text-card-foreground shadow-lg items-center justify-center transition-all duration-300 hover:scale-110"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="size-5 lg:size-6 text-gray-900 dark:text-white" />
+        <ChevronLeft className="size-5 lg:size-6 text-foreground" />
       </button>
     );
   };
@@ -78,10 +78,10 @@ export function CategoryPromoCarousel() {
     return (
       <button
         onClick={onClick}
-        className="hidden md:flex absolute right-2 lg:right-4 top-1/2 -translate-y-1/2 z-10 size-10 lg:size-12 rounded-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800 shadow-lg items-center justify-center transition-all duration-300 hover:scale-110"
+        className="hidden md:flex absolute right-2 lg:right-4 top-1/2 -translate-y-1/2 z-10 size-10 lg:size-12 rounded-full bg-background/90 dark:bg-card text-card-foreground/90 backdrop-blur-sm hover:bg-background dark:hover:bg-card text-card-foreground shadow-lg items-center justify-center transition-all duration-300 hover:scale-110"
         aria-label="Next slide"
       >
-        <ChevronRight className="size-5 lg:size-6 text-gray-900 dark:text-white" />
+        <ChevronRight className="size-5 lg:size-6 text-foreground" />
       </button>
     );
   };
@@ -123,10 +123,10 @@ export function CategoryPromoCarousel() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
           <div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-2">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-2">
               Featured Deals
             </h2>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
+            <p className="text-sm sm:text-base text-muted-foreground">
               Don't miss out on our exclusive offers
             </p>
           </div>
@@ -137,8 +137,8 @@ export function CategoryPromoCarousel() {
                 onClick={() => setCurrentSlide(index)}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   currentSlide === index
-                    ? "w-8 bg-[#F7931A]"
-                    : "w-2 bg-gray-300 dark:bg-gray-700"
+                    ? "w-8 bg-[var(--primary-color)]"
+                    : "w-2 bg-border dark:bg-card text-card-foreground"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -158,7 +158,7 @@ export function CategoryPromoCarousel() {
                     >
                       {/* Category Badge */}
                       <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                        <Badge className="bg-white/20 hover:bg-white/30 text-white border-white/30 backdrop-blur-sm text-xs sm:text-sm">
+                        <Badge className="bg-background/20 hover:bg-background/30 text-inverse border-white/30 backdrop-blur-sm text-xs sm:text-sm">
                           <Icon className="size-3.5 sm:size-4 mr-1" />
                           {card.category}
                         </Badge>
@@ -166,10 +166,10 @@ export function CategoryPromoCarousel() {
 
                       {/* Content */}
                       <div className="flex-1">
-                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3 leading-tight">
+                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-inverse mb-2 sm:mb-3 leading-tight">
                           {card.title}
                         </h3>
-                        <p className="text-sm sm:text-base lg:text-lg text-white/90 leading-relaxed line-clamp-2">
+                        <p className="text-sm sm:text-base lg:text-lg text-inverse/90 leading-relaxed line-clamp-2">
                           {card.description}
                         </p>
                       </div>
@@ -177,12 +177,12 @@ export function CategoryPromoCarousel() {
                       {/* CTA Section */}
                       <div className="flex items-center justify-between mt-4 sm:mt-6 gap-3">
                         <Button
-                          className="bg-white hover:bg-gray-100 text-gray-900 font-semibold rounded-xl sm:rounded-2xl text-sm sm:text-base px-4 sm:px-6"
+                          className="bg-background hover:bg-muted text-foreground font-semibold rounded-xl sm:rounded-2xl text-sm sm:text-base px-4 sm:px-6"
                           size="lg"
                         >
                           {card.buttonText}
                         </Button>
-                        <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white whitespace-nowrap">
+                        <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-inverse whitespace-nowrap">
                           {card.offerText}
                         </div>
                       </div>
@@ -200,4 +200,5 @@ export function CategoryPromoCarousel() {
     </section>
   );
 }
+
 

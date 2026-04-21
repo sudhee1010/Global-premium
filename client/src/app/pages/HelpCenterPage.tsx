@@ -116,23 +116,23 @@ export function HelpCenterPage() {
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 pb-24 md:pb-0">
       {/* Hero Header with Glassmorphic Effect */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F7931A] to-orange-600 dark:from-orange-600 dark:to-orange-800"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary-color)] to-orange-600 dark:from-orange-600 dark:to-orange-800"></div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnptLTEyIDEyYzMuMzE0IDAgNiAyLjY4NiA2IDZzLTIuNjg2IDYtNiA2LTYtMi42ODYtNi02IDIuNjg2LTYgNi02eiIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIuMDUiLz48L2c+PC9zdmc+')] opacity-30"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white drop-shadow-lg">How can we help you?</h1>
-            <p className="text-base md:text-lg text-white/90 mb-8">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-inverse drop-shadow-lg">How can we help you?</h1>
+            <p className="text-base md:text-lg text-inverse/90 mb-8">
               Search our help center or browse categories below
             </p>
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-gray-400" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-muted-foreground" />
               <Input
                 type="search"
                 placeholder="Search for help..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-12 pr-4 h-14 text-lg bg-white dark:bg-gray-800 border-0 text-gray-900 dark:text-white"
+                className="pl-12 pr-4 h-14 text-lg bg-background dark:bg-card text-card-foreground border-0 text-foreground"
               />
             </div>
           </div>
@@ -142,7 +142,7 @@ export function HelpCenterPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Categories */}
         <div className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-2xl font-bold text-foreground mb-6">
             Browse by Category
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -152,14 +152,14 @@ export function HelpCenterPage() {
                 className="p-6 hover:shadow-lg transition-shadow cursor-pointer"
               >
                 <div className="text-4xl mb-4">{category.icon}</div>
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3">
+                <h3 className="text-lg font-bold text-foreground mb-3">
                   {category.title}
                 </h3>
                 <ul className="space-y-2">
                   {category.topics.map((topic, topicIndex) => (
                     <li
                       key={topicIndex}
-                      className="text-sm text-gray-600 dark:text-gray-400 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors"
+                      className="text-sm text-muted-foreground hover:text-[var(--primary-color)] dark:hover:text-[var(--primary-color)] transition-colors"
                     >
                       • {topic}
                     </li>
@@ -172,13 +172,13 @@ export function HelpCenterPage() {
 
         {/* FAQs */}
         <div className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-2xl font-bold text-foreground mb-6">
             Frequently Asked Questions
           </h2>
           <Card className="divide-y dark:divide-gray-800">
             {filteredFaqs.length === 0 ? (
               <div className="p-8 text-center">
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-muted-foreground">
                   No results found for "{searchQuery}"
                 </p>
               </div>
@@ -189,17 +189,17 @@ export function HelpCenterPage() {
                     onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
                     className="w-full flex items-center justify-between text-left"
                   >
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white pr-4">
+                    <h3 className="text-lg font-semibold text-foreground pr-4">
                       {faq.question}
                     </h3>
                     {expandedFaq === index ? (
-                      <ChevronUp className="size-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />
+                      <ChevronUp className="size-5 text-muted-foreground flex-shrink-0" />
                     ) : (
-                      <ChevronDown className="size-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />
+                      <ChevronDown className="size-5 text-muted-foreground flex-shrink-0" />
                     )}
                   </button>
                   {expandedFaq === index && (
-                    <p className="mt-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <p className="mt-4 text-muted-foreground leading-relaxed">
                       {faq.answer}
                     </p>
                   )}
@@ -211,7 +211,7 @@ export function HelpCenterPage() {
 
         {/* Contact Options */}
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-2xl font-bold text-foreground mb-6">
             Still need help?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -220,23 +220,23 @@ export function HelpCenterPage() {
               return (
                 <Card key={index} className="p-6 text-center">
                   <div className="mb-4 flex justify-center">
-                    <div className="size-16 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+                    <div className="size-16 rounded-full bg-muted flex items-center justify-center">
                       <Icon className={`size-8 ${option.color}`} />
                     </div>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-lg font-bold text-foreground mb-2">
                     {option.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-2">
+                  <p className="text-muted-foreground mb-2">
                     {option.description}
                   </p>
                   <div className="flex items-center justify-center gap-2 mb-4">
-                    <Clock className="size-4 text-gray-500 dark:text-gray-400" />
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                    <Clock className="size-4 text-muted-foreground" />
+                    <span className="text-sm text-muted-foreground">
                       {option.availability}
                     </span>
                   </div>
-                  <Button className="w-full bg-[#F7931A] hover:bg-orange-600">
+                  <Button className="w-full bg-[var(--primary-color)] hover:bg-orange-600">
                     {option.action}
                   </Button>
                 </Card>
@@ -248,17 +248,17 @@ export function HelpCenterPage() {
         {/* Additional Resources */}
         <Card className="mt-12 p-8 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-800 border-0">
           <div className="text-center max-w-2xl mx-auto">
-            <Badge className="mb-4 bg-blue-600 hover:bg-blue-600 text-white">
+            <Badge className="mb-4 bg-blue-600 hover:bg-blue-600 text-inverse">
               New
             </Badge>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            <h3 className="text-2xl font-bold text-foreground mb-3">
               Video Tutorials Available
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
+            <p className="text-muted-foreground mb-6">
               Watch step-by-step video guides on how to use N4ASHYOL features,
               manage your account, and make the most of your shopping experience.
             </p>
-            <Button variant="outline" className="bg-white dark:bg-gray-900">
+            <Button variant="outline" className="bg-card">
               Watch Tutorials
             </Button>
           </div>
@@ -267,4 +267,5 @@ export function HelpCenterPage() {
     </div>
   );
 }
+
 

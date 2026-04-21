@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useCart } from "../contexts/CartContext";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -22,13 +24,17 @@ interface PaymentGatewayProps {
   amount: number;
   onPaymentComplete?: (paymentData: any) => void;
   showTitle?: boolean;
+  disabled?: boolean;
 }
 
 export function PaymentGateway({
   amount,
   onPaymentComplete,
   showTitle = true,
+  disabled = false,
 }: PaymentGatewayProps) {
+  const router = useRouter();
+  const { clearCart } = useCart();
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [cardNumber, setCardNumber] = useState("");
   const [cardName, setCardName] = useState("");
@@ -160,9 +166,18 @@ export function PaymentGateway({
     if (onPaymentComplete) {
       onPaymentComplete(paymentData);
     }
+
+    // Clear cart and redirect
+    clearCart();
+    router.push("/order-success");
   };
 
   const handlePayment = () => {
+    if (disabled) {
+      toast.error("Please accept Terms & Conditions to continue");
+      return;
+    }
+
     if (paymentMethod === "card") {
       if (!validateCard()) return;
     }
@@ -173,11 +188,11 @@ export function PaymentGateway({
   const selectedMethod = paymentMethods.find((m) => m.id === paymentMethod);
 
   return (
-    <Card className="p-4 sm:p-6 bg-white dark:bg-gray-900">
+    <Card className="p-4 sm:p-6 bg-card border-none shadow-none">
       {showTitle && (
         <>
           <div className="flex items-center justify-between mb-4 sm:mb-6">
-            <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-lg sm:text-xl font-bold text-foreground">
               Payment Gateway
             </h2>
             <Badge
@@ -193,12 +208,12 @@ export function PaymentGateway({
       )}
 
       {/* Amount Display */}
-      <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-gradient-to-r from-[#F7931A]/10 to-orange-500/10 dark:from-[#F7931A]/20 dark:to-orange-500/20 rounded-lg border-2 border-[#F7931A]/30">
+      <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-gradient-to-r from-[var(--primary-color)]/10 to-orange-500/10 dark:from-[var(--primary-color)]/20 dark:to-orange-500/20 rounded-lg border-2 border-[var(--primary-color)]/30">
         <div className="flex items-center justify-between">
-          <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
+          <span className="text-sm font-medium text-muted-foreground">
             Total Amount
           </span>
-          <span className="text-xl sm:text-2xl font-bold text-[#F7931A]">
+          <span className="text-xl sm:text-2xl font-bold text-[var(--primary-color)]">
             ${amount.toFixed(2)}
           </span>
         </div>
@@ -206,7 +221,7 @@ export function PaymentGateway({
 
       {/* Payment Method Selection */}
       <div className="mb-4 sm:mb-6">
-        <Label className="text-sm font-semibold mb-3 sm:mb-4 block text-gray-900 dark:text-white">
+        <Label className="text-sm font-semibold mb-3 sm:mb-4 block text-foreground">
           Select Payment Method
         </Label>
         <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod}>
@@ -218,11 +233,10 @@ export function PaymentGateway({
               return (
                 <div
                   key={method.id}
-                  className={`relative flex items-center space-x-3 border-2 rounded-xl p-3 sm:p-4 cursor-pointer transition-all hover:shadow-md ${
-                    isSelected
-                      ? "border-[#F7931A] bg-[#F7931A]/5 dark:bg-[#F7931A]/10"
-                      : "border-gray-200 dark:border-gray-700 hover:border-[#F7931A]/50"
-                  }`}
+                  className={`relative flex items-center space-x-3 border-2 rounded-xl p-3 sm:p-4 cursor-pointer transition-all hover:shadow-md ${isSelected
+                      ? "border-[var(--primary-color)] bg-[var(--primary-color)]/5 dark:bg-[var(--primary-color)]/10"
+                      : "border-gray-200 dark:border-gray-700 hover:border-[var(--primary-color)]/50"
+                    }`}
                   onClick={() => setPaymentMethod(method.id)}
                 >
                   <RadioGroupItem value={method.id} id={method.id} className="flex-shrink-0" />
@@ -232,17 +246,16 @@ export function PaymentGateway({
                   >
                     <div className="flex items-start gap-2 sm:gap-3">
                       <div
-                        className={`p-1.5 sm:p-2 rounded-lg flex-shrink-0 ${
-                          isSelected
-                            ? "bg-[#F7931A] text-white"
-                            : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400"
-                        }`}
+                        className={`p-1.5 sm:p-2 rounded-lg flex-shrink-0 ${isSelected
+                            ? "bg-[var(--primary-color)] text-inverse"
+                            : "bg-muted text-muted-foreground"
+                          }`}
                       >
                         <Icon className="size-4 sm:size-5" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
-                          <span className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white truncate">
+                          <span className="font-semibold text-sm sm:text-base text-foreground truncate">
                             {method.name}
                           </span>
                           {method.logos.map((logo, idx) => (
@@ -251,20 +264,20 @@ export function PaymentGateway({
                             </span>
                           ))}
                         </div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-1">
+                        <p className="text-xs text-muted-foreground line-clamp-1">
                           {method.description}
                         </p>
                       </div>
                       <Badge
                         variant="secondary"
-                        className="text-xs bg-gray-100 dark:bg-gray-800 flex-shrink-0 hidden sm:flex"
+                        className="text-xs bg-muted flex-shrink-0 hidden sm:flex"
                       >
                         {method.badge}
                       </Badge>
                     </div>
                   </Label>
                   {isSelected && (
-                    <CheckCircle2 className="absolute top-2 right-2 size-4 sm:size-5 text-[#F7931A]" />
+                    <CheckCircle2 className="absolute top-2 right-2 size-4 sm:size-5 text-[var(--primary-color)]" />
                   )}
                 </div>
               );
@@ -279,7 +292,7 @@ export function PaymentGateway({
       <div className="space-y-6">
         {paymentMethod === "card" && (
           <div className="space-y-4 animate-in fade-in slide-in-from-top-3 duration-300">
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
               <Lock className="size-4" />
               <span>Your card details are encrypted and secure</span>
             </div>
@@ -297,7 +310,7 @@ export function PaymentGateway({
                   maxLength={19}
                   className="pl-10"
                 />
-                <CreditCard className="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-gray-400" />
+                <CreditCard className="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-muted-foreground" />
               </div>
             </div>
 
@@ -341,7 +354,7 @@ export function PaymentGateway({
               </div>
             </div>
 
-            <div className="flex gap-2 text-sm text-gray-500 dark:text-gray-400">
+            <div className="flex gap-2 text-sm text-muted-foreground">
               <span>We accept:</span>
               <div className="flex gap-2">
                 <span>💳 Visa</span>
@@ -356,11 +369,11 @@ export function PaymentGateway({
           <div className="space-y-4 animate-in fade-in slide-in-from-top-3 duration-300">
             <div className="p-6 bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800 rounded-xl text-center">
               <div className="text-4xl mb-3">🅿️</div>
-              <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 You will be redirected to PayPal to complete your payment
                 securely.
               </p>
-              <div className="flex items-center justify-center gap-2 text-xs text-gray-600 dark:text-gray-400">
+              <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
                 <Shield className="size-4" />
                 <span>Protected by PayPal Buyer Protection</span>
               </div>
@@ -370,12 +383,12 @@ export function PaymentGateway({
 
         {paymentMethod === "applepay" && (
           <div className="space-y-4 animate-in fade-in slide-in-from-top-3 duration-300">
-            <div className="p-6 bg-black dark:bg-gray-800 text-white rounded-xl text-center">
+            <div className="p-6 bg-inverse dark:bg-card text-card-foreground text-inverse rounded-xl text-center">
               <div className="text-4xl mb-3">🍎</div>
               <p className="text-sm mb-4">
                 Use Touch ID or Face ID to complete your purchase
               </p>
-              <div className="flex items-center justify-center gap-2 text-xs text-gray-300">
+              <div className="flex items-center justify-center gap-2 text-xs text-muted">
                 <Shield className="size-4" />
                 <span>Secured by Apple</span>
               </div>
@@ -387,10 +400,10 @@ export function PaymentGateway({
           <div className="space-y-4 animate-in fade-in slide-in-from-top-3 duration-300">
             <div className="p-6 bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 border-2 border-blue-200 dark:border-blue-800 rounded-xl text-center">
               <div className="text-4xl mb-3">🔵</div>
-              <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Complete your payment with Google Pay for a faster checkout
               </p>
-              <div className="flex items-center justify-center gap-2 text-xs text-gray-600 dark:text-gray-400">
+              <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
                 <Shield className="size-4" />
                 <span>Secured by Google</span>
               </div>
@@ -402,15 +415,15 @@ export function PaymentGateway({
           <div className="space-y-4 animate-in fade-in slide-in-from-top-3 duration-300">
             <div className="p-6 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 border-2 border-purple-200 dark:border-purple-800 rounded-xl text-center">
               <div className="text-4xl mb-3">💰</div>
-              <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Pay using UPI, Cards, Net Banking, Wallets & EMI
               </p>
-              <div className="grid grid-cols-3 gap-2 text-xs text-gray-600 dark:text-gray-400 mb-4">
-                <div className="p-2 bg-white dark:bg-gray-800 rounded">UPI</div>
-                <div className="p-2 bg-white dark:bg-gray-800 rounded">Cards</div>
-                <div className="p-2 bg-white dark:bg-gray-800 rounded">Wallets</div>
+              <div className="grid grid-cols-3 gap-2 text-xs text-muted-foreground mb-4">
+                <div className="p-2 bg-background dark:bg-card text-card-foreground rounded">UPI</div>
+                <div className="p-2 bg-background dark:bg-card text-card-foreground rounded">Cards</div>
+                <div className="p-2 bg-background dark:bg-card text-card-foreground rounded">Wallets</div>
               </div>
-              <div className="flex items-center justify-center gap-2 text-xs text-gray-600 dark:text-gray-400">
+              <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
                 <Shield className="size-4" />
                 <span>100% Secure Payments</span>
               </div>
@@ -424,10 +437,10 @@ export function PaymentGateway({
               <div className="flex items-start gap-4">
                 <Banknote className="size-8 text-amber-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  <h3 className="font-semibold text-foreground mb-2">
                     Cash on Delivery
                   </h3>
-                  <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
+                  <p className="text-sm text-muted-foreground mb-3">
                     Pay with cash when your order is delivered to your doorstep.
                   </p>
                   <div className="flex items-start gap-2 text-xs text-amber-700 dark:text-amber-400">
@@ -465,8 +478,8 @@ export function PaymentGateway({
       <Button
         size="lg"
         onClick={handlePayment}
-        disabled={isProcessing}
-        className="w-full bg-gradient-to-r from-[#F7931A] to-orange-600 hover:from-orange-600 hover:to-[#F7931A] text-white h-14 text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+        className={`w-full bg-gradient-to-r from-[var(--primary-color)] to-orange-600 hover:from-orange-600 hover:to-[var(--primary-color)] text-white h-14 text-lg font-semibold shadow-lg hover:shadow-xl transition-all border-none ${disabled || isProcessing ? "opacity-50 cursor-not-allowed" : ""
+          }`}
       >
         {isProcessing ? (
           <>
@@ -481,8 +494,9 @@ export function PaymentGateway({
         )}
       </Button>
 
+
       {/* Trust Badges */}
-      <div className="mt-4 sm:mt-6 flex items-center justify-center gap-4 text-xs text-gray-500 dark:text-gray-400">
+      <div className="mt-4 sm:mt-6 flex items-center justify-center gap-4 text-xs text-muted-foreground">
         <div className="flex items-center gap-1">
           <Shield className="size-3" />
           <span>SSL Encrypted</span>
@@ -499,4 +513,5 @@ export function PaymentGateway({
     </Card>
   );
 }
+
 

@@ -84,26 +84,26 @@ function AdBannerCard({ ad, className = "" }: AdBannerCardProps) {
       {ad.type === "hero" && (
         <div
           className={`relative overflow-hidden rounded-2xl shadow-2xl ${
-            ad.backgroundColor || "bg-gradient-to-r from-[#F7931A] to-orange-600"
+            ad.backgroundColor || "bg-gradient-to-r from-[var(--primary-color)] to-orange-600"
           } ${className}`}
         >
           <div className="grid lg:grid-cols-2 gap-8 items-center p-8 lg:p-16">
             <div className="flex flex-col justify-center space-y-6">
               {ad.discount && (
-                <Badge className="w-fit bg-white text-[#F7931A] hover:bg-white border-0 text-base px-4 py-1.5 font-bold">
+                <Badge className="w-fit bg-background text-[var(--primary-color)] hover:bg-background border-0 text-base px-4 py-1.5 font-bold">
                   {ad.discount}
                 </Badge>
               )}
               <h2
                 className={`text-4xl lg:text-5xl font-bold leading-tight ${
-                  ad.textColor || "text-white"
+                  ad.textColor || "text-inverse"
                 }`}
               >
                 {ad.title}
               </h2>
               <p
                 className={`text-xl leading-relaxed ${
-                  ad.textColor ? `${ad.textColor}` : "text-white"
+                  ad.textColor ? `${ad.textColor}` : "text-inverse"
                 }`}
               >
                 {ad.description}
@@ -111,7 +111,7 @@ function AdBannerCard({ ad, className = "" }: AdBannerCardProps) {
               <div>
                 <Button
                   size="lg"
-                  className="bg-white text-[#F7931A] hover:bg-gray-100 text-lg h-14 px-8 shadow-lg font-semibold"
+                  className="bg-background text-[var(--primary-color)] hover:bg-muted text-lg h-14 px-8 shadow-lg font-semibold"
                   asChild={!ad.externalLink}
                 >
                   {ad.externalLink ? (
@@ -134,7 +134,7 @@ function AdBannerCard({ ad, className = "" }: AdBannerCardProps) {
             </div>
             <div className="hidden lg:flex items-center justify-center">
               <div className="relative">
-                <div className="absolute inset-0 bg-white/10 rounded-2xl blur-2xl"></div>
+                <div className="absolute inset-0 bg-background/10 rounded-2xl blur-2xl"></div>
                 <ImageWithFallback
                   src={ad.image}
                   alt={ad.title}
@@ -155,20 +155,20 @@ function AdBannerCard({ ad, className = "" }: AdBannerCardProps) {
           <div className="grid md:grid-cols-[1fr,auto] gap-6 items-center p-8 md:p-10">
             <div className="flex flex-col justify-center space-y-4">
               {ad.discount && (
-                <Badge className="w-fit bg-white text-purple-600 hover:bg-white border-0 font-bold px-3 py-1">
+                <Badge className="w-fit bg-background text-purple-600 hover:bg-background border-0 font-bold px-3 py-1">
                   {ad.discount}
                 </Badge>
               )}
               <h3
                 className={`text-3xl md:text-4xl font-bold ${
-                  ad.textColor || "text-white"
+                  ad.textColor || "text-inverse"
                 }`}
               >
                 {ad.title}
               </h3>
               <p
                 className={`text-lg ${
-                  ad.textColor ? `${ad.textColor}` : "text-white"
+                  ad.textColor ? `${ad.textColor}` : "text-inverse"
                 }`}
               >
                 {ad.description}
@@ -176,7 +176,7 @@ function AdBannerCard({ ad, className = "" }: AdBannerCardProps) {
               <div>
                 <Button
                   size="lg"
-                  className="bg-white text-gray-900 hover:bg-gray-100 shadow-lg h-12 font-semibold"
+                  className="bg-background text-foreground hover:bg-muted shadow-lg h-12 font-semibold"
                   asChild={!ad.externalLink}
                 >
                   {ad.externalLink ? (
@@ -217,20 +217,20 @@ function AdBannerCard({ ad, className = "" }: AdBannerCardProps) {
           <div className="p-8 flex flex-col h-full min-h-[320px]">
             <div className="flex-1 space-y-4">
               {ad.discount && (
-                <Badge className="w-fit bg-white text-blue-600 hover:bg-white border-0 font-bold px-3 py-1">
+                <Badge className="w-fit bg-background text-blue-600 hover:bg-background border-0 font-bold px-3 py-1">
                   {ad.discount}
                 </Badge>
               )}
               <h3
                 className={`text-2xl lg:text-3xl font-bold leading-tight ${
-                  ad.textColor || "text-white"
+                  ad.textColor || "text-inverse"
                 }`}
               >
                 {ad.title}
               </h3>
               <p
                 className={`text-base leading-relaxed ${
-                  ad.textColor ? `${ad.textColor}` : "text-white"
+                  ad.textColor ? `${ad.textColor}` : "text-inverse"
                 }`}
               >
                 {ad.description}
@@ -239,7 +239,7 @@ function AdBannerCard({ ad, className = "" }: AdBannerCardProps) {
             <div className="flex items-end justify-between gap-4 mt-6">
               <Button
                 size="lg"
-                className="bg-white text-gray-900 hover:bg-gray-100 shadow-lg font-semibold"
+                className="bg-background text-foreground hover:bg-muted shadow-lg font-semibold"
                 asChild={!ad.externalLink}
               >
                 {ad.externalLink ? (
@@ -278,20 +278,20 @@ function AdBannerCard({ ad, className = "" }: AdBannerCardProps) {
             />
             <div className="flex-1 space-y-3 text-center sm:text-left">
               {ad.discount && (
-                <Badge className="bg-white text-green-600 hover:bg-white border-0 font-bold px-3 py-1">
+                <Badge className="bg-background text-green-600 hover:bg-background border-0 font-bold px-3 py-1">
                   {ad.discount}
                 </Badge>
               )}
               <h3
                 className={`text-2xl font-bold ${
-                  ad.textColor || "text-white"
+                  ad.textColor || "text-inverse"
                 }`}
               >
                 {ad.title}
               </h3>
               <p
                 className={`text-base ${
-                  ad.textColor ? `${ad.textColor}` : "text-white"
+                  ad.textColor ? `${ad.textColor}` : "text-inverse"
                 }`}
               >
                 {ad.description}
@@ -299,7 +299,7 @@ function AdBannerCard({ ad, className = "" }: AdBannerCardProps) {
             </div>
             <Button
               size="lg"
-              className="bg-white text-gray-900 hover:bg-gray-100 flex-shrink-0 shadow-lg h-12 px-6 font-semibold"
+              className="bg-background text-foreground hover:bg-muted flex-shrink-0 shadow-lg h-12 px-6 font-semibold"
               asChild={!ad.externalLink}
             >
               {ad.externalLink ? (
@@ -322,4 +322,5 @@ function AdBannerCard({ ad, className = "" }: AdBannerCardProps) {
 
   return content;
 }
+
 
