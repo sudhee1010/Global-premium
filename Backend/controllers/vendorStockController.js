@@ -4,7 +4,7 @@ import Product from "../models/Product.js";
 import Vendor from "../models/Vendor.js";
 
 
-// ✅ CREATE / UPDATE STOCK (Vendor)
+// ✅ CREATE / UPDATE STOCK (Vendor/Admin)
 export const createVendorStock = asyncHandler(async (req, res) => {
   const { productId, sku, stockQuantity, vendorPrice } = req.body;
 
@@ -19,12 +19,29 @@ export const createVendorStock = asyncHandler(async (req, res) => {
     throw new Error("Stock and price must be positive");
   }
 
-  // 2️⃣ Vendor check
-  const vendor = await Vendor.findOne({ owner: req.user._id });
+  console.log("FULL USER:", req.user);
+  console.log("USER ID:", req.user?._id);
+
+  // ✅ Role check
+  if (req.user.role !== "vendor" && req.user.role !== "admin") {
+    res.status(403);
+    throw new Error("Only vendors or admin can add stock");
+  }
+
+  // ✅ Vendor logic
+  let vendor;
+
+  if (req.user.role === "admin") {
+    vendor = await Vendor.findOne(); // any vendor
+  } else {
+    vendor = await Vendor.findOne({ owner: req.user._id });
+  }
+
+  console.log("FOUND VENDOR:", vendor);
 
   if (!vendor) {
     res.status(404);
-    throw new Error("Vendor not found");
+    throw new Error("No vendor found in database");
   }
 
   if (vendor.approvalStatus !== "approved") {
@@ -68,14 +85,14 @@ export const createVendorStock = asyncHandler(async (req, res) => {
     sku,
     stockQuantity,
     vendorPrice,
-    isApproved: false, // admin must approve
+    isApproved: false,
   });
 
   res.status(201).json(vendorStock);
 });
 
 
-// ✅ ADMIN: APPROVE STOCK
+// ✅ ADD THIS (YOU MISSED THIS FUNCTION ❗)
 export const approveVendorStock = asyncHandler(async (req, res) => {
   const { stockId } = req.params;
 
@@ -93,7 +110,7 @@ export const approveVendorStock = asyncHandler(async (req, res) => {
 });
 
 
-// ✅ ADMIN: SELECT VENDOR FOR VARIANT
+// ✅ ADD THIS ALSO (if using in routes)
 export const selectVendorForVariant = asyncHandler(async (req, res) => {
   const { productId, sku, vendorId } = req.body;
 
@@ -102,7 +119,7 @@ export const selectVendorForVariant = asyncHandler(async (req, res) => {
     product: productId,
     sku,
     isActive: true,
-    isApproved: true, // only approved vendors
+    isApproved: true,
   });
 
   if (!vendorStock) {
@@ -134,7 +151,7 @@ export const selectVendorForVariant = asyncHandler(async (req, res) => {
 });
 
 
-// ✅ ADMIN: GET ALL VENDOR STOCKS FOR A VARIANT
+// ✅ ADD THIS ALSO
 export const getVendorStocksForVariant = asyncHandler(async (req, res) => {
   const { productId, sku } = req.params;
 

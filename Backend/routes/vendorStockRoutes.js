@@ -11,7 +11,7 @@ import { protect, authorize } from "../middlewares/authMiddleware.js";
 const router = express.Router();
 
 // ✅ Vendor
-router.post("/", protect, authorize("vendor"), createVendorStock);
+router.post("/", protect, authorize("vendor","admin"), createVendorStock);
 
 // ✅ Admin
 router.put("/select", protect, authorize("admin"), selectVendorForVariant);

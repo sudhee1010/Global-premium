@@ -21,6 +21,7 @@ import supportTicketRoutes from "./routes/supportTicketRoutes.js";
 import notificationRoutes from "./routes/notificationRoutes.js";
 import transactionRoutes from "./routes/transactionRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
+import Vendor from "./routes/vendorRoutes.js";
 
 const app = express();
 
@@ -64,6 +65,7 @@ app.use("/api/orders", orderRoutes);
 app.use("/api/addresses", addressRoutes);
 app.use("/api/wishlist", wishlistRoutes);
 app.use("/api/attributes", attributeRoutes);
+app.use("/api/vendor", Vendor);
 app.use("/api/vendor-stock", vendorStockRoutes);
 app.use("/api/referrals", referralRoutes);
 app.use("/api/reviews", reviewRoutes);
