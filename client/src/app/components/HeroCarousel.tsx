@@ -67,7 +67,7 @@ export function HeroCarousel({ slides, autoPlayInterval = 5000 }: HeroCarouselPr
             />
             
             {/* Overlay for better text visibility */}
-            <div className="absolute inset-0 bg-black/10 dark:bg-black/30" />
+            <div className="absolute inset-0 bg-inverse/10 dark:bg-inverse/30" />
 
             {/* Text Content Overlay */}
             {(slide.title || slide.description || slide.buttonText) && (
@@ -86,19 +86,19 @@ export function HeroCarousel({ slides, autoPlayInterval = 5000 }: HeroCarouselPr
                   }`}
                 >
                   {slide.title && (
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-inverse mb-4 drop-shadow-lg">
                       {slide.title}
                     </h2>
                   )}
                   {slide.description && (
-                    <p className="text-lg md:text-xl text-white/90 mb-6 drop-shadow-lg">
+                    <p className="text-lg md:text-xl text-inverse/90 mb-6 drop-shadow-lg">
                       {slide.description}
                     </p>
                   )}
                   {slide.buttonText && slide.buttonLink && (
                     <Button
                       size="lg"
-                      className="bg-gradient-to-r from-[#F7931A] to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-base md:text-lg h-12 md:h-14 px-6 md:px-8 shadow-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95 touch-manipulation"
+                      className="bg-gradient-to-r from-[var(--primary-color)] to-orange-600 hover:from-orange-600 hover:to-orange-700 text-inverse text-base md:text-lg h-12 md:h-14 px-6 md:px-8 shadow-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95 touch-manipulation"
                       style={{
                         WebkitTapHighlightColor: 'rgba(247, 147, 26, 0.2)',
                         touchAction: 'manipulation',
@@ -119,7 +119,7 @@ export function HeroCarousel({ slides, autoPlayInterval = 5000 }: HeroCarouselPr
       <Button
         variant="secondary"
         size="icon"
-        className="absolute left-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 md:opacity-100 transition-opacity bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800 size-10 md:size-12 active:scale-95 touch-manipulation"
+        className="absolute left-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 md:opacity-100 transition-opacity bg-background/80 dark:bg-card text-card-foreground/80 backdrop-blur-sm hover:bg-background dark:hover:bg-card text-card-foreground size-10 md:size-12 active:scale-95 touch-manipulation"
         style={{
           WebkitTapHighlightColor: 'rgba(247, 147, 26, 0.2)',
           touchAction: 'manipulation',
@@ -131,7 +131,7 @@ export function HeroCarousel({ slides, autoPlayInterval = 5000 }: HeroCarouselPr
       <Button
         variant="secondary"
         size="icon"
-        className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 md:opacity-100 transition-opacity bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800 size-10 md:size-12 active:scale-95 touch-manipulation"
+        className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 md:opacity-100 transition-opacity bg-background/80 dark:bg-card text-card-foreground/80 backdrop-blur-sm hover:bg-background dark:hover:bg-card text-card-foreground size-10 md:size-12 active:scale-95 touch-manipulation"
         style={{
           WebkitTapHighlightColor: 'rgba(247, 147, 26, 0.2)',
           touchAction: 'manipulation',
@@ -149,8 +149,8 @@ export function HeroCarousel({ slides, autoPlayInterval = 5000 }: HeroCarouselPr
             onClick={() => goToSlide(index)}
             className={`transition-all duration-300 rounded-full touch-manipulation active:scale-90 ${
               index === currentSlide
-                ? "w-8 h-2 bg-[#F7931A]"
-                : "w-2 h-2 bg-white/60 hover:bg-white/80"
+                ? "w-8 h-2 bg-[var(--primary-color)]"
+                : "w-2 h-2 bg-background/60 hover:bg-background/80"
             }`}
             style={{
               WebkitTapHighlightColor: 'rgba(247, 147, 26, 0.2)',
@@ -163,4 +163,5 @@ export function HeroCarousel({ slides, autoPlayInterval = 5000 }: HeroCarouselPr
     </div>
   );
 }
+
 

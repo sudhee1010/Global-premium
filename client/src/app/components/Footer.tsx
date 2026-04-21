@@ -37,17 +37,17 @@ export function Footer() {
   };
 
   return (
-    <footer className="glass-navbar bg-white/95 dark:bg-gray-900/95 text-gray-900 dark:text-gray-100 border-t border-gray-200 dark:border-gray-800">
+    <footer className="glass-navbar border-t border-border mt-auto">
       {/* Newsletter Section */}
       <div className="gradient-bg-orange relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 bg-inverse/10" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-2">
+              <h3 className="text-2xl font-bold text-inverse mb-2">
                 📧 Subscribe to Our Newsletter
               </h3>
-              <p className="text-white/90">
+              <p className="text-inverse/90">
                 Get the latest deals and exclusive offers delivered to your
                 inbox
               </p>
@@ -63,11 +63,11 @@ export function Footer() {
                     handleSubscribe();
                   }
                 }}
-                className="glass-input bg-white/90 h-12 border-white/30"
+                className="glass-input bg-background/90 h-12 border-white/30"
               />
               <Button
                 onClick={handleSubscribe}
-                className="bg-gray-900 hover:bg-gray-800 text-white px-8 h-12 glass-button transition-all hover:scale-105"
+                className="bg-card text-card-foreground hover:bg-card text-card-foreground text-inverse px-8 h-12 glass-button transition-all hover:scale-105"
               >
                 Subscribe
               </Button>
@@ -88,32 +88,32 @@ export function Footer() {
                 className="h-10 w-auto object-contain dark:brightness-0 dark:invert"
               />
             </Link>
-            <p className="text-sm mb-4 text-gray-600 dark:text-gray-400">
+            <p className="text-sm mb-4 text-muted-foreground">
               Your trusted marketplace for premium products. Quality guaranteed,
               delivered with care.
             </p>
             <div className="flex gap-3">
               <a
                 href="#"
-                className="size-9 glass-card rounded-full flex items-center justify-center hover:bg-[#F7931A] hover:text-white transition-all hover:scale-110 text-gray-600 dark:text-gray-400"
+                className="size-9 glass-card rounded-full flex items-center justify-center hover:bg-[var(--primary-color)] hover:text-inverse transition-all hover:scale-110 text-muted-foreground"
               >
                 <Facebook className="size-4" />
               </a>
               <a
                 href="#"
-                className="size-9 glass-card rounded-full flex items-center justify-center hover:bg-[#F7931A] hover:text-white transition-all hover:scale-110 text-gray-600 dark:text-gray-400"
+                className="size-9 glass-card rounded-full flex items-center justify-center hover:bg-primary hover:text-inverse transition-all hover:scale-110 text-muted-foreground"
               >
                 <Twitter className="size-4" />
               </a>
               <a
                 href="#"
-                className="size-9 glass-card rounded-full flex items-center justify-center hover:bg-[#F7931A] hover:text-white transition-all hover:scale-110 text-gray-600 dark:text-gray-400"
+                className="size-9 glass-card rounded-full flex items-center justify-center hover:bg-primary hover:text-inverse transition-all hover:scale-110 text-muted-foreground"
               >
                 <Instagram className="size-4" />
               </a>
               <a
                 href="#"
-                className="size-9 glass-card rounded-full flex items-center justify-center hover:bg-[#F7931A] hover:text-white transition-all hover:scale-110 text-gray-600 dark:text-gray-400"
+                className="size-9 glass-card rounded-full flex items-center justify-center hover:bg-primary hover:text-inverse transition-all hover:scale-110 text-muted-foreground"
               >
                 <Youtube className="size-4" />
               </a>
@@ -122,39 +122,39 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-gray-900 dark:text-white font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-foreground font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/products"
-                  className="text-gray-600 dark:text-gray-400 hover:text-[#F7931A] transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Shop All Products
                 </Link>
               </li>
               <li>
                 <Link href="/account"
-                  className="text-gray-600 dark:text-gray-400 hover:text-[#F7931A] transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   My Account
                 </Link>
               </li>
               <li>
                 <Link href="/orders"
-                  className="text-gray-600 dark:text-gray-400 hover:text-[#F7931A] transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Track Order
                 </Link>
               </li>
               <li>
                 <Link href="/wishlist"
-                  className="text-gray-600 dark:text-gray-400 hover:text-[#F7931A] transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Wishlist
                 </Link>
               </li>
               <li>
                 <Link href="/rewards"
-                  className="text-gray-600 dark:text-gray-400 hover:text-[#F7931A] transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Rewards Program
                 </Link>
@@ -164,30 +164,30 @@ export function Footer() {
 
           {/* Customer Service */}
           <div>
-            <h4 className="text-gray-900 dark:text-white font-semibold mb-4">Customer Service</h4>
+            <h4 className="text-foreground font-semibold mb-4">Customer Service</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/help-center" className="text-gray-600 dark:text-gray-400 hover:text-[#F7931A] transition-colors">
+                <Link href="/help-center" className="text-muted-foreground hover:text-primary transition-colors">
                   Help Center
                 </Link>
               </li>
               <li>
-                <Link href="/shipping-info" className="text-gray-600 dark:text-gray-400 hover:text-[#F7931A] transition-colors">
+                <Link href="/shipping-info" className="text-muted-foreground hover:text-primary transition-colors">
                   Shipping Info
                 </Link>
               </li>
               <li>
-                <Link href="/returns-refunds" className="text-gray-600 dark:text-gray-400 hover:text-[#F7931A] transition-colors">
+                <Link href="/returns-refunds" className="text-muted-foreground hover:text-primary transition-colors">
                   Returns & Refunds
                 </Link>
               </li>
               <li>
-                <Link href="/privacy-policy" className="text-gray-600 dark:text-gray-400 hover:text-[#F7931A] transition-colors">
+                <Link href="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms-conditions" className="text-gray-600 dark:text-gray-400 hover:text-[#F7931A] transition-colors">
+                <Link href="/terms-conditions" className="text-muted-foreground hover:text-primary transition-colors">
                   Terms & Conditions
                 </Link>
               </li>
@@ -196,39 +196,39 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-gray-900 dark:text-white font-semibold mb-4">Contact Us</h4>
+            <h4 className="text-foreground font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
-                <MapPin className="size-5 text-[#F7931A] flex-shrink-0 mt-0.5" />
-                <span className="text-gray-600 dark:text-gray-400">123 Market Street, San Francisco, CA 94103</span>
+                <MapPin className="size-5 text-[var(--primary-color)] flex-shrink-0 mt-0.5" />
+                <span className="text-muted-foreground">123 Market Street, San Francisco, CA 94103</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="size-5 text-[#F7931A] flex-shrink-0" />
-                <span className="text-gray-600 dark:text-gray-400">+1 (555) 123-4567</span>
+                <Phone className="size-5 text-[var(--primary-color)] flex-shrink-0" />
+                <span className="text-muted-foreground">+1 (555) 123-4567</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="size-5 text-[#F7931A] flex-shrink-0" />
-                <span className="text-gray-600 dark:text-gray-400">support@n4ashyol.com</span>
+                <Mail className="size-5 text-[var(--primary-color)] flex-shrink-0" />
+                <span className="text-muted-foreground">support@n4ashyol.com</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <Separator className="bg-gray-200 dark:bg-gray-800" />
+      <Separator className="bg-border" />
 
       {/* Bottom Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-600 dark:text-gray-400">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>© {currentYear} N4ASHYOL. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link href="/privacy-policy" className="hover:text-[#F7931A] transition-colors">
+            <Link href="/privacy-policy" className="hover:text-primary transition-colors">
               Privacy
             </Link>
-            <Link href="/terms-conditions" className="hover:text-[#F7931A] transition-colors">
+            <Link href="/terms-conditions" className="hover:text-primary transition-colors">
               Terms
             </Link>
-            <Link href="/help-center" className="hover:text-[#F7931A] transition-colors">
+            <Link href="/help-center" className="hover:text-primary transition-colors">
               Help
             </Link>
           </div>
@@ -237,4 +237,5 @@ export function Footer() {
     </footer>
   );
 }
+
 

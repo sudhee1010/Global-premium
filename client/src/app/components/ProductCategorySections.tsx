@@ -122,14 +122,14 @@ export function ProductCategorySections() {
   return (
     <>
       {/* Electronics Products */}
-      <section className="py-12 bg-white dark:bg-gray-950">
+      <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-bold text-foreground">
               Electronics Products
             </h2>
-            <Link href="/electronics"
-              className="text-[#F7931A] hover:text-orange-600 font-semibold text-sm"
+            <Link href="/category?category=Electronics"
+              className="text-[var(--primary-color)] hover:text-orange-600 font-semibold text-sm"
             >
               View All →
             </Link>
@@ -137,17 +137,17 @@ export function ProductCategorySections() {
           <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3">
             {electronicsProducts.map((product) => (
               <Link key={product.name}
-                href={`/products?subcategory=${encodeURIComponent(product.name)}`}
+                href={`/category?category=Electronics&subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
-                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <ImageWithFallback
                     src={product.image}
                     alt={product.name}
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                   {product.name}
                 </p>
               </Link>
@@ -160,11 +160,11 @@ export function ProductCategorySections() {
       <section className="py-12 bg-gradient-to-b from-pink-50 to-white dark:from-gray-900 dark:to-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-bold text-foreground">
               Fashion Products
             </h2>
-            <Link href="/products?category=Fashion"
-              className="text-[#F7931A] hover:text-orange-600 font-semibold text-sm"
+            <Link href="/category?category=Fashion"
+              className="text-[var(--primary-color)] hover:text-orange-600 font-semibold text-sm"
             >
               View All →
             </Link>
@@ -172,17 +172,17 @@ export function ProductCategorySections() {
           <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3">
             {fashionProducts.map((product) => (
               <Link key={product.name}
-                href={`/products?subcategory=${encodeURIComponent(product.name)}`}
+                href={`/category?category=Fashion&subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
-                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <ImageWithFallback
                     src={product.image}
                     alt={product.name}
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                   {product.name}
                 </p>
               </Link>
@@ -192,14 +192,14 @@ export function ProductCategorySections() {
       </section>
 
       {/* Home & Garden Products */}
-      <section className="py-12 bg-white dark:bg-gray-950">
+      <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-bold text-foreground">
               Home & Garden
             </h2>
-            <Link href="/home-garden"
-              className="text-[#F7931A] hover:text-orange-600 font-semibold text-sm"
+            <Link href="/category?category=Home+%26+Garden"
+              className="text-[var(--primary-color)] hover:text-orange-600 font-semibold text-sm"
             >
               View All →
             </Link>
@@ -207,17 +207,17 @@ export function ProductCategorySections() {
           <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3">
             {homeGardenProducts.map((product) => (
               <Link key={product.name}
-                href={`/products?subcategory=${encodeURIComponent(product.name)}`}
+                href={`/category?category=Home+%26+Garden&subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
-                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <ImageWithFallback
                     src={product.image}
                     alt={product.name}
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                   {product.name}
                 </p>
               </Link>
@@ -230,11 +230,11 @@ export function ProductCategorySections() {
       <section className="py-12 bg-gradient-to-b from-orange-50 to-white dark:from-gray-900 dark:to-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-bold text-foreground">
               Sports Products
             </h2>
-            <Link href="/sports"
-              className="text-[#F7931A] hover:text-orange-600 font-semibold text-sm"
+            <Link href="/category?category=Sports"
+              className="text-[var(--primary-color)] hover:text-orange-600 font-semibold text-sm"
             >
               View All →
             </Link>
@@ -242,17 +242,17 @@ export function ProductCategorySections() {
           <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3">
             {sportsProducts.map((product) => (
               <Link key={product.name}
-                href={`/products?subcategory=${encodeURIComponent(product.name)}`}
+                href={`/category?category=Sports&subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
-                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <ImageWithFallback
                     src={product.image}
                     alt={product.name}
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                   {product.name}
                 </p>
               </Link>
@@ -262,14 +262,14 @@ export function ProductCategorySections() {
       </section>
 
       {/* Beauty Products */}
-      <section className="py-12 bg-white dark:bg-gray-950">
+      <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-bold text-foreground">
               Beauty Products
             </h2>
-            <Link href="/beauty"
-              className="text-[#F7931A] hover:text-orange-600 font-semibold text-sm"
+            <Link href="/category?category=Beauty"
+              className="text-[var(--primary-color)] hover:text-orange-600 font-semibold text-sm"
             >
               View All →
             </Link>
@@ -277,17 +277,17 @@ export function ProductCategorySections() {
           <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3">
             {beautyProducts.map((product) => (
               <Link key={product.name}
-                href={`/products?subcategory=${encodeURIComponent(product.name)}`}
+                href={`/category?category=Beauty&subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
-                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <ImageWithFallback
                     src={product.image}
                     alt={product.name}
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                   {product.name}
                 </p>
               </Link>
@@ -300,11 +300,11 @@ export function ProductCategorySections() {
       <section className="py-12 bg-gradient-to-b from-amber-50 to-white dark:from-gray-900 dark:to-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-bold text-foreground">
               Books
             </h2>
-            <Link href="/books"
-              className="text-[#F7931A] hover:text-orange-600 font-semibold text-sm"
+            <Link href="/category?category=Books"
+              className="text-[var(--primary-color)] hover:text-orange-600 font-semibold text-sm"
             >
               View All →
             </Link>
@@ -312,17 +312,17 @@ export function ProductCategorySections() {
           <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-3">
             {booksProducts.map((product) => (
               <Link key={product.name}
-                href={`/products?subcategory=${encodeURIComponent(product.name)}`}
+                href={`/category?category=Books&subcategory=${encodeURIComponent(product.name)}`}
                 className="group flex flex-col items-center"
               >
-                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-gray-100 dark:bg-gray-800 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-2 bg-muted hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <ImageWithFallback
                     src={product.image}
                     alt={product.name}
                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <p className="text-xs text-center text-gray-900 dark:text-white font-medium line-clamp-2">
+                <p className="text-xs text-center text-foreground font-medium line-clamp-2">
                   {product.name}
                 </p>
               </Link>
@@ -333,4 +333,5 @@ export function ProductCategorySections() {
     </>
   );
 }
+
 

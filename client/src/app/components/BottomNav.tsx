@@ -52,7 +52,7 @@ export function BottomNav() {
   };
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-[9999] bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-t border-gray-200 dark:border-gray-800 shadow-[0_-2px_10px_rgba(0,0,0,0.1)] dark:shadow-[0_-2px_10px_rgba(0,0,0,0.3)] safe-area-inset-bottom">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-[9999] bg-background/95 dark:bg-card text-card-foreground/95 backdrop-blur-xl border-t border-border shadow-[0_-2px_10px_rgba(0,0,0,0.1)] dark:shadow-[0_-2px_10px_rgba(0,0,0,0.3)] safe-area-inset-bottom">
       <div className="grid grid-cols-4 px-2 py-1.5 pb-safe max-w-screen-sm mx-auto">
         {navItems.map((item) => {
           const Icon = item.icon;
@@ -74,23 +74,23 @@ export function BottomNav() {
             >
               <div className={`relative flex items-center justify-center w-9 h-9 rounded-full transition-all duration-200 ${
                 active 
-                  ? "bg-[#F7931A] text-white shadow-lg shadow-[#F7931A]/30" 
-                  : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400"
+                  ? "bg-[var(--primary-color)] text-inverse shadow-lg shadow-[var(--primary-color)]/30" 
+                  : "bg-muted text-muted-foreground"
               }`}>
                 <Icon 
                   className={`size-4 transition-all pointer-events-none ${active ? "scale-110" : ""}`}
                   strokeWidth={2.5}
                 />
                 {item.badge !== undefined && item.badge > 0 && (
-                  <Badge className="absolute -top-0.5 -right-0.5 min-w-[16px] h-[16px] flex items-center justify-center px-1 bg-red-500 hover:bg-red-500 text-white text-[9px] font-bold border-2 border-white dark:border-gray-900 rounded-full shadow-md pointer-events-none">
+                  <Badge className="absolute -top-0.5 -right-0.5 min-w-[16px] h-[16px] flex items-center justify-center px-1 bg-red-500 hover:bg-red-500 text-inverse text-[9px] font-bold border-2 border-white dark:border-gray-900 rounded-full shadow-md pointer-events-none">
                     {item.badge > 99 ? '99+' : item.badge}
                   </Badge>
                 )}
               </div>
               <span className={`text-[9px] font-semibold transition-colors pointer-events-none ${
                 active 
-                  ? "text-[#F7931A]" 
-                  : "text-gray-600 dark:text-gray-400"
+                  ? "text-[var(--primary-color)]" 
+                  : "text-muted-foreground"
               }`}>
                 {item.label}
               </span>
@@ -101,4 +101,5 @@ export function BottomNav() {
     </nav>
   );
 }
+
 

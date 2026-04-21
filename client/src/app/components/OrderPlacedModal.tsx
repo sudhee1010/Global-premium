@@ -143,7 +143,7 @@ export function OrderPlacedModal({
             <div className="relative">
               <div className="absolute inset-0 bg-green-500/20 rounded-full animate-ping" />
               <div className="relative size-24 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-xl">
-                <CheckCircle2 className="size-12 text-white" strokeWidth={3} />
+                <CheckCircle2 className="size-12 text-inverse" strokeWidth={3} />
               </div>
             </div>
           </motion.div>
@@ -154,10 +154,10 @@ export function OrderPlacedModal({
             transition={{ delay: 0.2 }}
             className="text-center mt-6"
           >
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+            <h2 className="text-3xl font-bold text-foreground mb-2">
               Order Placed Successfully! 🎉
             </h2>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-muted-foreground">
               Thank you for your purchase. Your order has been confirmed.
             </p>
           </motion.div>
@@ -169,37 +169,37 @@ export function OrderPlacedModal({
         <div className="space-y-6 py-4">
           {/* Order Info */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
+            <div className="p-4 bg-muted rounded-xl">
               <div className="flex items-center gap-3 mb-2">
-                <Package className="size-5 text-[#F7931A]" />
-                <span className="text-sm font-semibold text-gray-600 dark:text-gray-400">
+                <Package className="size-5 text-[var(--primary-color)]" />
+                <span className="text-sm font-semibold text-muted-foreground">
                   Order Number
                 </span>
               </div>
-              <p className="text-xl font-bold text-gray-900 dark:text-white">
+              <p className="text-xl font-bold text-foreground">
                 {orderData.orderNumber}
               </p>
             </div>
 
-            <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
+            <div className="p-4 bg-muted rounded-xl">
               <div className="flex items-center gap-3 mb-2">
-                <Calendar className="size-5 text-[#F7931A]" />
-                <span className="text-sm font-semibold text-gray-600 dark:text-gray-400">
+                <Calendar className="size-5 text-[var(--primary-color)]" />
+                <span className="text-sm font-semibold text-muted-foreground">
                   Estimated Delivery
                 </span>
               </div>
-              <p className="text-xl font-bold text-gray-900 dark:text-white">
+              <p className="text-xl font-bold text-foreground">
                 {orderData.estimatedDelivery}
               </p>
             </div>
           </div>
 
           {/* Payment & Amount */}
-          <div className="p-4 bg-gradient-to-r from-[#F7931A]/10 to-orange-500/10 dark:from-[#F7931A]/20 dark:to-orange-500/20 rounded-xl border-2 border-[#F7931A]/30">
+          <div className="p-4 bg-gradient-to-r from-[var(--primary-color)]/10 to-orange-500/10 dark:from-[var(--primary-color)]/20 dark:to-orange-500/20 rounded-xl border-2 border-[var(--primary-color)]/30">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <CreditCard className="size-5 text-[#F7931A]" />
-                <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                <CreditCard className="size-5 text-[var(--primary-color)]" />
+                <span className="text-sm font-semibold text-muted-foreground">
                   Payment Method
                 </span>
               </div>
@@ -208,25 +208,25 @@ export function OrderPlacedModal({
               </Badge>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-gray-600 dark:text-gray-400">
+              <span className="text-muted-foreground">
                 {orderData.paymentMethod}
               </span>
-              <span className="text-2xl font-bold text-[#F7931A]">
+              <span className="text-2xl font-bold text-[var(--primary-color)]">
                 ${orderData.amount.toFixed(2)}
               </span>
             </div>
           </div>
 
           {/* Shipping Address */}
-          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
+          <div className="p-4 bg-muted rounded-xl">
             <div className="flex items-center gap-2 mb-3">
-              <MapPin className="size-5 text-[#F7931A]" />
-              <span className="font-semibold text-gray-900 dark:text-white">
+              <MapPin className="size-5 text-[var(--primary-color)]" />
+              <span className="font-semibold text-foreground">
                 Shipping Address
               </span>
             </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
-              <p className="font-medium text-gray-900 dark:text-white">
+            <div className="text-sm text-muted-foreground space-y-1">
+              <p className="font-medium text-foreground">
                 {orderData.shippingAddress.name}
               </p>
               <p>{orderData.shippingAddress.address}</p>
@@ -238,8 +238,8 @@ export function OrderPlacedModal({
           </div>
 
           {/* Order Items */}
-          <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
+          <div className="p-4 bg-muted rounded-xl">
+            <h3 className="font-semibold text-foreground mb-3">
               Order Items ({orderData.items.length})
             </h3>
             <div className="space-y-2">
@@ -249,14 +249,14 @@ export function OrderPlacedModal({
                   className="flex items-center justify-between py-2 border-b dark:border-gray-700 last:border-0"
                 >
                   <div>
-                    <p className="font-medium text-gray-900 dark:text-white">
+                    <p className="font-medium text-foreground">
                       {item.name}
                     </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                    <p className="text-xs text-muted-foreground">
                       Qty: {item.quantity}
                     </p>
                   </div>
-                  <span className="font-semibold text-gray-900 dark:text-white">
+                  <span className="font-semibold text-foreground">
                     ${(item.price * item.quantity).toFixed(2)}
                   </span>
                 </div>
@@ -289,14 +289,14 @@ export function OrderPlacedModal({
               size="lg"
               variant="outline"
               onClick={handleViewOrder}
-              className="h-14 border-[#F7931A] text-[#F7931A] hover:bg-[#F7931A]/10"
+              className="h-14 border-[var(--primary-color)] text-[var(--primary-color)] hover:bg-[var(--primary-color)]/10"
             >
               View All Orders
             </Button>
             <Button
               size="lg"
               onClick={handleTrackOrder}
-              className="h-14 bg-gradient-to-r from-[#F7931A] to-orange-600 hover:from-orange-600 hover:to-[#F7931A]"
+              className="h-14 bg-gradient-to-r from-[var(--primary-color)] to-orange-600 hover:from-orange-600 hover:to-[var(--primary-color)]"
             >
               Track Order
               <ArrowRight className="size-5 ml-2" />
@@ -315,4 +315,5 @@ export function OrderPlacedModal({
     </Dialog>
   );
 }
+
 
